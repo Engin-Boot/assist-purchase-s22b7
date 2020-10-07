@@ -1,5 +1,5 @@
 # Visual Studio cache/options directory
-.vs/
+.vs/**
 .vscode/
 
 #Project Build files

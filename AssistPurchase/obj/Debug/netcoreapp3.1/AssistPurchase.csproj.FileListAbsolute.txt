@@ -27,7 +27,6 @@ C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurc
 C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\bin\Debug\netcoreapp3.1\AssistPurchase.runtimeconfig.dev.json
 C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\bin\Debug\netcoreapp3.1\AssistPurchase.dll
 C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\bin\Debug\netcoreapp3.1\AssistPurchase.pdb
-C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.csprojAssemblyReference.cache
 C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.AssemblyInfoInputs.cache
 C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.AssemblyInfo.cs
 C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.csproj.CoreCompileInputs.cache
@@ -38,3 +37,4 @@ C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurc
 C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.dll
 C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.pdb
 C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.genruntimeconfig.cache
+C:\Users\320103927\OneDrive - Philips\Desktop\CaseStudy-2\Case Study\AssistAPurchase\assist-purchase-s22b7\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.csprojAssemblyReference.cache

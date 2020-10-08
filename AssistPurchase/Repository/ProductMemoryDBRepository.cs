@@ -33,9 +33,11 @@ namespace AssistPurchase.Repository
             }
            );
         }
-        public void AddNewProduct(ProductDataModel newState)
+        public bool AddNewProduct(ProductDataModel newState)
         {
+            
             _db.Add(newState);
+            return true;
         }
 
         public IEnumerable<ProductDataModel> GetAllProducts()
@@ -44,19 +46,20 @@ namespace AssistPurchase.Repository
         }
 
 
-        public void Remove(string id)
+        public bool Remove(string id)
         {
             for (int i = 0; i < _db.Count; i++)
             {
                 if (_db[i].ProductId == id)
                 {
                     _db.Remove(_db[i]);
-                    return;
+                    return true;
                 }
             }
+            return false;
         }
 
-        public void UpdateProductInfo(string id, ProductDataModel state)
+        public bool UpdateProductInfo(string id, ProductDataModel state)
         {
 
             for (int i = 0; i < _db.Count; i++)
@@ -64,9 +67,10 @@ namespace AssistPurchase.Repository
                 if (_db[i].ProductId == id)
                 {
                     _db.Insert(i, state);
-                    return;
+                    return true;
                 }
             }
+            return false;
         }
     }
 }

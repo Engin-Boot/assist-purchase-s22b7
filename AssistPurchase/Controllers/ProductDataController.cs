@@ -45,9 +45,10 @@ namespace AssistPurchase.Controllers
 
         // POST api/<ProductDataController>
         [HttpPost("new")]
-        public void Post([FromBody] Models.ProductDataModel value)
+        public bool Post([FromBody] Models.ProductDataModel value)
         {
             _productDataRepository.AddNewProduct(value);
+            return true;
         }
 
         // PUT api/<ProductDataController>/5

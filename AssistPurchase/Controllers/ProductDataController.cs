@@ -23,32 +23,37 @@ namespace AssistPurchase.Controllers
         }
         // GET: api/<ProductDataController>
         [HttpGet("all")]
-        public IEnumerable<Models.ProductDataModel> Get()
+        public ActionResult<IEnumerable<Models.ProductDataModel>> Get()
         {
-            return _productDataRepository.GetAllProducts();
+            var items= _productDataRepository.GetAllProducts();
+            return Ok(items);
         }
 
         // GET api/<ProductDataController>/5
         [HttpGet("{id}")]
-        public Models.ProductDataModel Get(string id)
+        public ActionResult<Models.ProductDataModel> Get(string id)
         {
             var products = _productDataRepository.GetAllProducts();
             foreach (var product in products)
             {
                 if (product.ProductId == id)
                 {
-                    return product;
+                    return Ok(product);
                 }
             }
-            return null;
+            return NotFound();
         }
 
         // POST api/<ProductDataController>
         [HttpPost("new")]
-        public bool Post([FromBody] Models.ProductDataModel value)
+        public ActionResult Post([FromBody] Models.ProductDataModel value)
         {
-            _productDataRepository.AddNewProduct(value);
-            return true;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var item = _productDataRepository.AddNewProduct(value);
+            return CreatedAtAction("Get", new { id = item.ProductId }, item);
         }
 
         // PUT api/<ProductDataController>/5
@@ -60,9 +65,15 @@ namespace AssistPurchase.Controllers
 
         // DELETE api/<ProductDataController>/5
         [HttpDelete("remove/{id}")]
-        public void Delete(string id)
+        public ActionResult Delete(string id)
         {
+            var existingItem = _productDataRepository.GetProductById(id);
+            if(existingItem==null)
+            {
+                return NotFound();
+            }
             _productDataRepository.Remove(id);
+            return Ok();
         }
     }
 }

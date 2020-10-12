@@ -14,10 +14,10 @@ namespace DatabaseManager
     public class Product
     {
         public string Id { get; set; }
+        public string Name { get; set; }
         public int DisplaySize { get; set; }
         public string DisplayType { get; set; }
         public double Weight { get; set; }
-        public bool Battery { get; set; }
         public bool TouchScreen { get; set; }
     }
 }

@@ -6,13 +6,13 @@ using AssistPurchase.Models;
 
 namespace AssistPurchase.Repository
 {
-    public class UserMemoryDBRepository : IUserDataRepository
+    public class UserRepositoryTest:IUserDataRepository
     {
         List<Models.ProductDataModel> _db = new List<ProductDataModel>();
 
 
         // ITransactionManager _tranx;
-        public UserMemoryDBRepository()
+        public UserRepositoryTest()
         {
 
             _db.Add(new ProductDataModel
@@ -104,25 +104,11 @@ namespace AssistPurchase.Repository
         }
         public IEnumerable<ProductDataModel> GetProductByWearability(string wearable)
         {
-            for (int i = 0; i < _db.Count; i++)
-            {
-                if (_db[i].Wearable == wearable)
-                {
-                    return _db;
-                }
-            }
-            return null;
+            return _db;
         }
         public IEnumerable<ProductDataModel> GetProductByPrice(string price)
         {
-            for (int i = 0; i < _db.Count; i++)
-            {
-                if (_db[i].ProductPrice == price)
-                {
-                    return _db;
-                }
-            }
-            return null;
+            return _db;
         }
 
         public ProductDataModel GetProductById(string id)
@@ -135,6 +121,31 @@ namespace AssistPurchase.Repository
                 }
             }
             return null;
+        }
+
+        public void Remove(string id)
+        {
+            for (int i = 0; i < _db.Count; i++)
+            {
+                if (_db[i].ProductId == id)
+                {
+                    _db.Remove(_db[i]);
+                }
+            }
+        }
+
+        public bool UpdateProductInfo(string id, ProductDataModel state)
+        {
+            for (int i = 0; i < _db.Count; i++)
+            {
+                if (_db[i].ProductId == id)
+                {
+                    _db.Insert(i, state);
+                    return true;
+
+                }
+            }
+            return false;
         }
     }
 }

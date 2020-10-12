@@ -13,12 +13,12 @@ namespace WebApiTest
     {
         //Test for Get Method
         UserDataController _controller;
-        IProductDataRepository _repository;
+        IUserDataRepository _repository;
         IServiceProvider _provider;
 
         public UserDataControllerTest()
         {
-            _repository = new ProductRepositoryTest();
+            _repository = new UserRepositoryTest();
             _controller = new UserDataController(_repository, _provider);
         }
 

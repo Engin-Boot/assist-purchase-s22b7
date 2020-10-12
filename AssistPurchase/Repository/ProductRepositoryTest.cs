@@ -1,19 +1,18 @@
-﻿using AssistPurchase.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
+using AssistPurchase.Models;
 
 namespace AssistPurchase.Repository
 {
-    public class ProductMemoryDBRepository : IProductDataRepository
+    public class ProductRepositoryTest: IProductDataRepository
     {
         List<Models.ProductDataModel> _db = new List<ProductDataModel>();
 
 
         // ITransactionManager _tranx;
-        public ProductMemoryDBRepository()
+        public ProductRepositoryTest()
         {
 
             _db.Add(new ProductDataModel
@@ -92,49 +91,12 @@ namespace AssistPurchase.Repository
             }
             );
         }
-        //public bool AddNewProduct(ProductDataModel newState)
-        //{
-
-        //    _db.Add(newState);
-        //    return true;
-        //}
-
-        //public IEnumerable<ProductDataModel> GetAllProducts()
-        //{
-        //    return _db;
-        //}
-
-        //public bool Remove(string id)
-        //{
-        //    for (int i = 0; i < _db.Count; i++)
-        //    {
-        //        if (_db[i].ProductId == id)
-        //        {
-        //            _db.Remove(_db[i]);
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
-
-        //public bool UpdateProductInfo(string id, ProductDataModel state)
-        //{
-
-        //    for (int i = 0; i < _db.Count; i++)
-        //    {
-        //        if (_db[i].ProductId == id)
-        //        {
-        //            _db.Insert(i, state);
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
-
+      
         public ProductDataModel AddNewProduct(ProductDataModel newState)
         {
+          
             _db.Add(newState);
-            return _db[_db.Count-1];
+            return _db[_db.Count - 1];
         }
 
         public IEnumerable<ProductDataModel> GetAllProducts()
@@ -144,6 +106,7 @@ namespace AssistPurchase.Repository
 
         public ProductDataModel GetProductById(string id)
         {
+            //return _db.Where(a =>a.ProductId == id).FirstOrDefault();
             for (int i = 0; i < _db.Count; i++)
             {
                 if (_db[i].ProductId == id)

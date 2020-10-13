@@ -7,20 +7,9 @@ namespace DatabaseManager
     class DatabaseController
     {
         private ProductContext db = new ProductContext();
-
-        Product obj1 = new Product
-            {
-                Id = "PDC105",
-                Name = "Example",
-                DisplaySize = 5,
-                DisplayType = "LED",
-                TouchScreen = false,
-                Weight = 2
-            };
-
-        void AddProductToDb(Product product)
+       // How to acces db file
+        public void AddProductToDb(Product product)
         {
-            // Create
             Console.WriteLine("Inserting a new Product");
             db.Add(product);
             db.SaveChanges();
@@ -36,10 +25,10 @@ namespace DatabaseManager
             return product;
         }
 
-        Product GetProductByIdFromDb(string id)
+        Product GetProductByIdFromDb(string id, string type)
         {
-           return (Product)db.Products
-                .Where(b => b.Id == id);
+            return (Product)db.Products
+                 .Where(b => b.Id == id);
         }
 
         void UpdateProductInDb(Product product)
@@ -51,7 +40,7 @@ namespace DatabaseManager
         }
 
         void RemoveProductFromDb(Product product)
-        { 
+        {
             // Delete
             Console.WriteLine("Delete the Product");
             db.Remove(product);
@@ -59,3 +48,4 @@ namespace DatabaseManager
         }
     }
 }
+

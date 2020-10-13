@@ -13,8 +13,8 @@ namespace DatabaseManager
 
     public class Product
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public string Id { get; set; } //Primary Key //Client should not know Id
+        public string Name { get; set; }    
         public int DisplaySize { get; set; }
         public string DisplayType { get; set; }
         public double Weight { get; set; }

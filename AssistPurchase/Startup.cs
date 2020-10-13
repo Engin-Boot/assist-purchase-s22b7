@@ -26,6 +26,7 @@ namespace AssistPurchase
         {
             services.AddControllers();
             services.AddSingleton<Repository.IProductDataRepository, Repository.ProductMemoryDBRepository>();
+            services.AddSingleton<Repository.IUserDataRepository, Repository.UserMemoryDBRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

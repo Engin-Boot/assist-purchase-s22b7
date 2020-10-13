@@ -12,9 +12,9 @@ namespace AssistPurchase.Controllers
     [ApiController]
     public class UserDataController : ControllerBase
     {
-        Repository.IProductDataRepository _userDataRepository;
+        Repository.IUserDataRepository _userDataRepository;
         IServiceProvider _provider;
-        public UserDataController(Repository.IProductDataRepository repo, IServiceProvider provider)
+        public UserDataController(Repository.IUserDataRepository repo, IServiceProvider provider)
         {
             this._userDataRepository = repo;
             this._provider = provider;
@@ -29,12 +29,35 @@ namespace AssistPurchase.Controllers
             return Ok(items);
         }
 
-        //[HttpGet("wearable/{value}")]
-        //public ActionResult<IEnumerable<Models.ProductDataModel>> Get(string value)
-        //{
-        //    var items = _userDataRepository.GetAllProducts();
-        //    return Ok(_userDataRepository.GetProductByWearability(value));
-        //}
+        // GET: api/<UserDataController>/wearable
+        [HttpGet("wearable/{wearable}")]
+        public ActionResult<IEnumerable<Models.ProductDataModel>> GetProductByWearability(string wearable)
+        {
+            var items = _userDataRepository.GetAllProducts();
+            foreach (var product in items)
+            {
+                if (product.Wearable == wearable)
+                {
+                    return Ok(product);
+                }
+            }
+            return NotFound();
+        }
+
+        [HttpGet("price/{price}")]
+        public ActionResult<IEnumerable<Models.ProductDataModel>> GetProductByPrice(string price)
+        {
+            var items = _userDataRepository.GetAllProducts();
+            foreach (var product in items)
+            {
+                if (product.ProductPrice == price)
+                {
+                    return Ok(product);
+                }
+            }
+            return NotFound();
+        }
+
 
         // GET api/<UserDataController>/5
         [HttpGet("{id}")]
@@ -49,27 +72,6 @@ namespace AssistPurchase.Controllers
                 }
             }
             return NotFound();
-        }
-
-
-
-
-       // POST api/<UserDataController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<UserDataController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UserDataController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

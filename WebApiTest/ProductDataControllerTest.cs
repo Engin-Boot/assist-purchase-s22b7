@@ -14,13 +14,14 @@ namespace WebApiTest
         
         //Test for Get Method
         
-        ProductDataController _controller;
-        IProductDataRepository _repository;
-        IServiceProvider _provider;
+        readonly ProductDataController _controller;
+        readonly IProductDataRepository _repository;
+        readonly IServiceProvider _provider;
 
         public ProductDataControllerTest()
         {
-            _repository = new ProductRepositoryTest();
+            // _repository = new ProductRepositoryTest();
+            _repository = new ProductMemoryDBRepository();
             _controller = new ProductDataController(_repository,_provider);
         }
         [Fact]
@@ -178,7 +179,7 @@ namespace WebApiTest
         {
 
             // Act
-            var okResponse = _controller.Delete("X3");
+            _controller.Delete("X3");
 
             // Assert
             Assert.Equal(4, _repository.GetAllProducts().Count());

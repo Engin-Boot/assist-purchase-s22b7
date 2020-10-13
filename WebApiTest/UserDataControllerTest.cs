@@ -4,7 +4,6 @@ using AssistPurchase.Controllers;
 using AssistPurchase.Repository;
 using System.Collections.Generic;
 using AssistPurchase.Models;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApiTest
@@ -12,13 +11,13 @@ namespace WebApiTest
     public class UserDataControllerTest
     {
         //Test for Get Method
-        UserDataController _controller;
-        IUserDataRepository _repository;
-        IServiceProvider _provider;
+        readonly UserDataController _controller;
+        readonly IUserDataRepository _repository;
+        readonly IServiceProvider _provider;
 
         public UserDataControllerTest()
         {
-            _repository = new UserRepositoryTest();
+            _repository = new UserMemoryDBRepository();
             _controller = new UserDataController(_repository, _provider);
         }
 

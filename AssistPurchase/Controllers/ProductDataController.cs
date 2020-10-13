@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,8 +11,8 @@ namespace AssistPurchase.Controllers
     public class ProductDataController : ControllerBase
     {
 
-        Repository.IProductDataRepository _productDataRepository;
-        IServiceProvider _provider;
+       readonly Repository.IProductDataRepository _productDataRepository;
+        readonly IServiceProvider _provider;
         public ProductDataController(Repository.IProductDataRepository repo, IServiceProvider provider)
         {
             this._productDataRepository = repo;
@@ -74,6 +72,22 @@ namespace AssistPurchase.Controllers
             }
             _productDataRepository.Remove(id);
             return Ok();
+        }
+
+        //Sales Person Info
+        // GET: api/<ProductDataController>
+        [HttpGet("SalesPersonInfo")]
+        public ActionResult<IEnumerable<Models.SalesPersonDataModel>> GetSalesPersonDetails()
+        {
+            var salesPersonInfo = _productDataRepository.GetSalesPersonDetails();
+            return Ok(salesPersonInfo);
+        }
+
+        // PUT api/<ProductDataController>/5
+        [HttpPut("updateSalesPersonInfo/{uid}")]
+        public void Put(string uid, [FromBody] Models.SalesPersonDataModel value)
+        {
+            _productDataRepository.UpdateSalesPersonInfo(uid, value);
         }
     }
 }

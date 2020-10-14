@@ -9,10 +9,7 @@ namespace AssistPurchase.DatabaseContractor
 {
     public class FilterJsonFormatter
     {
-        [JsonPropertyName("UID")]
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public IList<string> DisplayType { get; set; } = null;
+        public List<string> DisplayType { get; set; } 
         public IntLimits DisplaySize { get; set; }
         public DoubleLimits Weight { get; set; }
         public bool TouchScreen { get; set; }
@@ -31,7 +28,6 @@ namespace AssistPurchase.DatabaseContractor
     }
 
     public class Product
-
     {
         [JsonPropertyName("UID")]
         public string Id { get; set; }

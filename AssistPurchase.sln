@@ -10,7 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistPurchase", "AssistPur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiTest", "WebApiTest\WebApiTest.csproj", "{B5F9C33A-6AA0-4101-92B4-3BAFEEDC7CF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager", "DatabaseManager\DatabaseManager.csproj", "{668F01EC-CF80-455D-B10B-C8BB2D4AB4BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseManager", "DatabaseManager\DatabaseManager.csproj", "{668F01EC-CF80-455D-B10B-C8BB2D4AB4BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseContractor", "DatabaseContractor\DatabaseContractor.csproj", "{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,10 @@ Global
 		{668F01EC-CF80-455D-B10B-C8BB2D4AB4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{668F01EC-CF80-455D-B10B-C8BB2D4AB4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{668F01EC-CF80-455D-B10B-C8BB2D4AB4BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

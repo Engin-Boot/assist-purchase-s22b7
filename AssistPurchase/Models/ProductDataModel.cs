@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿
 namespace AssistPurchase.Models
 {
     public class ProductDataModel
@@ -18,9 +14,5 @@ namespace AssistPurchase.Models
         public string Portability { get; set; }
         public string Weight { get; set; }
         public string Wearable { get; set; }
-
-
-
-
     }
 }

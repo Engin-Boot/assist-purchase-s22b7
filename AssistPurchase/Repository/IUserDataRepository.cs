@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 
 namespace AssistPurchase.Repository
 {
@@ -12,7 +10,5 @@ namespace AssistPurchase.Repository
         IEnumerable<Models.ProductDataModel> GetProductByPrice(string price);
         Models.ProductDataModel AddNewProduct(Models.ProductDataModel newState);
         Models.ProductDataModel GetProductById(string id);
-        //bool UpdateProductInfo(string id, Models.ProductDataModel state);
-        //void Remove(string id);
     }
 }

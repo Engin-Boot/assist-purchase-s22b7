@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DuplicatesReport ToolsVersion="202.0.20200928.101108">
   <Statistics>
-    <CodebaseCost>5853</CodebaseCost>
-    <TotalDuplicatesCost>920</TotalDuplicatesCost>
-    <TotalFragmentsCost>2570</TotalFragmentsCost>
+    <CodebaseCost>5207</CodebaseCost>
+    <TotalDuplicatesCost>715</TotalDuplicatesCost>
+    <TotalFragmentsCost>1430</TotalFragmentsCost>
   </Statistics>
   <Duplicates>
     <Duplicate Cost="433">
@@ -13,89 +13,45 @@
         <LineRange Start="17" End="94"></LineRange>
       </Fragment>
       <Fragment>
-        <FileName>AssistPurchase\Repository\ProductRepositoryTest.cs</FileName>
+        <FileName>AssistPurchase\Repository\UserMemoryDBRepository.cs</FileName>
         <OffsetRange Start="411" End="2927"></OffsetRange>
         <LineRange Start="16" End="93"></LineRange>
-      </Fragment>
-      <Fragment>
-        <FileName>AssistPurchase\Repository\UserMemoryDBRepository.cs</FileName>
-        <OffsetRange Start="414" End="2930"></OffsetRange>
-        <LineRange Start="16" End="93"></LineRange>
-      </Fragment>
-    </Duplicate>
-    <Duplicate Cost="109">
-      <Fragment>
-        <FileName>AssistPurchase\Repository\ProductMemoryDBRepository.cs</FileName>
-        <OffsetRange Start="4859" End="5213"></OffsetRange>
-        <LineRange Start="168" End="180"></LineRange>
-      </Fragment>
-      <Fragment>
-        <FileName>AssistPurchase\Repository\ProductRepositoryTest.cs</FileName>
-        <OffsetRange Start="3885" End="4239"></OffsetRange>
-        <LineRange Start="131" End="143"></LineRange>
-      </Fragment>
-      <Fragment>
-        <FileName>AssistPurchase\Repository\UserMemoryDBRepository.cs</FileName>
-        <OffsetRange Start="3797" End="4151"></OffsetRange>
-        <LineRange Start="129" End="141"></LineRange>
       </Fragment>
     </Duplicate>
     <Duplicate Cost="96">
       <Fragment>
         <FileName>WebApiTest\ProductDataControllerTest.cs</FileName>
-        <OffsetRange Start="4160" End="4515"></OffsetRange>
-        <LineRange Start="133" End="141"></LineRange>
+        <OffsetRange Start="1880" End="2235"></OffsetRange>
+        <LineRange Start="62" End="70"></LineRange>
       </Fragment>
       <Fragment>
         <FileName>WebApiTest\UserDataControllerTest.cs</FileName>
-        <OffsetRange Start="1824" End="2179"></OffsetRange>
+        <OffsetRange Start="1822" End="2177"></OffsetRange>
         <LineRange Start="61" End="69"></LineRange>
-      </Fragment>
-    </Duplicate>
-    <Duplicate Cost="96">
-      <Fragment>
-        <FileName>AssistPurchase\Repository\ProductMemoryDBRepository.cs</FileName>
-        <OffsetRange Start="4593" End="4847"></OffsetRange>
-        <LineRange Start="157" End="166"></LineRange>
-      </Fragment>
-      <Fragment>
-        <FileName>AssistPurchase\Repository\ProductRepositoryTest.cs</FileName>
-        <OffsetRange Start="3619" End="3873"></OffsetRange>
-        <LineRange Start="120" End="129"></LineRange>
-      </Fragment>
-      <Fragment>
-        <FileName>AssistPurchase\Repository\UserMemoryDBRepository.cs</FileName>
-        <OffsetRange Start="3531" End="3785"></OffsetRange>
-        <LineRange Start="118" End="127"></LineRange>
       </Fragment>
     </Duplicate>
     <Duplicate Cost="94">
       <Fragment>
         <FileName>WebApiTest\ProductDataControllerTest.cs</FileName>
-        <OffsetRange Start="3266" End="3586"></OffsetRange>
-        <LineRange Start="106" End="114"></LineRange>
+        <OffsetRange Start="986" End="1306"></OffsetRange>
+        <LineRange Start="35" End="43"></LineRange>
       </Fragment>
       <Fragment>
         <FileName>WebApiTest\UserDataControllerTest.cs</FileName>
-        <OffsetRange Start="930" End="1250"></OffsetRange>
+        <OffsetRange Start="928" End="1248"></OffsetRange>
         <LineRange Start="34" End="42"></LineRange>
       </Fragment>
     </Duplicate>
     <Duplicate Cost="92">
       <Fragment>
         <FileName>AssistPurchase\Repository\ProductMemoryDBRepository.cs</FileName>
-        <OffsetRange Start="4286" End="4581"></OffsetRange>
-        <LineRange Start="145" End="155"></LineRange>
-      </Fragment>
-      <Fragment>
-        <FileName>AssistPurchase\Repository\ProductRepositoryTest.cs</FileName>
-        <OffsetRange Start="3239" End="3607"></OffsetRange>
-        <LineRange Start="107" End="118"></LineRange>
+        <OffsetRange Start="3281" End="3649"></OffsetRange>
+        <LineRange Start="108" End="119"></LineRange>
       </Fragment>
       <Fragment>
         <FileName>AssistPurchase\Repository\UserMemoryDBRepository.cs</FileName>
-        <OffsetRange Start="3224" End="3519"></OffsetRange>
-        <LineRange Start="106" End="116"></LineRange>
+        <OffsetRange Start="3883" End="4178"></OffsetRange>
+        <LineRange Start="128" End="138"></LineRange>
       </Fragment>
     </Duplicate>
   </Duplicates>

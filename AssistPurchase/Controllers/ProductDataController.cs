@@ -12,6 +12,7 @@ namespace AssistPurchase.Controllers
     {
 
        readonly Repository.IProductDataRepository _productDataRepository;
+       
         readonly IServiceProvider _provider;
         public ProductDataController(Repository.IProductDataRepository repo, IServiceProvider provider)
         {

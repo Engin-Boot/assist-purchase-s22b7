@@ -30,7 +30,7 @@ namespace AssistPurchase.DatabaseContractor
     public class Product
     {
         [JsonPropertyName("UID")]
-        public string Id { get; set; }
+        public string Id { get; set; } 
         public string Name { get; set; }
         public int DisplaySize { get; set; }
         public string DisplayType { get; set; }

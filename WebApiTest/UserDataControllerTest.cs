@@ -29,7 +29,7 @@ namespace WebApiTest
         public void StatusCodeTest()
         {
             // arrange
-            RestClient client = new RestClient("http://localhost:53010/api/userdata");
+            RestClient client = new RestClient("http://localhost:5000/api/userdata");
             RestRequest request = new RestRequest("all", Method.GET);
 
             // act

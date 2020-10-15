@@ -61,8 +61,8 @@ namespace DatabaseManager
             var LimitType = SpropertyValue.GetType();
             var LimitMaxValue = LimitType.GetProperty("Max").GetValue(SpropertyValue,null);
             var LimitMinValue = LimitType.GetProperty("Min").GetValue(SpropertyValue,null);
-           // var LimitPropertyType = typeof(LimitType.GetProperty("Max").PropertyType);
-           /*
+            var LimitPropertyType = typeof(LimitType.GetProperty("Max").PropertyType);
+           
             foreach (var p in products)
             {
                 if (LimitMinValue < Tproperty.GetValue(p, null) < LimitMaxValue)
@@ -70,7 +70,7 @@ namespace DatabaseManager
 
                 }
             }
-           */
+           
             throw new NotImplementedException();
         }
 

@@ -1,16 +1,15 @@
 ﻿using DatabaseContractor;
-using DatabaseManager.ProductDatabase;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
 
-namespace DatabaseManager
+namespace DatabaseManager.ProductDatabase
 {
-    class ProductDatabaseHandler : IProductDatabaseHandler
+    public class ProductDatabaseHandler : IProductDatabaseHandler
     {
-        public List<Product> GetAllProducts()
+        public IEnumerable<Product> GetAllProductsFromDb()
         {
             try
             {
@@ -25,9 +24,7 @@ namespace DatabaseManager
             try
             {
                 using ProductContext _db = new ProductContext();
-                if (string.IsNullOrEmpty(product.Name))
-                    return HttpStatusCode.BadRequest;
-
+          
                 _db.AddAsync(product);
                 _db.SaveChanges();
                 return HttpStatusCode.OK;
@@ -68,9 +65,6 @@ namespace DatabaseManager
             try
             {
                 using ProductContext _db = new ProductContext();
-
-                if (string.IsNullOrEmpty(product.Id))
-                    return HttpStatusCode.BadRequest;
 
                 var dbProduct = GetByID(product.Id);
                 if (dbProduct == null)

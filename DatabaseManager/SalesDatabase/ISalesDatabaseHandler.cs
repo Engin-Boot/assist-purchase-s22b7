@@ -4,10 +4,10 @@ using System.Net;
 
 namespace DatabaseManager.SalesDatabase
 {
-    interface ISalesDatabaseHandler
+    public interface ISalesDatabaseHandler
     {
-        List<Sales> GetAllSales();
+        IEnumerable<Sales> GetAllSales();
         HttpStatusCode AddSalesToDb(Sales info);
-        Sales GetSalesByCustomerNameFromDb(string CustomerName)
+        Sales GetSalesByCustomerNameFromDb(string CustomerName);
     }
 }

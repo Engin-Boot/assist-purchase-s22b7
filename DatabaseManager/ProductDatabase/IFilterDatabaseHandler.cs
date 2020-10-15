@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace DatabaseManager.ProductDatabase
 {
-    interface IFilterDatabaseHandler
+    public interface IFilterDatabaseHandler
     {
-        IEnumerable<Product> ProductFilter(FilterModel filterObj);
+        IEnumerable<Product> GetFilteredProducts(FilterModel filterObj);
     }
 }

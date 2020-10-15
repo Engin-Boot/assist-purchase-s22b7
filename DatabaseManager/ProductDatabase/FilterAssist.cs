@@ -1,8 +1,6 @@
 ﻿using DatabaseContractor;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DatabaseManager.ProductDatabase
 {
@@ -16,7 +14,7 @@ namespace DatabaseManager.ProductDatabase
 
         public IEnumerable<Product> FilterByDisplayType(List<string> display, IEnumerable<Product> productList)
         {
-            if (display == null) return productList;           
+            if (display == null) return productList;
             return productList.Where(p => display.Contains(p.DisplayType));
         }
 

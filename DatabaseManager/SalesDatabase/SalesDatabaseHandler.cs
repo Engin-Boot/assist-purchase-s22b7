@@ -7,9 +7,9 @@ using System.Net;
 
 namespace DatabaseManager.SalesDatabase
 {
-    class SalesDatabaseHandler : ISalesDatabaseHandler
+    public class SalesDatabaseHandler : ISalesDatabaseHandler
     {
-        public List<Sales> GetAllSales()
+        public IEnumerable<Sales> GetAllSales()
         {
             try
             {

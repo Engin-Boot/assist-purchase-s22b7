@@ -1,14 +1,14 @@
 ﻿using DatabaseContractor;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Diagnostics;
+using System.Linq;
 
 namespace DatabaseManager.ProductDatabase
 {
-    class FilterDatabaseHandler:IFilterDatabaseHandler
+    public class FilterDatabaseHandler : IFilterDatabaseHandler
     {
-        public IEnumerable<Product> ProductFilter(FilterModel filterObj)
+        public IEnumerable<Product> GetFilteredProducts(FilterModel filterObj)
 
         {
             try

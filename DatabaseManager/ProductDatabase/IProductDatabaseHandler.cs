@@ -4,9 +4,9 @@ using System.Net;
 
 namespace DatabaseManager.ProductDatabase
 {
-    interface IProductDatabaseHandler
+    public interface IProductDatabaseHandler
     {
-        List<Product> GetAllProducts();
+        IEnumerable<Product> GetAllProductsFromDb();
         HttpStatusCode AddProductToDb(Product product);
         Product GetProductByNameFromDb(string name);
         Product GetProductByIdFromDb(string id);

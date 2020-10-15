@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DatabaseContractor
+﻿namespace DatabaseContractor
 {
     public class Sales
     {

@@ -1,8 +1,6 @@
 ﻿using DatabaseContractor;
-using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Text;
 
 namespace DatabaseManager.ProductDatabase
 {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Repository.AdminRepository
+namespace WebApiTest.DatabaseManagerTest
 {
-    class AdminDbRepository
+    class SalesDatabaseTest
     {
     }
 }

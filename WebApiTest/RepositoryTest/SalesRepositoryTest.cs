@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Repository.UserRepository
+namespace WebApiTest.RepositoryTest
 {
-    interface IUserDbRepository
+    class SalesRepositoryTest
     {
     }
 }

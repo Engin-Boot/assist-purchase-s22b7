@@ -1,34 +1,27 @@
 ﻿using DatabaseContractor;
-using DatabaseManager.ProductDatabase;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
+using System.Diagnostics;
 
-namespace DatabaseManager
+namespace DatabaseManager.ProductDatabase
 {
     class FilterDatabaseHandler:IFilterDatabaseHandler
     {
-        public List<Product> GetProductsByFilter(FilterModel filterObj)
+        public IEnumerable<Product> ProductFilter(FilterModel filterObj)
+
         {
             try
             {
                 using ProductContext _db = new ProductContext();
+                var products = _db.Products.ToList();
 
-                var Products = _db.Products.ToList();
+                FilterAssist f = new FilterAssist();
 
-                var properties = Utilities.GetProperties<FilterModel>();
-                foreach (PropertyInfo prop in properties)
-                {
-                    if (Utilities.HasPropertyValue(prop, filterObj))
-                    {
-                        string PropertyName = prop.Name;
-                        var method = Utilities.MethodCase<FilterModel, Product>(PropertyName);
-                        Products = method(PropertyName, filterObj, Products);
-                    }
-                }
-                return Products;
+                return f.FilterByTouchScreen(filterObj.TouchScreen,
+                            f.FilterByDisplayType(filterObj.DisplayType,
+                            f.FilterByWeight(filterObj.Weight,
+                            f.FilterByDisplaySize(filterObj.DisplaySize, products))));
             }
             catch (Exception e)
             {

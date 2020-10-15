@@ -8,7 +8,7 @@ using System.Net;
 
 namespace DatabaseManager
 {
-    class ProductDatabaseHandler:IProductDatabaseHandler
+    class ProductDatabaseHandler : IProductDatabaseHandler
     {
         public List<Product> GetAllProducts()
         {

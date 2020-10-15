@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace DatabaseManager.ProductDatabase
+namespace DatabaseManager
 {
     public class FilterDatabaseHandler : IFilterDatabaseHandler
     {
@@ -13,7 +13,7 @@ namespace DatabaseManager.ProductDatabase
         {
             try
             {
-                using ProductContext _db = new ProductContext();
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
                 var products = _db.Products.ToList();
 
                 FilterAssist f = new FilterAssist();

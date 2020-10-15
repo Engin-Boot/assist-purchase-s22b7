@@ -1,7 +1,5 @@
 ﻿using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,9 +11,9 @@ namespace AssistPurchase.Controllers
     public class AdminDataController : ControllerBase
     {
 
-        readonly DatabaseManager.ProductDatabase.IProductDatabaseHandler _productDatabaseHandler;
+        readonly DatabaseManager.IProductDatabaseHandler _productDatabaseHandler;
 
-        public AdminDataController(DatabaseManager.ProductDatabase.IProductDatabaseHandler repo)
+        public AdminDataController(DatabaseManager.IProductDatabaseHandler repo)
         {
             _productDatabaseHandler = repo;
         }
@@ -49,5 +47,5 @@ namespace AssistPurchase.Controllers
             return _productDatabaseHandler.RemoveProductFromDb(id);
         }
 
-    } 
+    }
 }

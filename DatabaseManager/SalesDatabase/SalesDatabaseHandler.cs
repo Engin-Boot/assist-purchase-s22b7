@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 
-namespace DatabaseManager.SalesDatabase
+namespace DatabaseManager
 {
     public class SalesDatabaseHandler : ISalesDatabaseHandler
     {
@@ -13,7 +13,7 @@ namespace DatabaseManager.SalesDatabase
         {
             try
             {
-                using SalesContext _db = new SalesContext();
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
                 return _db.Sales.ToList();
             }
             catch (Exception e) { throw e; }
@@ -23,7 +23,7 @@ namespace DatabaseManager.SalesDatabase
         {
             try
             {
-                using SalesContext _db = new SalesContext();
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
                 if (string.IsNullOrEmpty(info.CustomerName))
                     return HttpStatusCode.BadRequest;
 
@@ -42,7 +42,7 @@ namespace DatabaseManager.SalesDatabase
         {
             try
             {
-                using SalesContext _db = new SalesContext();
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
                 return _db.Sales
                  .Where(b => b.CustomerName == CustomerName).FirstOrDefault();
             }

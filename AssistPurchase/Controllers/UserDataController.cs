@@ -1,8 +1,5 @@
 ﻿using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,10 +9,10 @@ namespace AssistPurchase.Controllers
     [ApiController]
     public class UserDataController : ControllerBase
     {
-        readonly DatabaseManager.ProductDatabase.IProductDatabaseHandler _productDatabaseHandler;
-        readonly DatabaseManager.ProductDatabase.IFilterDatabaseHandler _filterDatabaseHandler;
+        readonly DatabaseManager.IProductDatabaseHandler _productDatabaseHandler;
+        readonly DatabaseManager.IFilterDatabaseHandler _filterDatabaseHandler;
 
-        public UserDataController(DatabaseManager.ProductDatabase.IProductDatabaseHandler prepo, DatabaseManager.ProductDatabase.IFilterDatabaseHandler frepo)
+        public UserDataController(DatabaseManager.IProductDatabaseHandler prepo, DatabaseManager.IFilterDatabaseHandler frepo)
         {
             _productDatabaseHandler = prepo;
             _filterDatabaseHandler = frepo;
@@ -30,10 +27,10 @@ namespace AssistPurchase.Controllers
                 return Ok(_productDatabaseHandler.GetAllProductsFromDb());
             }
             catch
-            { 
+            {
                 return StatusCode(500);
             }
-        
+
         }
 
         // GET: api/filterlist

@@ -13,8 +13,8 @@ namespace AssistPurchase.Controllers
     [ApiController]
     public class SalesDataController : ControllerBase
     {
-        readonly DatabaseManager.SalesDatabase.ISalesDatabaseHandler _salesDatabaseHandler;
-        public SalesDataController(DatabaseManager.SalesDatabase.ISalesDatabaseHandler repo)
+        readonly DatabaseManager.ISalesDatabaseHandler _salesDatabaseHandler;
+        public SalesDataController(DatabaseManager.ISalesDatabaseHandler repo)
         {
             _salesDatabaseHandler = repo;
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 
-namespace DatabaseManager.ProductDatabase
+namespace DatabaseManager
 {
     public interface IProductDatabaseHandler
     {

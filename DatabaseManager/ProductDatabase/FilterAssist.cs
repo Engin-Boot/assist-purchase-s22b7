@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DatabaseManager.ProductDatabase
+namespace DatabaseManager
 {
     class FilterAssist
     {

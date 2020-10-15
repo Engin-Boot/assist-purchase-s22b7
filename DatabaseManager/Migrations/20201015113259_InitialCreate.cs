@@ -11,15 +11,28 @@ namespace DatabaseManager.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     DisplaySize = table.Column<int>(nullable: false),
                     DisplayType = table.Column<string>(nullable: true),
                     Weight = table.Column<double>(nullable: false),
-                    Battery = table.Column<bool>(nullable: false),
                     TouchScreen = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sales",
+                columns: table => new
+                {
+                    CustomerName = table.Column<string>(nullable: false),
+                    EmailId = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sales", x => x.CustomerName);
                 });
         }
 
@@ -27,6 +40,9 @@ namespace DatabaseManager.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Sales");
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 
-namespace DatabaseManager.ProductDatabase
+namespace DatabaseManager
 {
     public class ProductDatabaseHandler : IProductDatabaseHandler
     {
@@ -13,7 +13,7 @@ namespace DatabaseManager.ProductDatabase
         {
             try
             {
-                using ProductContext _db = new ProductContext();
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
                 return _db.Products.ToList();
             }
             catch (Exception e) { throw e; }
@@ -23,8 +23,8 @@ namespace DatabaseManager.ProductDatabase
         {
             try
             {
-                using ProductContext _db = new ProductContext();
-          
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
+
                 _db.AddAsync(product);
                 _db.SaveChanges();
                 return HttpStatusCode.OK;
@@ -39,7 +39,7 @@ namespace DatabaseManager.ProductDatabase
         {
             try
             {
-                using ProductContext _db = new ProductContext();
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
                 return _db.Products
                  .Where(b => b.Name == name).FirstOrDefault();
             }
@@ -53,7 +53,7 @@ namespace DatabaseManager.ProductDatabase
         {
             try
             {
-                using ProductContext _db = new ProductContext();
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
                 return _db.Products.Find(id);
             }
             catch (Exception e) { throw e; }
@@ -64,7 +64,7 @@ namespace DatabaseManager.ProductDatabase
         {
             try
             {
-                using ProductContext _db = new ProductContext();
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
 
                 var dbProduct = GetByID(product.Id);
                 if (dbProduct == null)
@@ -94,7 +94,7 @@ namespace DatabaseManager.ProductDatabase
         {
             try
             {
-                using ProductContext _db = new ProductContext();
+                using AssistPurchaseContext _db = new AssistPurchaseContext();
                 var product = _db.Products.Where(b => b.Id == id).FirstOrDefault();
                 if (product == null)
                     return HttpStatusCode.NotFound;

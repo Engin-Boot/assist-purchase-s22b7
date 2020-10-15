@@ -6,27 +6,27 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DatabaseManager.Migrations
 {
-    [DbContext(typeof(DatabaseContext))]
-    partial class ProductContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AssistPurchaseContext))]
+    partial class AssistPurchaseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8");
+                .HasAnnotation("ProductVersion", "3.1.9");
 
-            modelBuilder.Entity("DatabaseManager.Product", b =>
+            modelBuilder.Entity("DatabaseContractor.Product", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("Battery")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("DisplaySize")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("DisplayType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("TouchScreen")
@@ -38,6 +38,22 @@ namespace DatabaseManager.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("DatabaseContractor.Sales", b =>
+                {
+                    b.Property<string>("CustomerName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmailId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CustomerName");
+
+                    b.ToTable("Sales");
                 });
 #pragma warning restore 612, 618
         }

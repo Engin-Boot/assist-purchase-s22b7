@@ -2,13 +2,13 @@
 
 namespace AssistPurchaseTest.DatabaseManagerTest
 {
-   public class ProductDatabaseHandlerTest
-   {
-            [Fact]
-            public void Test1()
-            {
+    public class ProductDatabaseHandlerTest
+    {
+        [Fact]
+        public void Test1()
+        {
 
-            }
         }
+    }
 }
 

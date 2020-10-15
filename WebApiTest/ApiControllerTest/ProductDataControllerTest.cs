@@ -1,19 +1,19 @@
-using System;
-using Xunit;
 using AssistPurchase.Controllers;
-using AssistPurchase.Repository;
-using System.Collections.Generic;
 using AssistPurchase.Models;
-using System.Linq;
+using AssistPurchase.Repository;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Xunit;
 
 namespace WebApiTest
 {
     public class ProductDataControllerTest
     {
-        
+
         //Test for Get Method
-        
+
         readonly ProductDataController _controller;
         readonly IProductDataRepository _repository;
         readonly IServiceProvider _provider;
@@ -22,7 +22,7 @@ namespace WebApiTest
         {
             // _repository = new ProductRepositoryTest();
             _repository = new ProductMemoryDBRepository();
-            _controller = new ProductDataController(_repository,_provider);
+            _controller = new ProductDataController(_repository, _provider);
         }
         [Fact]
         public void Get_WhenCalled_ReturnsOkResult()
@@ -54,9 +54,7 @@ namespace WebApiTest
         [Fact]
         public void GetById_ExistingIdPassed_ReturnsOkResult()
         {
-            // Act
             var okResult = _controller.Get("X3");
-            // Assert
             Assert.IsType<OkObjectResult>(okResult.Result);
         }
         [Fact]
@@ -87,7 +85,7 @@ namespace WebApiTest
                 BatteryCapacity = "0",
                 Portability = "No",
             };
-            _controller.ModelState.AddModelError("Wearable","Weight");
+            _controller.ModelState.AddModelError("Wearable", "Weight");
 
             // Act
             var badResponse = _controller.Post(nameMissingItem);

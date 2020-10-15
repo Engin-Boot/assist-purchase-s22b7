@@ -1,8 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,12 +10,9 @@ namespace AssistPurchase.Controllers
     public class AlertController : ControllerBase
     {
         readonly Repository.IAlertRepository _alertDataRepository;
-        readonly IServiceProvider _provider;
-        public AlertController(Repository.IAlertRepository repo, IServiceProvider provider)
+        public AlertController(Repository.IAlertRepository repo)
         {
             this._alertDataRepository = repo;
-            this._provider = provider;
-
         }
         // GET: api/<AlertController>
         [HttpPost("requestalert")]

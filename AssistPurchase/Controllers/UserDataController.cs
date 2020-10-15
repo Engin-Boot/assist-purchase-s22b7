@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,13 +9,10 @@ namespace AssistPurchase.Controllers
     [ApiController]
     public class UserDataController : ControllerBase
     {
-       readonly Repository.IUserDataRepository _userDataRepository;
-        readonly IServiceProvider _provider;
-        public UserDataController(Repository.IUserDataRepository repo, IServiceProvider provider)
+        Repository.IUserDataRepository _userDataRepository;
+        public UserDataController(Repository.IUserDataRepository repo)
         {
             this._userDataRepository = repo;
-            this._provider = provider;
-
         }
 
         // GET: api/<UserDataController>

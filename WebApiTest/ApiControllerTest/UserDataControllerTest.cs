@@ -1,14 +1,11 @@
-﻿using System;
-using Xunit;
-using AssistPurchase.Controllers;
-using AssistPurchase.Repository;
-using System.Collections.Generic;
+﻿using AssistPurchase.Controllers;
 using AssistPurchase.Models;
+using AssistPurchase.Repository;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
+using System.Collections.Generic;
 using System.Net;
-using AssistPurchase.Models;
-using System.Net.Http;
+using Xunit;
 
 namespace WebApiTest
 {
@@ -18,12 +15,11 @@ namespace WebApiTest
         //Test for Get Method
         readonly UserDataController _controller;
         readonly IUserDataRepository _repository;
-        readonly IServiceProvider _provider;
 
         public UserDataControllerTest()
         {
             _repository = new UserMemoryDBRepository();
-            _controller = new UserDataController(_repository, _provider);
+            _controller = new UserDataController(_repository);
         }
         [Fact]
         public void StatusCodeTest()
@@ -34,10 +30,10 @@ namespace WebApiTest
 
             // act
             IRestResponse response = client.Execute(request);
-           
+
 
             // assert
-            Assert.True(response.StatusCode== HttpStatusCode.OK);
+            Assert.True(response.StatusCode == HttpStatusCode.OK);
             //Assert.True(response.StatusDescription == HttpResponseMessag);
             //Assert.Contains("X3", response.Content);
         }
@@ -46,28 +42,22 @@ namespace WebApiTest
         [Fact]
         public void Get_WhenCalled_ReturnsOkResult()
         {
-            // Act
             var okResult = _controller.Get();
-            // Assert
             Assert.IsType<OkObjectResult>(okResult.Result);
         }
         [Fact]
         public void Get_WhenCalled_ReturnsAllItems()
         {
-            // Act
+
             var okResult = _controller.Get().Result as OkObjectResult;
-            // Assert
             var items = Assert.IsType<List<ProductDataModel>>(okResult.Value);
             Assert.Equal(5, items.Count);
         }
 
-        //Test for Get By Id
         [Fact]
         public void GetById_UnknownIdPassedReturnsNotFoundResult()
         {
-            // Act
             var notFoundResult = _controller.Get("X001");
-            // Assert
             Assert.IsType<NotFoundResult>(notFoundResult.Result);
         }
         [Fact]

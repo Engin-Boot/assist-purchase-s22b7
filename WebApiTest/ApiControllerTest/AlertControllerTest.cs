@@ -1,10 +1,7 @@
-﻿using System;
-using Xunit;
-using AssistPurchase.Controllers;
+﻿using AssistPurchase.Controllers;
 using AssistPurchase.Repository;
-using System.Collections.Generic;
-using AssistPurchase.Models;
 using Microsoft.AspNetCore.Mvc;
+using Xunit;
 
 namespace WebApiTest
 {
@@ -13,12 +10,11 @@ namespace WebApiTest
         //Test for Get Method
         readonly AlertController _controller;
         readonly IAlertRepository _repository;
-        readonly IServiceProvider _provider;
 
         public AlertControllerTest()
         {
             _repository = new AlertDBRepository();
-            _controller = new AlertController(_repository, _provider);
+            _controller = new AlertController(_repository);
         }
 
         //Test to Get All Products

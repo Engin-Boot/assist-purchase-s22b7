@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,8 +11,8 @@ namespace AssistPurchase.Controllers
     public class ProductDataController : ControllerBase
     {
 
-       readonly Repository.IProductDataRepository _productDataRepository;
-       
+        readonly Repository.IProductDataRepository _productDataRepository;
+
         readonly IServiceProvider _provider;
         public ProductDataController(Repository.IProductDataRepository repo, IServiceProvider provider)
         {
@@ -24,7 +24,7 @@ namespace AssistPurchase.Controllers
         [HttpGet("all")]
         public ActionResult<IEnumerable<Models.ProductDataModel>> Get()
         {
-            var items= _productDataRepository.GetAllProducts();
+            var items = _productDataRepository.GetAllProducts();
             return Ok(items);
         }
 
@@ -67,7 +67,7 @@ namespace AssistPurchase.Controllers
         public ActionResult Delete(string id)
         {
             var existingItem = _productDataRepository.GetProductById(id);
-            if(existingItem==null)
+            if (existingItem == null)
             {
                 return NotFound();
             }

@@ -12,7 +12,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiTest", "WebApiTest\We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseManager", "DatabaseManager\DatabaseManager.csproj", "{668F01EC-CF80-455D-B10B-C8BB2D4AB4BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseContractor", "DatabaseContractor\DatabaseContractor.csproj", "{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseContractor", "DatabaseContractor\DatabaseContractor.csproj", "{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{F7A2122A-41E6-44A6-86EC-BF7179FEB0A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A40F4B9-006F-4FF1-8B59-72E2258B2C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7A2122A-41E6-44A6-86EC-BF7179FEB0A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A2122A-41E6-44A6-86EC-BF7179FEB0A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A2122A-41E6-44A6-86EC-BF7179FEB0A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7A2122A-41E6-44A6-86EC-BF7179FEB0A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

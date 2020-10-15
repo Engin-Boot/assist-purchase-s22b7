@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,66 +9,57 @@ namespace AssistPurchase.Controllers
     [ApiController]
     public class UserDataController : ControllerBase
     {
-       readonly Repository.IUserDataRepository _userDataRepository;
-        readonly IServiceProvider _provider;
-        public UserDataController(Repository.IUserDataRepository repo, IServiceProvider provider)
-        {
-            this._userDataRepository = repo;
-            this._provider = provider;
+        readonly DatabaseManager.IProductDatabaseHandler _productDatabaseHandler;
+        readonly DatabaseManager.IFilterDatabaseHandler _filterDatabaseHandler;
 
+        public UserDataController(DatabaseManager.IProductDatabaseHandler prepo, DatabaseManager.IFilterDatabaseHandler frepo)
+        {
+            _productDatabaseHandler = prepo;
+            _filterDatabaseHandler = frepo;
         }
 
-        // GET: api/<UserDataController>
+        // GET: api/all
         [HttpGet("all")]
-        public ActionResult<IEnumerable<Models.ProductDataModel>> Get()
+        public IActionResult GetAllProducts()
         {
-            var items = _userDataRepository.GetAllProducts();
-            return Ok(items);
+            try
+            {
+                return Ok(_productDatabaseHandler.GetAllProductsFromDb());
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+
         }
 
-        // GET: api/<UserDataController>/wearable
-        [HttpGet("wearable/{wearable}")]
-        public ActionResult<IEnumerable<Models.ProductDataModel>> GetProductByWearability(string wearable)
+        // GET: api/filterlist
+        [HttpGet("filterlist")]
+        public IActionResult GetFilteredProduct([FromBody] FilterModel filterObj)
         {
-            var items = _userDataRepository.GetAllProducts();
-            foreach (var product in items)
+            try
             {
-                if (product.Wearable == wearable)
-                {
-                    return Ok(product);
-                }
+                return Ok(_filterDatabaseHandler.GetFilteredProducts(filterObj));
             }
-            return NotFound();
+            catch
+            {
+                return StatusCode(500);
+            }
         }
 
-        [HttpGet("price/{price}")]
-        public ActionResult<IEnumerable<Models.ProductDataModel>> GetProductByPrice(string price)
+        [HttpGet("productbyname/{name}")]
+        public IActionResult GetProductByName(string name)
         {
-            var items = _userDataRepository.GetAllProducts();
-            foreach (var product in items)
+            if (name == null) return StatusCode(400);
+            try
             {
-                if (product.ProductPrice == price)
-                {
-                    return Ok(product);
-                }
+                return Ok(_productDatabaseHandler.GetProductByNameFromDb(name));
             }
-            return NotFound();
-        }
-
-
-        // GET api/<UserDataController>/5
-        [HttpGet("{id}")]
-        public ActionResult<Models.ProductDataModel> Get(string id)
-        {
-            var products = _userDataRepository.GetAllProducts();
-            foreach (var product in products)
+            catch
             {
-                if (product.ProductId == id)
-                {
-                    return Ok(product);
-                }
+                return StatusCode(500);
             }
-            return NotFound();
+
         }
     }
 }

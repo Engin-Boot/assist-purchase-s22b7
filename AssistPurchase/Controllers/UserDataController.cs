@@ -35,7 +35,7 @@ namespace AssistPurchase.Controllers
 
         // GET: api/filterlist
         [HttpGet("filterlist")]
-        public IActionResult GetFilteredProduct(FilterModel filterObj)
+        public IActionResult GetFilteredProduct([FromBody] FilterModel filterObj)
         {
             try
             {
@@ -60,20 +60,6 @@ namespace AssistPurchase.Controllers
                 return StatusCode(500);
             }
 
-        }
-
-        [HttpGet("productbyid/{id}")]
-        public IActionResult GetProductById(string id)
-        {
-            if (id == null) return StatusCode(400);
-            try
-            {
-                return Ok(_productDatabaseHandler.GetProductByIdFromDb(id));
-            }
-            catch
-            {
-                return StatusCode(500);
-            }
         }
     }
 }

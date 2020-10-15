@@ -1,10 +1,11 @@
 ﻿using DatabaseContractor;
+using DatabaseManager.ProductDatabase;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace DatabaseManager
 {
-    class FilterAssist
+    public class FilterAssist:IFilterAssist
     {
         public IEnumerable<Product> FilterByTouchScreen(bool TouchScreen, IEnumerable<Product> productList)
         {

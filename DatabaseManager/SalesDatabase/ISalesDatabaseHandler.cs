@@ -8,6 +8,5 @@ namespace DatabaseManager
     {
         IEnumerable<Sales> GetAllSales();
         HttpStatusCode AddSalesToDb(Sales info);
-        Sales GetSalesByCustomerNameFromDb(string CustomerName);
     }
 }

@@ -24,10 +24,8 @@ namespace DatabaseManager
             try
             {
                 using AssistPurchaseContext _db = new AssistPurchaseContext();
-                if (string.IsNullOrEmpty(info.CustomerName))
-                    return HttpStatusCode.BadRequest;
-
-                _db.AddAsync(info);
+                
+                _db.Add(info);
                 _db.SaveChanges();
                 return HttpStatusCode.OK;
             }
@@ -37,17 +35,5 @@ namespace DatabaseManager
                 return HttpStatusCode.InternalServerError;
             }
         }
-
-        public Sales GetSalesByCustomerNameFromDb(string CustomerName)
-        {
-            try
-            {
-                using AssistPurchaseContext _db = new AssistPurchaseContext();
-                return _db.Sales
-                 .Where(b => b.CustomerName == CustomerName).FirstOrDefault();
-            }
-            catch (Exception e) { throw e; }
-        }
-
     }
 }

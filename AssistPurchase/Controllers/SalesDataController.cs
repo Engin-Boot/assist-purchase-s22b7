@@ -21,8 +21,12 @@ namespace AssistPurchase.Controllers
 
         // POST: api/<AlertController>
         [HttpPost("contactsales")]
-        public HttpStatusCode Post([FromBody] Sales info) => _salesDatabaseHandler.AddSalesToDb(info);
-
+        public HttpStatusCode Post([FromBody] Sales info)
+        {
+            if (string.IsNullOrEmpty(info.CustomerName))
+                return HttpStatusCode.BadRequest;
+            return _salesDatabaseHandler.AddSalesToDb(info);
+        }
 
         // GET: api/getallinfo
         [HttpGet("allalerts")]
@@ -38,19 +42,5 @@ namespace AssistPurchase.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpGet("alertbyname/{Cname}")]
-        public IActionResult InfoByName([FromBody] string Cname)
-        {
-            try
-            {
-                return Ok(_salesDatabaseHandler.GetSalesByCustomerNameFromDb(Cname));
-            }
-            catch (Exception e)
-            {
-                Trace.TraceInformation(e.Message);
-                return StatusCode(500);
-            }
-        }
-
     }
 }

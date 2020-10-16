@@ -23,8 +23,5 @@ jobs:
     - name: Build with dotnet
       run: dotnet build --configuration Release
     
-    - name: Setup Database
-      run: 
-
     - name: Run unit tests
       run: dotnet test --no-build --configuration Release

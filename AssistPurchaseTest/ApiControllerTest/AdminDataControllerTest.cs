@@ -100,6 +100,8 @@ namespace AssistPurchaseTest
 
             Assert.True(badResponse == HttpStatusCode.BadRequest);
         }
+
+        /*
         [Fact]
         public void Update_ValidObjectPassed_ReturnsCreatedResponse()
         {
@@ -117,5 +119,6 @@ namespace AssistPurchaseTest
             var createdResponse = _controller.Post(testItem);
             Assert.True(createdResponse == HttpStatusCode.OK);
         }
+        */
     }
 }

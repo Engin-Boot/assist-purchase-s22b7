@@ -42,8 +42,4 @@ if($result -eq 1){
 else{
     Write-Host "Coverage Check: Passed" -ForegroundColor green 
 }
-<<<<<<< HEAD
 exit $result
-=======
-exit $result
->>>>>>> dcb97f01ab1a749e8f27c70de21b75926541b273

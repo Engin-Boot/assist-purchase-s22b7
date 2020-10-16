@@ -24,7 +24,11 @@ namespace DatabaseManager
             try
             {
                 using AssistPurchaseContext _db = new AssistPurchaseContext();
-                
+
+                var Dinfo = _db.Sales.Where(b => b.CustomerName == info.CustomerName).FirstOrDefault();
+                if (Dinfo != null)
+                    return HttpStatusCode.Unauthorized;
+
                 _db.Add(info);
                 _db.SaveChanges();
                 return HttpStatusCode.OK;

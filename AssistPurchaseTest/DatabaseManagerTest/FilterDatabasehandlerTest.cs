@@ -13,18 +13,18 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         {
             _filterDatabaseHandler = new FilterDatabaseHandler();
         }
-        
-            [Fact]
-            public void FilterProductsBasedOnFilter()
+
+        [Fact]
+        public void FilterProductsBasedOnFilter()
+        {
+            var filter1 = new FilterModel
             {
-               var filter1 = new FilterModel
-                {
-                    TouchScreen = false
-                };
+                TouchScreen = false
+            };
 
-                var flist = _filterDatabaseHandler.GetFilteredProducts(filter1);
-                Assert.True(flist.Any());
+            var flist = _filterDatabaseHandler.GetFilteredProducts(filter1);
+            Assert.True(flist.Any());
 
-            }
+        }
     }
 }

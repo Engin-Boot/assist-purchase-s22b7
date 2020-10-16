@@ -100,25 +100,5 @@ namespace AssistPurchaseTest
 
             Assert.True(badResponse == HttpStatusCode.BadRequest);
         }
-
-        /*
-        [Fact]
-        public void Update_ValidObjectPassed_ReturnsCreatedResponse()
-        {
-
-            var testItem = new Product()
-            {
-                Id = "ADC100",
-                Name = "IntelliVue X3",
-                DisplaySize = 6,
-                DisplayType = "LCC",
-                Weight = 1.3,
-                TouchScreen = true
-            };
-
-            var createdResponse = _controller.Post(testItem);
-            Assert.True(createdResponse == HttpStatusCode.OK);
-        }
-        */
     }
 }

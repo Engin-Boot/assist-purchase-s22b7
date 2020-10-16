@@ -32,18 +32,5 @@ namespace AssistPurchaseTest.ApiControllerTest
             var okResult = _controller.GetProductByName("ADC100");
             Assert.IsType<OkObjectResult>(okResult);
         }
-
-        /*
-        [Fact]
-        public void Get_WhenCalledByFilter_ReturnsOkResult()
-        {
-            var filter1 = new FilterModel
-            {
-                TouchScreen = false
-            };
-            var okResult = _controller.GetFilteredProduct(filter1);
-            Assert.IsType<OkObjectResult>(okResult);
-        }
-        */
     }
 }

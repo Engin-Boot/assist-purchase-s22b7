@@ -3,8 +3,8 @@
 .vscode/
 
 #Project Build files
-#[Dd]ebug/
-#[Rr]elease/
-#[Rr]eleases/
-#[Bb]in/
-#[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+[Rr]eleases/
+[Bb]in/
+[Oo]bj/

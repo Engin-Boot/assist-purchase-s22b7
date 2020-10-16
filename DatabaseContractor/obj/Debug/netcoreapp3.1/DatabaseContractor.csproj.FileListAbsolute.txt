@@ -1,8 +1,0 @@
-C:\Users\320088165\OneDrive - Philips\Documents\Bootcamp\assist-purchase-s22b7\DatabaseContractor\bin\Debug\netcoreapp3.1\DatabaseContractor.deps.json
-C:\Users\320088165\OneDrive - Philips\Documents\Bootcamp\assist-purchase-s22b7\DatabaseContractor\bin\Debug\netcoreapp3.1\DatabaseContractor.dll
-C:\Users\320088165\OneDrive - Philips\Documents\Bootcamp\assist-purchase-s22b7\DatabaseContractor\bin\Debug\netcoreapp3.1\DatabaseContractor.pdb
-C:\Users\320088165\OneDrive - Philips\Documents\Bootcamp\assist-purchase-s22b7\DatabaseContractor\obj\Debug\netcoreapp3.1\DatabaseContractor.AssemblyInfoInputs.cache
-C:\Users\320088165\OneDrive - Philips\Documents\Bootcamp\assist-purchase-s22b7\DatabaseContractor\obj\Debug\netcoreapp3.1\DatabaseContractor.AssemblyInfo.cs
-C:\Users\320088165\OneDrive - Philips\Documents\Bootcamp\assist-purchase-s22b7\DatabaseContractor\obj\Debug\netcoreapp3.1\DatabaseContractor.csproj.CoreCompileInputs.cache
-C:\Users\320088165\OneDrive - Philips\Documents\Bootcamp\assist-purchase-s22b7\DatabaseContractor\obj\Debug\netcoreapp3.1\DatabaseContractor.dll
-C:\Users\320088165\OneDrive - Philips\Documents\Bootcamp\assist-purchase-s22b7\DatabaseContractor\obj\Debug\netcoreapp3.1\DatabaseContractor.pdb

@@ -16,7 +16,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         }
 
         [Fact]
-        public void WhenRequestIsGoodThenAddInfoToDb()
+        public void WhenRequestIsGoodThenAddInfoToDbReturnUnAuthIfPresent()
         {
             var info = new Sales
             {
@@ -26,7 +26,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
             };
 
             var res = _salesDatabaseHandler.AddSalesToDb(info);
-            Assert.True(res == HttpStatusCode.OK);
+            Assert.True(res == HttpStatusCode.Unauthorized);
 
         }
 

@@ -17,7 +17,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         [Fact]
         public void FilterProductsBasedOnFilter()
         {
-           var filter1 = new FilterModel
+            var filter1 = new FilterModel
             {
                 TouchScreen = false
             };

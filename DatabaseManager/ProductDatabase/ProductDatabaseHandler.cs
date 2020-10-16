@@ -25,6 +25,9 @@ namespace DatabaseManager
             {
                 using AssistPurchaseContext _db = new AssistPurchaseContext();
 
+                var Dproduct = _db.Products.Where(b => b.Id == product.Id).FirstOrDefault();
+                if (Dproduct != null)
+                    return HttpStatusCode.Unauthorized;
                 _db.Add(product);
                 _db.SaveChanges();
                 return HttpStatusCode.OK;

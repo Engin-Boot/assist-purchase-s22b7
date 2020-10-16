@@ -1,9 +1,8 @@
-using Xunit;
 using AssistPurchase.Controllers;
-using DatabaseManager;
 using DatabaseContractor;
-using Microsoft.AspNetCore.Mvc;
+using DatabaseManager;
 using System.Net;
+using Xunit;
 
 namespace AssistPurchaseTest
 {
@@ -11,7 +10,7 @@ namespace AssistPurchaseTest
     {
         private ProductDatabaseHandler _service;
         AdminDataController _controller;
- 
+
         public AdminDataControllerTest()
         {
             _service = new ProductDatabaseHandler();
@@ -27,29 +26,48 @@ namespace AssistPurchaseTest
                 DisplaySize = 6,
                 DisplayType = "LCC",
                 Weight = 1.3,
-                TouchScreen = true,
+                TouchScreen = true
             };
             var badResponse = _controller.Post(nameMissingItem);
 
-            Assert.IsType<BadRequestObjectResult>(badResponse);
+            Assert.True(badResponse == HttpStatusCode.BadRequest);
         }
         [Fact]
-        public void Add_ValidObjectPassed_ReturnsCreatedResponse()
+        public void Add_ValidObjectPassedAlreadyPresent_ReturnsUnAuth()
         {
 
             var testItem = new Product()
             {
-                Id = "ADC103",
-                Name= "IntelliVue X3",
+                Id = "ADC100",
+                Name = "IntelliVue X3",
                 DisplaySize = 6,
                 DisplayType = "LCC",
                 Weight = 1.3,
-                TouchScreen = true,
+                TouchScreen = true
             };
 
             var createdResponse = _controller.Post(testItem);
 
-            Assert.IsType<CreatedAtActionResult>(createdResponse);
+            Assert.True(createdResponse == HttpStatusCode.Unauthorized);
+        }
+
+        [Fact]
+        public void Add_ValidObjectPassedReturnsOkResult()
+        {
+
+            var testItem = new Product()
+            {
+                Id = "ADT100",
+                Name = "IntelliVue X3",
+                DisplaySize = 6,
+                DisplayType = "LCC",
+                Weight = 1.3,
+                TouchScreen = true
+            };
+
+            var createdResponse = _controller.Post(testItem);
+
+            Assert.True(createdResponse == HttpStatusCode.OK);
         }
         //  remove test case
         [Fact]
@@ -57,15 +75,15 @@ namespace AssistPurchaseTest
         {
             var badResponse = _controller.Delete("X001");
 
-            Assert.IsType<NotFoundResult>(badResponse);
+            Assert.True(badResponse == HttpStatusCode.NotFound);
         }
         [Fact]
         public void Remove_ExistingGuidPassed_ReturnsOkResult()
         {
 
-            var okResponse = _controller.Delete("ADC103");
+            var okResponse = _controller.Delete("ADT100");
 
-            Assert.IsType<OkResult>(okResponse);
+            Assert.True(okResponse == HttpStatusCode.OK);
         }
         // Update Test Cases
         [Fact]
@@ -76,11 +94,11 @@ namespace AssistPurchaseTest
                 DisplaySize = 6,
                 DisplayType = "LCC",
                 Weight = 1.3,
-                TouchScreen = true,
+                TouchScreen = true
             };
             var badResponse = _controller.Post(nameMissingItem);
 
-            Assert.IsType<BadRequestObjectResult>(badResponse);
+            Assert.True(badResponse == HttpStatusCode.BadRequest);
         }
         [Fact]
         public void Update_ValidObjectPassed_ReturnsCreatedResponse()
@@ -88,17 +106,15 @@ namespace AssistPurchaseTest
 
             var testItem = new Product()
             {
-                Id = "ADC103",
+                Id = "ADC100",
                 Name = "IntelliVue X3",
                 DisplaySize = 6,
                 DisplayType = "LCC",
                 Weight = 1.3,
-                TouchScreen = true,
+                TouchScreen = true
             };
 
             var createdResponse = _controller.Post(testItem);
-
-            Assert.IsType<CreatedAtActionResult>(createdResponse);
             Assert.True(createdResponse == HttpStatusCode.OK);
         }
     }

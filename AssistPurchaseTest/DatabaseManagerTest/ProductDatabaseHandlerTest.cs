@@ -28,7 +28,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
             };
 
             var res = _productDatabaseHandler.AddProductToDb(product1);
-            Assert.True( res == HttpStatusCode.OK);
+            Assert.True(res == HttpStatusCode.OK);
 
         }
 
@@ -54,7 +54,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         {
             var product3 = new Product
             {
-                Id = "ADC103",
+                Id = "ADC999",
                 Name = "IntelliVue X7",
                 DisplaySize = 6,
                 DisplayType = "LCC",
@@ -63,14 +63,14 @@ namespace AssistPurchaseTest.DatabaseManagerTest
             };
 
             var res = _productDatabaseHandler.UpdateProductInDb(product3);
-            Assert.True( res == HttpStatusCode.NotFound);
+            Assert.True(res == HttpStatusCode.NotFound);
         }
 
         [Fact]
         public void WhenServerIsGoodThenGetAllProductFromDb()
         {
             var productList = _productDatabaseHandler.GetAllProductsFromDb();
-            Assert.True( productList.Any());
+            Assert.True(productList.Any());
         }
 
         [Fact]
@@ -78,7 +78,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         {
             var product = _productDatabaseHandler.GetProductByNameFromDb("IntelliVue X3");
             Assert.True(product.Name == "IntelliVue X3");
-            
+
         }
 
         [Fact]

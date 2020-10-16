@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DatabaseManager
 {
-    public class FilterAssist:IFilterAssist
+    public class FilterAssist : IFilterAssist
     {
         public IEnumerable<Product> FilterByTouchScreen(bool TouchScreen, IEnumerable<Product> productList)
         {

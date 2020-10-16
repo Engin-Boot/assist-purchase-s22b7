@@ -1,8 +1,9 @@
-﻿using Xunit;
-using AssistPurchase.Controllers;
-using DatabaseManager;
+﻿using AssistPurchase.Controllers;
 using DatabaseContractor;
+using DatabaseManager;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using Xunit;
 
 namespace AssistPurchaseTest.ApiControllerTest
 {
@@ -22,36 +23,34 @@ namespace AssistPurchaseTest.ApiControllerTest
         {
             var nameMissingItem = new Sales
             {
-               EmailId="tom123@gmail.com",
-               Description="Message",
+                EmailId = "tom123@gmail.com",
+                Description = "Message",
             };
             var badResponse = _controller.Post(nameMissingItem);
 
-            Assert.IsType<BadRequestObjectResult>(badResponse);
+            Assert.True(badResponse == HttpStatusCode.BadRequest);
         }
         [Fact]
-        public void Add_ValidObjectPassed_ReturnsCreatedResponse()
+        public void Add_ValidObjectPassedAlreadyPresent_ReturnsUnAuth()
         {
 
             var testItem = new Sales()
             {
-                CustomerName="tom",
-                EmailId="tom123@gmail.com",
-                Description="Message",
+                CustomerName = "tom",
+                EmailId = "tom123@gmail.com",
+                Description = "Message",
             };
 
             var createdResponse = _controller.Post(testItem);
 
-            Assert.IsType<CreatedAtActionResult>(createdResponse);
+            Assert.True(createdResponse == HttpStatusCode.Unauthorized);
         }
 
         // Get Test Cases
         [Fact]
         public void Get_WhenCalled_ReturnsOkResult()
         {
-            // Act
             var okResult = _controller.GetAllInfo();
-            // Assert
             Assert.IsType<OkObjectResult>(okResult);
         }
     }

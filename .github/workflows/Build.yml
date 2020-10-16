@@ -2,9 +2,9 @@ name: Build and Run
  
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
  
 jobs:
   build:
@@ -22,6 +22,6 @@ jobs:
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
-
+    
     - name: Run unit tests
       run: dotnet test --no-build --configuration Release

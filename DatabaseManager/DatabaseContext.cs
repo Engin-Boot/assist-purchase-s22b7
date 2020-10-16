@@ -6,7 +6,7 @@ namespace DatabaseManager
 {
     public class AssistPurchaseContext : DbContext
     {
-        readonly string dbPath = Path.Combine(Directory.GetCurrentDirectory(), "AssistPurchase.db");
+        readonly string dbPath = "AssistPurchaseDatabase.db";
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Sales> Sales { get; set; }

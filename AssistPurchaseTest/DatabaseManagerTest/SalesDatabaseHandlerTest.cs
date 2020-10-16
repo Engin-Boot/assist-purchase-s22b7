@@ -20,7 +20,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         {
             var info = new Sales
             {
-                CustomerName = "Subject",
+                CustomerName = "Subject1",
                 EmailId = "Example@gmail.com",
                 Description = "Contact"
             };

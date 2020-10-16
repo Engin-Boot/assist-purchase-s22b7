@@ -2,11 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <StartWorkingDirectory>$(MSBuildProjectDirectory)</StartWorkingDirectory>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="RestSharp" Version="106.11.7" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DatabaseManager\DatabaseManager.csproj" />

@@ -2,7 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Inject, Injectable} from '@angular/core';
 @Injectable()
 export class AdminService{
-    httpClient:HttpClient;
+  httpClient:HttpClient;
     baseUrl:string;
     constructor(httpClient:HttpClient, @Inject('apiBaseAddress')baseUrl:string){
         this.httpClient = httpClient;

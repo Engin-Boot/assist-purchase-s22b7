@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { AdminService } from 'src/app/services/AdminService';
-
+import {DialogBoxComponent} from '../dialog-box/dialog-box.component';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -61,4 +61,3 @@ export class ProductsComponent implements OnInit {
   }
 }
 
-}

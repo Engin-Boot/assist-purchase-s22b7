@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'App';
+  
+constructor(private route:Router) { }
+
+onLogin(){
+
+  //Validate Credentials
+  //Navigate -> MainDashBoard
+  this.route.navigate(['admin']);
+
+ }
+
+
+ onSearch(){
+   this.route.navigate(['searchProduct']);
+ }
 }

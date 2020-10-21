@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminService } from './services/AdminService';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -10,9 +13,16 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  exports: [
+    HttpClientModule,
+    AdminService
+  ],
+  providers: [
+    {provide:'apiBaseAddress', useValue:"http://localhost:53010"}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

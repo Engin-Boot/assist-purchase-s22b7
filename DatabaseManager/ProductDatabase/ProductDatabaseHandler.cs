@@ -1,4 +1,5 @@
 ﻿using DatabaseContractor;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,7 +17,9 @@ namespace DatabaseManager
                 using AssistPurchaseContext _db = new AssistPurchaseContext();
                 return _db.Products.ToList();
             }
-            catch (Exception e) { throw new ApplicationException("Problem with Database", e); }
+            catch (Exception e) { Console.WriteLine(e.Message);
+                throw e;
+            }
         }
 
         public HttpStatusCode AddProductToDb(Product product)

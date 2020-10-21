@@ -8,42 +8,42 @@
           The actual rendered columns are set as a property on the row definition" -->
   
       <!-- Id Column -->
-      <ng-container matColumnDef="id">
+      <ng-container matColumnDef="Id">
         <th mat-header-cell *matHeaderCellDef> ID. </th>
         <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
       </ng-container>
   
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="Name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
       </ng-container>
 
       <!-- Display Size Column -->
-      <ng-container matColumnDef="display size">
+      <ng-container matColumnDef="DisplaySize">
         <th mat-header-cell *matHeaderCellDef> Display Size </th>
         <td mat-cell *matCellDef="let element"> {{element.DisplaySize}} </td>
       </ng-container>
 
       <!-- Display Type Column -->
-      <ng-container matColumnDef="display type">
+      <ng-container matColumnDef="DisplayType">
         <th mat-header-cell *matHeaderCellDef> Display Type </th>
         <td mat-cell *matCellDef="let element"> {{element.DisplayType}} </td>
       </ng-container>
   
       <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
+      <ng-container matColumnDef="Weight">
         <th mat-header-cell *matHeaderCellDef> Weight </th>
         <td mat-cell *matCellDef="let element"> {{element.Weight}} </td>
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="touch screen">
+      <ng-container matColumnDef="TouchScreen">
         <th mat-header-cell *matHeaderCellDef> Touch Screen </th>
         <td mat-cell *matCellDef="let element"> {{element.TouchScreen}} </td>
       </ng-container>
       <!-- Action Column -->
-      <ng-container matColumnDef="action">
+      <ng-container matColumnDef="Action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element" class="action-link"> 
           <a (click)="openDialog('Update',element)">Edit</a> | 

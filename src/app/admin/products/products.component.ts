@@ -18,10 +18,15 @@ export class ProductsComponent implements OnInit {
 
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
   constructor(public dialog: MatDialog, private adminService:AdminService) {
-    this.dataSource = adminService.GetAllProducts();
+    
   }
 
   ngOnInit(): void {
+    this.dataSource = this.adminService.GetAllProducts().subscribe(
+      data=>{
+        this.dataSource = data;
+      }
+    );
   }
 
   openDialog(action,obj) {

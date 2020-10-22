@@ -1,4 +1,5 @@
-﻿using DatabaseContractor;
+﻿using AssistPurchase.Repositories.ProductDatabase;
+using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,9 @@ namespace AssistPurchase.Controllers
     public class AdminDataController : ControllerBase
     {
 
-        readonly DatabaseManager.IProductDatabaseHandler _productDatabaseHandler;
+        readonly IProductDatabaseHandler _productDatabaseHandler;
 
-        public AdminDataController(DatabaseManager.IProductDatabaseHandler repo)
+        public AdminDataController(IProductDatabaseHandler repo)
         {
             _productDatabaseHandler = repo;
         }

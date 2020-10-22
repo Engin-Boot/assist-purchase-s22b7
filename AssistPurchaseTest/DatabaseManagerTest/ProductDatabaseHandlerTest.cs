@@ -1,17 +1,17 @@
-﻿using DatabaseContractor;
-using DatabaseManager;
+﻿using AssistPurchase.Repositories.ProductDatabase;
+using DatabaseContractor;
 using System.Linq;
 using System.Net;
 using Xunit;
 
 namespace AssistPurchaseTest.DatabaseManagerTest
 {
-    public class ProductDatabaseHandlerTest
+    public class ProductDatabaseHandlerTest : ApiControllerTest.InMemoryContext
     {
         readonly IProductDatabaseHandler _productDatabaseHandler;
         public ProductDatabaseHandlerTest()
         {
-            _productDatabaseHandler = new ProductDatabaseHandler();
+            _productDatabaseHandler = new ProductDatabaseHandler(Context);
         }
 
         [Fact]
@@ -19,7 +19,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         {
             var product1 = new Product
             {
-                Id = "ADC100",
+                Id = "ADC104",
                 Name = "IntelliVue X3",
                 DisplaySize = 5,
                 DisplayType = "LCD",

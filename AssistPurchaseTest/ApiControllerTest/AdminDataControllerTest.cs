@@ -1,19 +1,20 @@
 using AssistPurchase.Controllers;
+using AssistPurchase.Repositories.ProductDatabase;
+using AssistPurchase;
 using DatabaseContractor;
-using DatabaseManager;
 using System.Net;
 using Xunit;
 
 namespace AssistPurchaseTest
 {
-    public class AdminDataControllerTest
+    public class AdminDataControllerTest : AssistPurchaseTest.ApiControllerTest.InMemoryContext
     {
         private ProductDatabaseHandler _service;
         AdminDataController _controller;
-
+        
         public AdminDataControllerTest()
         {
-            _service = new ProductDatabaseHandler();
+            _service = new ProductDatabaseHandler(Context);
             _controller = new AdminDataController(_service);
         }
         // Add test case
@@ -57,7 +58,7 @@ namespace AssistPurchaseTest
 
             var testItem = new Product()
             {
-                Id = "ADT100",
+                Id = "ADT10",
                 Name = "IntelliVue X3",
                 DisplaySize = 6,
                 DisplayType = "LCC",
@@ -68,6 +69,7 @@ namespace AssistPurchaseTest
             var createdResponse = _controller.Post(testItem);
 
             Assert.True(createdResponse == HttpStatusCode.OK);
+
         }
         //  remove test case
         [Fact]

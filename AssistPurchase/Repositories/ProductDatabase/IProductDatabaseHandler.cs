@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Net;
 
-namespace DatabaseManager
+namespace AssistPurchase.Repositories.ProductDatabase
 {
     public interface IProductDatabaseHandler
     {

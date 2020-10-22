@@ -1,5 +1,8 @@
+using AssistPurchase.Repositories.ProductDatabase;
+using AssistPurchase.Repositories.SalesDatabase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,10 +21,13 @@ namespace AssistPurchase
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DatabaseContext>(options => {
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+            });
             services.AddControllers();
-            services.AddSingleton<DatabaseManager.IProductDatabaseHandler, DatabaseManager.ProductDatabaseHandler>();
-            services.AddSingleton<DatabaseManager.IFilterDatabaseHandler, DatabaseManager.FilterDatabaseHandler>();
-            services.AddSingleton<DatabaseManager.ISalesDatabaseHandler, DatabaseManager.SalesDatabaseHandler>();
+            services.AddScoped<IProductDatabaseHandler, ProductDatabaseHandler>();
+            services.AddScoped<IFilterDatabaseHandler, FilterDatabaseHandler>();
+            services.AddScoped<ISalesDatabaseHandler, SalesDatabaseHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

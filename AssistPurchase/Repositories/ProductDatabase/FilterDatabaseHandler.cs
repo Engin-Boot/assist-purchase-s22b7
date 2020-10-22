@@ -4,16 +4,22 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace DatabaseManager
+namespace AssistPurchase.Repositories.ProductDatabase
 {
     public class FilterDatabaseHandler : IFilterDatabaseHandler
     {
+        private readonly DatabaseContext _db;
+
+        public FilterDatabaseHandler(DatabaseContext context)
+        {
+            this._db = context;
+        }
         public IEnumerable<Product> GetFilteredProducts(FilterModel filterObj)
 
         {
             try
             {
-                using AssistPurchaseContext _db = new AssistPurchaseContext();
+                
                 var products = _db.Products.ToList();
 
                 FilterAssist f = new FilterAssist();

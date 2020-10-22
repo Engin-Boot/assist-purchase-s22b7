@@ -1,18 +1,18 @@
-﻿using DatabaseContractor;
-using DatabaseManager;
+﻿using AssistPurchase.Repositories.SalesDatabase;
+using DatabaseContractor;
 using System.Linq;
 using System.Net;
 using Xunit;
 
 namespace AssistPurchaseTest.DatabaseManagerTest
 {
-    public class SalesDatabaseHandlerTest
+    public class SalesDatabaseHandlerTest : ApiControllerTest.InMemoryContext
     {
 
         readonly ISalesDatabaseHandler _salesDatabaseHandler;
         public SalesDatabaseHandlerTest()
         {
-            _salesDatabaseHandler = new SalesDatabaseHandler();
+            _salesDatabaseHandler = new SalesDatabaseHandler(Context);
         }
 
         [Fact]
@@ -20,9 +20,9 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         {
             var info = new Sales
             {
-                CustomerName = "Subject",
-                EmailId = "Example@gmail.com",
-                Description = "Contact"
+                CustomerName = "Subject24",
+                EmailId = "Example4@gmail.com",
+                Description = "Contact2"
             };
 
             var res = _salesDatabaseHandler.AddSalesToDb(info);

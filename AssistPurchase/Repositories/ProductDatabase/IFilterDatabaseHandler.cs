@@ -1,7 +1,7 @@
 ﻿using DatabaseContractor;
 using System.Collections.Generic;
 
-namespace DatabaseManager
+namespace AssistPurchase.Repositories.ProductDatabase
 {
     public interface IFilterDatabaseHandler
     {

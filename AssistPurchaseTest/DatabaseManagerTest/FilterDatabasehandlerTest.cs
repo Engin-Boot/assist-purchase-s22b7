@@ -1,17 +1,17 @@
-﻿using DatabaseContractor;
-using DatabaseManager;
+﻿using AssistPurchase.Repositories.ProductDatabase;
+using DatabaseContractor;
 using System.Linq;
 using Xunit;
 
 namespace AssistPurchaseTest.DatabaseManagerTest
 {
-    public class FilterDatabaseHandlerTest
+    public class FilterDatabaseHandlerTest : ApiControllerTest.InMemoryContext
     {
         readonly IFilterDatabaseHandler _filterDatabaseHandler;
 
         public FilterDatabaseHandlerTest()
         {
-            _filterDatabaseHandler = new FilterDatabaseHandler();
+            _filterDatabaseHandler = new FilterDatabaseHandler(Context);
         }
 
         [Fact]

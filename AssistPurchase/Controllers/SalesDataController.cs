@@ -1,4 +1,5 @@
-﻿using DatabaseContractor;
+﻿using AssistPurchase.Repositories.SalesDatabase;
+using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
@@ -13,8 +14,8 @@ namespace AssistPurchase.Controllers
     [ApiController]
     public class SalesDataController : ControllerBase
     {
-        readonly DatabaseManager.ISalesDatabaseHandler _salesDatabaseHandler;
-        public SalesDataController(DatabaseManager.ISalesDatabaseHandler repo)
+        readonly ISalesDatabaseHandler _salesDatabaseHandler;
+        public SalesDataController(ISalesDatabaseHandler repo)
         {
             _salesDatabaseHandler = repo;
         }

@@ -1,20 +1,20 @@
 ﻿using AssistPurchase.Controllers;
+using AssistPurchase.Repositories.SalesDatabase;
 using DatabaseContractor;
-using DatabaseManager;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using Xunit;
 
 namespace AssistPurchaseTest.ApiControllerTest
 {
-    public class SalesDataControllerTest
+    public class SalesDataControllerTest : AssistPurchaseTest.ApiControllerTest.InMemoryContext
     {
         private SalesDatabaseHandler _service;
         SalesDataController _controller;
 
         public SalesDataControllerTest()
         {
-            _service = new SalesDatabaseHandler();
+            _service = new SalesDatabaseHandler(Context);
             _controller = new SalesDataController(_service);
         }
         // Add test case

@@ -5,15 +5,21 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 
-namespace DatabaseManager
+namespace AssistPurchase.Repositories.SalesDatabase
 {
     public class SalesDatabaseHandler : ISalesDatabaseHandler
     {
+        private readonly DatabaseContext _db;
+
+        public SalesDatabaseHandler(DatabaseContext context)
+        {
+            this._db = context;
+        }
         public IEnumerable<Sales> GetAllSales()
         {
             try
             {
-                using AssistPurchaseContext _db = new AssistPurchaseContext();
+                
                 return _db.Sales.ToList();
             }
             catch (Exception e) { throw e; }
@@ -23,7 +29,7 @@ namespace DatabaseManager
         {
             try
             {
-                using AssistPurchaseContext _db = new AssistPurchaseContext();
+                
 
                 var Dinfo = _db.Sales.Where(b => b.CustomerName == info.CustomerName).FirstOrDefault();
                 if (Dinfo != null)

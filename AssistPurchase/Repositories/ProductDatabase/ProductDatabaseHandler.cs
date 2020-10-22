@@ -6,18 +6,26 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 
-namespace DatabaseManager
+namespace AssistPurchase.Repositories.ProductDatabase
 {
     public class ProductDatabaseHandler : IProductDatabaseHandler
     {
+        private readonly DatabaseContext _db;
+
+        public ProductDatabaseHandler(DatabaseContext context)
+        {
+            this._db = context;
+        }
         public IEnumerable<Product> GetAllProductsFromDb()
         {
             try
             {
-                using AssistPurchaseContext _db = new AssistPurchaseContext();
+                
                 return _db.Products.ToList();
             }
-            catch (Exception e) { Console.WriteLine(e.Message);
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
                 throw e;
             }
         }
@@ -26,7 +34,7 @@ namespace DatabaseManager
         {
             try
             {
-                using AssistPurchaseContext _db = new AssistPurchaseContext();
+                
 
                 var Dproduct = _db.Products.Where(b => b.Id == product.Id).FirstOrDefault();
                 if (Dproduct != null)
@@ -45,7 +53,7 @@ namespace DatabaseManager
         {
             try
             {
-                using AssistPurchaseContext _db = new AssistPurchaseContext();
+               
                 return _db.Products
                  .Where(b => b.Name == name).FirstOrDefault();
             }
@@ -56,7 +64,7 @@ namespace DatabaseManager
         {
             try
             {
-                using AssistPurchaseContext _db = new AssistPurchaseContext();
+               
 
                 var Dproduct = _db.Products.Where(b => b.Id == product.Id).FirstOrDefault();
                 if (Dproduct == null)
@@ -78,7 +86,7 @@ namespace DatabaseManager
         {
             try
             {
-                using AssistPurchaseContext _db = new AssistPurchaseContext();
+                
                 var product = _db.Products.Where(b => b.Id == id).FirstOrDefault();
                 if (product == null)
                     return HttpStatusCode.NotFound;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 
-namespace DatabaseManager
+namespace AssistPurchase.Repositories.SalesDatabase
 {
     public interface ISalesDatabaseHandler
     {

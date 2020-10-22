@@ -1,12 +1,13 @@
 ﻿using AssistPurchase.Controllers;
+using AssistPurchase.Repositories.ProductDatabase;
 using DatabaseContractor;
-using DatabaseManager;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 
-namespace AssistPurchaseTest.ApiControllerTest
+namespace AssistPurchaseTest.ApiControllerTest 
 {
-    public class UserDataControllerTest
+  
+    public class UserDataControllerTest : AssistPurchaseTest.ApiControllerTest.InMemoryContext
     {
         readonly private ProductDatabaseHandler _service;
         readonly private FilterDatabaseHandler _filterservice;
@@ -14,8 +15,8 @@ namespace AssistPurchaseTest.ApiControllerTest
 
         public UserDataControllerTest()
         {
-            _service = new ProductDatabaseHandler();
-            _filterservice = new FilterDatabaseHandler();
+            _service = new ProductDatabaseHandler(Context);
+            _filterservice = new FilterDatabaseHandler(Context);
             _controller = new UserDataController(_service, _filterservice);
         }
 

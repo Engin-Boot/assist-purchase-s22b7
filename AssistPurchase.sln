@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseContractor", "Datab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistPurchaseTest", "AssistPurchaseTest\AssistPurchaseTest.csproj", "{9B8426C4-D713-4055-A0CE-4BCB8FA10EEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager", "DatabaseManager\DatabaseManager.csproj", "{F7A8FE59-6E7A-4BA1-ACB8-10086DB7F8DF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{9B8426C4-D713-4055-A0CE-4BCB8FA10EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B8426C4-D713-4055-A0CE-4BCB8FA10EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B8426C4-D713-4055-A0CE-4BCB8FA10EEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7A8FE59-6E7A-4BA1-ACB8-10086DB7F8DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7A8FE59-6E7A-4BA1-ACB8-10086DB7F8DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7A8FE59-6E7A-4BA1-ACB8-10086DB7F8DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7A8FE59-6E7A-4BA1-ACB8-10086DB7F8DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

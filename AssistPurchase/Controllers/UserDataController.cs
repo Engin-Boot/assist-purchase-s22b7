@@ -1,4 +1,5 @@
-﻿using DatabaseContractor;
+﻿using AssistPurchase.Repositories.ProductDatabase;
+using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,10 +10,10 @@ namespace AssistPurchase.Controllers
     [ApiController]
     public class UserDataController : ControllerBase
     {
-        readonly DatabaseManager.IProductDatabaseHandler _productDatabaseHandler;
-        readonly DatabaseManager.IFilterDatabaseHandler _filterDatabaseHandler;
+        readonly IProductDatabaseHandler _productDatabaseHandler;
+        readonly IFilterDatabaseHandler _filterDatabaseHandler;
 
-        public UserDataController(DatabaseManager.IProductDatabaseHandler prepo, DatabaseManager.IFilterDatabaseHandler frepo)
+        public UserDataController(IProductDatabaseHandler prepo, IFilterDatabaseHandler frepo)
         {
             _productDatabaseHandler = prepo;
             _filterDatabaseHandler = frepo;

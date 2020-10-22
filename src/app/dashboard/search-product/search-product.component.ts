@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
 import { DashboardService } from 'src/app/services/dashboard.service';
-
-
 
 @Component({
   selector: 'app-search-product',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminService } from '../services/AdminService';
+import { AdminService } from '../services/Admin.Service';
 import { ProductsComponent } from './products/products.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

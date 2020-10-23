@@ -1,5 +1,6 @@
 ﻿using AssistPurchase.Repositories.ProductDatabase;
 using DatabaseContractor;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Net;
 
 namespace AssistPurchase.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
     public class AdminDataController : ControllerBase

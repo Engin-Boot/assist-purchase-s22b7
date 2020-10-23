@@ -1,5 +1,6 @@
 ﻿using AssistPurchase.Repositories.SalesDatabase;
 using DatabaseContractor;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
@@ -10,6 +11,7 @@ using System.Net;
 
 namespace AssistPurchase.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
     public class SalesDataController : ControllerBase

@@ -24,6 +24,7 @@ namespace AssistPurchase
             services.AddDbContext<DatabaseContext>(options => {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
+            
             services.AddControllers();
             services.AddScoped<IProductDatabaseHandler, ProductDatabaseHandler>();
             services.AddScoped<IFilterDatabaseHandler, FilterDatabaseHandler>();
@@ -39,6 +40,13 @@ namespace AssistPurchase
             }
 
             app.UseRouting();
+
+
+
+            app.UseCors(x => x
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
 
             app.UseAuthorization();
 

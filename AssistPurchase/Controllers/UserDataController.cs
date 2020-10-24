@@ -2,6 +2,7 @@
 using DatabaseContractor;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -37,12 +38,12 @@ namespace AssistPurchase.Controllers
         }
 
         // GET: api/filterlist
-        [HttpGet("filterlist")]
-        public IActionResult GetFilteredProduct([FromBody] FilterModel filterObj)
+        [HttpPost("filterlist/{type}")]
+        public IActionResult GetFilteredProduct(string type,[FromBody]FilterModel Obj)
         {
             try
-            {
-                return Ok(_filterDatabaseHandler.GetFilteredProducts(filterObj));
+            {             
+                return Ok(_filterDatabaseHandler.GetFilteredProducts(Obj,type));
             }
             catch
             {

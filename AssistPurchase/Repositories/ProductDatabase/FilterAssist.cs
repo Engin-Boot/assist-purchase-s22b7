@@ -19,13 +19,13 @@ namespace AssistPurchase.Repositories.ProductDatabase
             return productList.Where(p => display.Contains(p.DisplayType));
         }
 
-        public IEnumerable<Product> FilterByWeight(FilterModel.DoubleLimits weight, IEnumerable<Product> productList)
+        public IEnumerable<Product> FilterByWeight(DoubleLimits weight, IEnumerable<Product> productList)
         {
             if (weight == null) return productList;
             return productList.Where(p => weight.Min < p.Weight && p.Weight < weight.Max);
         }
 
-        public IEnumerable<Product> FilterByDisplaySize(FilterModel.IntLimits screen, IEnumerable<Product> productList)
+        public IEnumerable<Product> FilterByDisplaySize(IntLimits screen, IEnumerable<Product> productList)
         {
             if (screen == null) return productList;
             return productList.Where(p => screen.Min < p.Weight && p.Weight < screen.Max);

@@ -9,6 +9,7 @@ namespace DatabaseContractor
         public DoubleLimits Weight { get; set; }
         public bool TouchScreen { get; set; }
 
+    }
         public class IntLimits
         {
             public int Max { get; set; }
@@ -20,5 +21,5 @@ namespace DatabaseContractor
             public double Max { get; set; }
             public double Min { get; set; }
         }
-    }
+    
 }

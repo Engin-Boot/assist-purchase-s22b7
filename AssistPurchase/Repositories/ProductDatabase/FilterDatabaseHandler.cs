@@ -14,7 +14,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
         {
             this._db = context;
         }
-        public IEnumerable<Product> GetFilteredProducts(FilterModel filterObj)
+        public IEnumerable<Product> GetFilteredProducts(FilterModel filterObj,string type)
 
         {
             try
@@ -23,11 +23,16 @@ namespace AssistPurchase.Repositories.ProductDatabase
                 var products = _db.Products.ToList();
 
                 FilterAssist f = new FilterAssist();
+                if(type=="DisplayType")
+                    return f.FilterByDisplayType(filterObj.DisplayType,products);
 
-                return f.FilterByTouchScreen(filterObj.TouchScreen,
-                            f.FilterByDisplayType(filterObj.DisplayType,
-                            f.FilterByWeight(filterObj.Weight,
-                            f.FilterByDisplaySize(filterObj.DisplaySize, products))));
+                if (type=="DisplaySize")
+                    return f.FilterByDisplaySize(filterObj.DisplaySize, f.FilterByDisplayType(filterObj.DisplayType, products));
+
+                if (type == "Weight")
+                    return f.FilterByWeight(filterObj.Weight, f.FilterByDisplaySize(filterObj.DisplaySize, f.FilterByDisplayType(filterObj.DisplayType, products)));
+
+                return f.FilterByTouchScreen(filterObj.TouchScreen, f.FilterByWeight(filterObj.Weight, f.FilterByDisplaySize(filterObj.DisplaySize, f.FilterByDisplayType(filterObj.DisplayType, products))));
             }
             catch (Exception e)
             {

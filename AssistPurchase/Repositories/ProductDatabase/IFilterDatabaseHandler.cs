@@ -5,6 +5,6 @@ namespace AssistPurchase.Repositories.ProductDatabase
 {
     public interface IFilterDatabaseHandler
     {
-        IEnumerable<Product> GetFilteredProducts(FilterModel filterObj);
+        IEnumerable<Product> GetFilteredProducts(FilterModel filterObj,string type);
     }
 }

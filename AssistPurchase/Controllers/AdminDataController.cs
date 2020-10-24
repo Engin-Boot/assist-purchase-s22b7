@@ -41,6 +41,7 @@ namespace AssistPurchase.Controllers
         public HttpStatusCode Post([FromBody] Product product)
         {
             if (string.IsNullOrEmpty(product.Name))
+                //Console.WriteLine(product.Name);
                 return HttpStatusCode.BadRequest;
 
             return _productDatabaseHandler.AddProductToDb(product);

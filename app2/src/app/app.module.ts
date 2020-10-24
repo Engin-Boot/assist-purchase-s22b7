@@ -52,19 +52,29 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { LoginComponent } from './login/login.component';
+import { SearchProductComponent } from './search-product/search-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MainPageComponent } from './main-page/main-page.component';
+import { FilterDisplaySizeComponent } from './filter-display-size/filter-display-size.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    LoginComponent
+    LoginComponent,
+    SearchProductComponent,
+    MainPageComponent,
+    FilterDisplaySizeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   exports: [A11yModule,
     ClipboardModule,

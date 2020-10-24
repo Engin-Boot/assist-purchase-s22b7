@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FilterModel, Limits } from '../FilterModel';
 import { ProductDetails } from '../ProductDetails';
 import { SearchProductService } from '../services/search-product.service';
-import { Router} from '@angular/router';
-
 
 @Component({
-  selector: 'app-filter-display-size',
-  templateUrl: './filter-display-size.component.html',
-  styleUrls: ['./filter-display-size.component.css']
+  selector: 'app-filter-weight',
+  templateUrl: './filter-weight.component.html',
+  styleUrls: ['./filter-weight.component.css']
 })
-export class FilterDisplaySizeComponent implements OnInit {
+export class FilterWeightComponent implements OnInit {
 
   filterObject:FilterModel=new FilterModel
   limits:Limits=new Limits
@@ -41,7 +40,7 @@ export class FilterDisplaySizeComponent implements OnInit {
     this.filterObject=history.state.data as FilterModel;
    
     
-    this.service2.searchByDisplayTypes(this.filterObject).subscribe(
+    this.service2.searchByDisplaySize(this.filterObject).subscribe(
       data=>{
         this.dataSource.data = data as ProductDetails[];
       }
@@ -77,19 +76,20 @@ export class FilterDisplaySizeComponent implements OnInit {
   applyDisplaySizeFilter(){
    
     
-    this.filterObject.DisplaySize=this.limits;
+    this.filterObject.Weight=this.limits;
 
      
 
-       this.service2.searchByDisplaySize(this.filterObject).subscribe(
+       this.service2.searchByWeight(this.filterObject).subscribe(
         data=>{
           this.dataSource.data = data as ProductDetails[];
         }
       );
 
   }
-  goToComponentFilterWeight(): void {
+  goToComponentFilterTouchscreen(): void {
     
-    this.router.navigate(['/search-weight'],{state: {data: this.filterObject}});
+    this.router.navigate(['/search-touchscreen'],{state: {data: this.filterObject}});
 }
+
 }

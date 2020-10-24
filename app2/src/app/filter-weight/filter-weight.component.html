@@ -1,34 +1,24 @@
-<!-- <form [formGroup]="form">
-    <label>Select the Display Size(inches) you want to buy:</label>
-    <section class="container">
-        <mat-checkbox class="options" formControlName="0-5">0-5</mat-checkbox>
-        <mat-checkbox class="options" formControlName="6-10">6-10</mat-checkbox>
-        <mat-checkbox class="options" formControlName="11-15">11-15</mat-checkbox>
-        <mat-checkbox class="options" formControlName="16-25">16-25</mat-checkbox>
-    </section>
-    
-</form> -->
+
 <table>
 
-
     <tr>
-        <td>Lower limit</td>
-        <td> <input placeholder="0..."
-            #lowerLimitTextBox
-            type="text"
-            (input)="onLowerLimitEdit(lowerLimitTextBox.value)"
-             /> </td>
-      </tr>
-      
-      <tr>
-          <td>Upper limit</td>
-          <td> <input placeholder="...25"
-             #upperLimitTextBox
-             type="text"
-             (input)="onUpperLimitEdit(upperLimitTextBox.value)"
-              /> </td>
-      </tr>
+      <td>Lower limit</td>
+      <td> <input placeholder="0..."
+          #lowerLimitTextBox
+          type="text"
+          (input)="onLowerLimitEdit(lowerLimitTextBox.value)"
+           /> </td>
+    </tr>
     
+    <tr>
+        <td>Upper limit</td>
+        <td> <input placeholder="...25"
+           #upperLimitTextBox
+           type="text"
+           (input)="onUpperLimitEdit(upperLimitTextBox.value)"
+            /> </td>
+    </tr>
+
 </table>
 
 
@@ -95,7 +85,7 @@
   </table>
   
 <br>
- <button mat-button (click)="goToComponentFilterWeight()" mat-flat-button color="primary">Go to next Filter</button>
+ <button mat-button (click)="goToComponentFilterTouchscreen()" mat-flat-button color="primary">Go to next Filter</button>
 <br>
   
   

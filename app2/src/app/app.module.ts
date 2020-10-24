@@ -62,6 +62,8 @@ import { SearchProductComponent } from './search-product/search-product.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './main-page/main-page.component';
 import { FilterDisplaySizeComponent } from './filter-display-size/filter-display-size.component';
+import { FilterWeightComponent } from './filter-weight/filter-weight.component';
+import { FilterTouchscreenComponent } from './filter-touchscreen/filter-touchscreen.component';
 
 
 @NgModule({
@@ -76,7 +78,9 @@ import { FilterDisplaySizeComponent } from './filter-display-size/filter-display
 
     SearchProductComponent,
     MainPageComponent,
-    FilterDisplaySizeComponent
+    FilterDisplaySizeComponent,
+    FilterWeightComponent,
+    FilterTouchscreenComponent
 
   ],
   imports: [

@@ -4,7 +4,18 @@
     width: 100%;
   }
   
-  .example-full-width {
+.example-full-width {
     width: 100%;
   }
-  
+.container{
+    position: absolute;
+}
+
+.options{
+    
+    float:left; 
+    margin-right:50px; 
+}
+table {
+    width: 100%;
+  }

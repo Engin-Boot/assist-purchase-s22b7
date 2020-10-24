@@ -78,7 +78,9 @@ export class FilterTouchscreenComponent implements OnInit {
       );
 
   }
-
+  startNewSearch():void{
+    this.router.navigate(['/search']);
+  }
  
 }
 

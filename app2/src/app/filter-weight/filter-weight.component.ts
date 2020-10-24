@@ -92,4 +92,7 @@ export class FilterWeightComponent implements OnInit {
     this.router.navigate(['/search-touchscreen'],{state: {data: this.filterObject}});
 }
 
+startNewSearch():void{
+  this.router.navigate(['/search']);
+}
 }

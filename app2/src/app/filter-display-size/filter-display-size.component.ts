@@ -92,4 +92,8 @@ export class FilterDisplaySizeComponent implements OnInit {
     
     this.router.navigate(['/search-weight'],{state: {data: this.filterObject}});
 }
+
+  startNewSearch():void{
+    this.router.navigate(['/search']);
+  }
 }

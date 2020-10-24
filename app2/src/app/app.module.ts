@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+//import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
@@ -52,9 +52,16 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { LoginComponent } from './login/login.component';
+
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 //import { DeleteProductComponent } from './delete-product/delete-product.component';
+
+
+import { SearchProductComponent } from './search-product/search-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MainPageComponent } from './main-page/main-page.component';
+import { FilterDisplaySizeComponent } from './filter-display-size/filter-display-size.component';
 
 
 @NgModule({
@@ -62,9 +69,15 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     AppComponent,
     TableComponent,
     LoginComponent,
+
     AddProductComponent,
     EditProductComponent,
     //DeleteProductComponent
+
+    SearchProductComponent,
+    MainPageComponent,
+    FilterDisplaySizeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -72,7 +85,12 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     BrowserAnimationsModule,
     MatTableModule,
     HttpClientModule,
-    FormsModule
+
+    FormsModule,
+
+    
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   exports: [A11yModule,
     ClipboardModule,

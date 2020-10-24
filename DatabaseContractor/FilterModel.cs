@@ -5,21 +5,17 @@ namespace DatabaseContractor
     public class FilterModel
     {
         public List<string> DisplayType { get; set; }
-        public IntLimits DisplaySize { get; set; }
-        public DoubleLimits Weight { get; set; }
+        public Limits DisplaySize { get; set; }
+        public Limits Weight { get; set; }
         public bool TouchScreen { get; set; }
 
     }
-        public class IntLimits
+        public class Limits
         {
-            public int Max { get; set; }
-            public int Min { get; set; }
+            public string Max { get; set; }
+            public string Min { get; set; }
         }
 
-        public class DoubleLimits
-        {
-            public double Max { get; set; }
-            public double Min { get; set; }
-        }
+       
     
 }

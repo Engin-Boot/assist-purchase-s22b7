@@ -1,5 +1,6 @@
 ﻿using DatabaseContractor;
 using DatabaseManager.ProductDatabase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,19 +17,25 @@ namespace AssistPurchase.Repositories.ProductDatabase
         public IEnumerable<Product> FilterByDisplayType(List<string> display, IEnumerable<Product> productList)
         {
             if (display == null) return productList;
-            return productList.Where(p => display.Contains(p.DisplayType));
+            IEnumerable<Product> list= productList.Where(p => display.Contains(p.DisplayType));
+            return list;
         }
 
-        public IEnumerable<Product> FilterByWeight(DoubleLimits weight, IEnumerable<Product> productList)
+        public IEnumerable<Product> FilterByWeight(Limits weight, IEnumerable<Product> productList)
         {
             if (weight == null) return productList;
-            return productList.Where(p => weight.Min < p.Weight && p.Weight < weight.Max);
+
+
+            return productList.Where(p => Convert.ToDouble(weight.Min) < p.Weight && Convert.ToDouble(weight.Max) > p.Weight);
         }
 
-        public IEnumerable<Product> FilterByDisplaySize(IntLimits screen, IEnumerable<Product> productList)
+        public IEnumerable<Product> FilterByDisplaySize(Limits screen, IEnumerable<Product> productList)
         {
             if (screen == null) return productList;
-            return productList.Where(p => screen.Min < p.Weight && p.Weight < screen.Max);
+             
+            IEnumerable<Product> list= productList.Where(p => Convert.ToInt32(screen.Min) < p.Weight && p.Weight < Convert.ToInt32(screen.Max));
+
+            return list;
         }
     }
 }

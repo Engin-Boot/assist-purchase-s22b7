@@ -7,7 +7,7 @@ namespace DatabaseManager.ProductDatabase
     {
         IEnumerable<Product> FilterByTouchScreen(bool TouchScreen, IEnumerable<Product> productList);
         IEnumerable<Product> FilterByDisplayType(List<string> display, IEnumerable<Product> productList);
-        IEnumerable<Product> FilterByWeight(DoubleLimits weight, IEnumerable<Product> productList);
-        IEnumerable<Product> FilterByDisplaySize(IntLimits screen, IEnumerable<Product> productList);
+        IEnumerable<Product> FilterByWeight(Limits weight, IEnumerable<Product> productList);
+        IEnumerable<Product> FilterByDisplaySize(Limits screen, IEnumerable<Product> productList);
     }
 }

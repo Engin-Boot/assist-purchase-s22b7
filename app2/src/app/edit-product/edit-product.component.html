@@ -1,0 +1,49 @@
+<table>
+    
+
+    <tr>
+        <td>name</td>
+        <td> <input placeholder="Enter Product Name"
+            type="text"
+            [(ngModel)] = 'name'
+              /> </td>
+      </tr>
+
+      <tr>
+        <td>Display Size</td>
+        <td> <input placeholder="Enter Display Size"
+            type="text"
+            [(ngModel)] = 'displaySize'
+              /> </td>
+      </tr>
+
+      <tr>
+        <td>Display Type</td>
+        <td> <input placeholder="Enter Display Type"
+            type="text"
+            [(ngModel)] = 'displayType'
+              /> </td>
+      </tr>
+
+      <tr>
+        <td>Weight</td>
+        <td> <input placeholder="Enter Weight"
+            type="text"
+            [(ngModel)] = 'weight'
+              /> </td>
+      </tr>
+
+      <tr>
+        <td>Touch Screen</td>
+        <td> <input type="checkbox" name="tc" [(ngModel)]="touchScreen" > </td>
+      </tr>
+
+      <tr>
+          <button (click) = "onEdit()">EDIT</button>
+      </tr>
+    
+    
+    
+  
+  </table>
+  

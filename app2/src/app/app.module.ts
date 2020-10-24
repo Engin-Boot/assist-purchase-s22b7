@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
@@ -52,19 +52,27 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { LoginComponent } from './login/login.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+//import { DeleteProductComponent } from './delete-product/delete-product.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    LoginComponent
+    LoginComponent,
+    AddProductComponent,
+    EditProductComponent,
+    //DeleteProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [A11yModule,
     ClipboardModule,
@@ -110,7 +118,8 @@ import { LoginComponent } from './login/login.component';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

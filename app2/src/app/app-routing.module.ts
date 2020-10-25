@@ -10,10 +10,13 @@ import { FilterTouchscreenComponent } from './filter-touchscreen/filter-touchscr
 import { FilterWeightComponent } from './filter-weight/filter-weight.component';
 
 import { LoginComponent } from './login/login.component';
+import { MainPageComponent } from './main-page/main-page.component';
 import { SearchProductComponent } from './search-product/search-product.component';
 import { TableComponent } from './table/table.component';
 
 const routes: Routes = [
+  {path:"" , redirectTo:'home', pathMatch:'full'},
+  {path: "home", component: MainPageComponent},
   {path:"login",component:LoginComponent},
   {path:"admin/products",component:TableComponent},
 

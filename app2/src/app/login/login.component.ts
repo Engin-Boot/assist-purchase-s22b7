@@ -19,13 +19,12 @@ export class LoginComponent implements OnInit {
 
   onLogin(){
 
-    //if(this.userName=="admin" && this.password=="admin@123"){
-    //  this.errorMessage="Login Successfull";
+    if(this.userName=="admin" && this.password=="admin@123"){
       this.route.navigate(['admin/products']);
-    //}
-    //else{
-    //  this.errorMessage="Invald Credentials";
-    //}
+    }
+    else {
+      this.errorMessage="Invald Credentials";
+    }
 
   }
   onReset(){

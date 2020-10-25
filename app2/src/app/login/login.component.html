@@ -3,16 +3,14 @@
   <tr>
     <td>userName</td>
     <td> <input placeholder="Enter Name Here"
-        #userNameTextBox
         type="text"
-        [value]="userName"  /> </td>
+        [(ngModel)]="userName"  /> </td>
   </tr>
   <tr>
     <td>Password</td>
     <td> <input placeholder="Enter Password Here"
-       #passwordTextBox
        type="password"
-        [value]="password" /> </td>
+        [(ngModel)]="password" /> </td>
   </tr>
   <tr>
     <td> <button  (click)="onLogin()">Login</button> </td>

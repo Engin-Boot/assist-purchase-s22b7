@@ -9,17 +9,5 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
   title: any;
-  constructor(private route:Router) { }
-  onLogin(){
-
-    //Validate Credentials
-    //Navigate -> MainDashBoard
-    this.route.navigate(['login']);
   
-   }
-  
-  
-   onSearch(){
-     this.route.navigate(['search']);
-   }
 }

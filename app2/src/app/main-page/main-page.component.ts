@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private route:Router) { }
+  ngOnInit() {
+    
   }
+
+  onLogin(){
+
+    //Validate Credentials
+    //Navigate -> MainDashBoard
+    this.route.navigate(['login']);
+  
+   }
+  
+  
+   onSearch(){
+     this.route.navigate(['search']);
+   }
 
 }

@@ -10,7 +10,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
     {
         public IEnumerable<Product> FilterByTouchScreen(bool TouchScreen, IEnumerable<Product> productList)
         {
-            if (!TouchScreen) return productList;
+            if (!TouchScreen) return productList.Where(p=> p.TouchScreen == false);
             return productList.Where(p => p.TouchScreen == true);
         }
 

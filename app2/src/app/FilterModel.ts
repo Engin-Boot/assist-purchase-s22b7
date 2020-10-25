@@ -9,8 +9,8 @@
 
  export  class Limits
       {
-        max:number;
-        min:number;
+        max:Int32Array;
+        min:Int32Array;
          
       }
 

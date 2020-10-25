@@ -6,6 +6,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 
 import { FilterDisplaySizeComponent } from './filter-display-size/filter-display-size.component';
+import { FilterTouchscreenComponent } from './filter-touchscreen/filter-touchscreen.component';
+import { FilterWeightComponent } from './filter-weight/filter-weight.component';
 
 import { LoginComponent } from './login/login.component';
 import { SearchProductComponent } from './search-product/search-product.component';
@@ -20,7 +22,9 @@ const routes: Routes = [
   //{path:"product/delete", component:DeleteProductComponent}
 
   {path:"search",component:SearchProductComponent},
-  {path:"search-display-size",component:FilterDisplaySizeComponent}
+  {path:"search-display-size",component:FilterDisplaySizeComponent},
+  {path:"search-weight",component:FilterWeightComponent},
+  {path:"search-touchscreen",component:FilterTouchscreenComponent}
   
 ];
 

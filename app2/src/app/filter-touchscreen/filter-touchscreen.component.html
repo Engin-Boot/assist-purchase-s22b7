@@ -1,46 +1,14 @@
-<!-- <form [formGroup]="form">
-    <label>Select the Display Size(inches) you want to buy:</label>
+<form [formGroup]="form">
+    <label>Select the Touch-screen type you want to buy:</label>
     <section class="container">
-        <mat-checkbox class="options" formControlName="0-5">0-5</mat-checkbox>
-        <mat-checkbox class="options" formControlName="6-10">6-10</mat-checkbox>
-        <mat-checkbox class="options" formControlName="11-15">11-15</mat-checkbox>
-        <mat-checkbox class="options" formControlName="16-25">16-25</mat-checkbox>
+        <mat-checkbox class="options" formControlName="Touch">Touchscreen</mat-checkbox>
     </section>
     
-</form> -->
-<table>
-
-
-    <tr>
-        <td>Lower limit</td>
-        <td> <input placeholder="0..."
-            #lowerLimitTextBox
-            type="text"
-            (input)="onLowerLimitEdit(lowerLimitTextBox.value)"
-             /> </td>
-      </tr>
-      
-      <tr>
-          <td>Upper limit</td>
-          <td> <input placeholder="...25"
-             #upperLimitTextBox
-             type="text"
-             (input)="onUpperLimitEdit(upperLimitTextBox.value)"
-              /> </td>
-      </tr>
-    
-</table>
-
-
-<!-- <h1 style="margin-top:2rem">LCD Value: <span style="color: gray"> {{lcdValue}}</span></h1>
-<h1 style="margin-top:2rem">LCC Value: <span style="color: gray"> {{lccValue}}</span></h1>
-<h1 style="margin-top:2rem">LED Value: <span style="color: gray"> {{ledValue}}</span></h1>
-<h1 style="margin-top:2rem">Plasma Value: <span style="color: gray"> {{plasmaValue}}</span></h1>
- -->
+</form>
 
 <br>
 
- <button mat-button (click)="applyDisplaySizeFilter()" mat-flat-button color="primary">Apply Filter</button>
+ <button mat-button (click)="applyDisplayTypeFilter()" mat-flat-button color="primary">Apply Filter</button>
 <br>
 <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -90,17 +58,14 @@
         </td>
     </ng-container>
   
-    <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   
-<br>
- <button mat-button (click)="goToComponentFilterWeight()" mat-flat-button color="primary">Go to next Filter</button>
-<br>
-  
-<br>
- <button mat-button (click)="startNewSearch()" mat-flat-button color="primary">Start a new search</button>
-<br>
+ 
+  <br>
+  <button mat-button (click)="startNewSearch()" mat-flat-button color="primary">Start a new search</button>
+ <br>
   
   <!-- Copyright 2020 Google LLC. All Rights Reserved.
       Use of this source code is governed by an MIT-style license that

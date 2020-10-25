@@ -10,7 +10,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
     {
         public IEnumerable<Product> FilterByTouchScreen(bool TouchScreen, IEnumerable<Product> productList)
         {
-            if (!TouchScreen) return productList;
+            if (!TouchScreen) return productList.Where(p=> p.TouchScreen == false);
             return productList.Where(p => p.TouchScreen == true);
         }
 
@@ -33,7 +33,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
         {
             if (screen == null) return productList;
              
-            IEnumerable<Product> list= productList.Where(p => Convert.ToInt32(screen.Min) < p.Weight && p.Weight < Convert.ToInt32(screen.Max));
+            IEnumerable<Product> list= productList.Where(p => Convert.ToInt32(screen.Min) < p.DisplaySize && p.DisplaySize < Convert.ToInt32(screen.Max));
 
             return list;
         }

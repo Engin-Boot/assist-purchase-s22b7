@@ -38,23 +38,40 @@ namespace AssistPurchase.Controllers
 
         // POST api/new
         [HttpPost("new")]
-        public HttpStatusCode Post([FromBody] Product product)
+        public HttpStatusCode Post([FromBody] ProductInput product)
         {
             if (string.IsNullOrEmpty(product.Name))
                 //Console.WriteLine(product.Name);
                 return HttpStatusCode.BadRequest;
-
-            return _productDatabaseHandler.AddProductToDb(product);
+            Product p = new Product
+            {
+                DisplaySize = int.Parse(product.DisplaySize),
+                Weight = double.Parse(product.Weight),
+                DisplayType = product.DisplayType,
+                Id = product.Id,
+                Name = product.Name,
+                TouchScreen = product.TouchScreen
+            };
+            return _productDatabaseHandler.AddProductToDb(p);
         }
 
         // PUT api/update
         [HttpPut("update")]
-        public HttpStatusCode Put([FromBody] Product product)
+        public HttpStatusCode Put([FromBody] ProductInput product)
         {
             if (string.IsNullOrEmpty(product.Id))
                 return HttpStatusCode.BadRequest;
+            Product p = new Product
+            {
+                DisplaySize = int.Parse(product.DisplaySize),
+                Weight = double.Parse(product.Weight),
+                DisplayType = product.DisplayType,
+                Id = product.Id,
+                Name = product.Name,
+                TouchScreen = product.TouchScreen
+            };
 
-            return _productDatabaseHandler.UpdateProductInDb(product);
+            return _productDatabaseHandler.UpdateProductInDb(p);
         }
 
         // DELETE api/remove/5

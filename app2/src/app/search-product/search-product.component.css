@@ -1,8 +1,10 @@
 
 .container{
-    position: absolute;
+    align-content: center;
 }
-
+.mat-elevation-z8{
+    align-content: center;
+}
 .options{
     
     float:left; 

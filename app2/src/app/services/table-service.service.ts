@@ -15,14 +15,15 @@ export class TableServiceService {
   }
 
   addProduct(prod): Observable<any> {
-    return this.httpClient.post(`http://localhost:53010/api/AdminData/new`, prod);
-  }
-
-  updateProduct(prod): Observable<any> {
     const httpOptions = {
       headers : new HttpHeaders({'Content-Type': 'application/json'})
     };
-    return this.httpClient.put(`http://localhost:53010/api/AdminData/update`, prod, httpOptions).pipe();
+    return this.httpClient.post(`http://localhost:53010/api/AdminData/new`, prod, httpOptions).pipe();
+  }
+
+  updateProduct(prod): Observable<any> {
+    
+    return this.httpClient.put(`http://localhost:53010/api/AdminData/update`, prod);
   }
 
   deleteProduct(id): Observable<any> {

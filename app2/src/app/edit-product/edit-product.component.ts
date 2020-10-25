@@ -13,9 +13,9 @@ export class EditProductComponent implements OnInit {
 
   UID:string;
   name:string;
-  displaySize:number;
+  displaySize:string;
   displayType:string;
-  weight:number;
+  weight:string;
   touchScreen:boolean;
   
   constructor(private service:TableServiceService, private route:Router) { }
@@ -23,14 +23,22 @@ export class EditProductComponent implements OnInit {
   ngOnInit(): void {
     this.UID = history.state.data.UID;
     this.name = history.state.data.name
-    this.displaySize = history.state.data.displaySize;
+    this.displaySize = history.state.data.displaySize.toString();
     this.displayType = history.state.data.displayType;
-    this.weight = history.state.data.weight;
+    this.weight = history.state.data.weight.toString();
     this.touchScreen = history.state.data.touchScreen;
   }
 
   onEdit() {
     let prod = {UID:this.UID, name:this.name, displaySize:this.displaySize, displayType:this.displayType, weight:this.weight, touchScreen:this.touchScreen};
+    // const prod: ProductDetails = {
+    //   UID : this.UID,
+    //   name : this.name,
+    //   displaySize : this.displaySize,
+    //   displayType : this.displayType,
+    //   weight : this.weight,
+    //   touchScreen : this.touchScreen
+    // };
     this.service.updateProduct(prod).subscribe(success=>{this.route.navigate(['admin/products']);},error=>{});
     console.warn(prod);
   }

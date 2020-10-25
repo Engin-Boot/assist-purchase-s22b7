@@ -1,9 +1,9 @@
 export interface ProductDetails {
     UID:string;
     name:string;
-    displaySize:number;
+    displaySize:string;
     displayType:string;
-    weight:number;
+    weight:string;
     touchScreen:boolean;
   }
   

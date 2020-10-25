@@ -82,6 +82,10 @@ export class FilterTouchscreenComponent implements OnInit {
     this.router.navigate(['/search']);
   }
  
+  
+  contactSales():void{
+    this.router.navigate(['/contact-sales'],{state: {data: this.filterObject}});
+  }
 }
 
 

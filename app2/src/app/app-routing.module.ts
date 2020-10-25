@@ -11,6 +11,7 @@ import { FilterWeightComponent } from './filter-weight/filter-weight.component';
 
 import { LoginComponent } from './login/login.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { SalesPersonComponent } from './sales-person/sales-person.component';
 import { SearchProductComponent } from './search-product/search-product.component';
 import { TableComponent } from './table/table.component';
 
@@ -27,7 +28,9 @@ const routes: Routes = [
   {path:"search",component:SearchProductComponent},
   {path:"search-display-size",component:FilterDisplaySizeComponent},
   {path:"search-weight",component:FilterWeightComponent},
-  {path:"search-touchscreen",component:FilterTouchscreenComponent}
+  {path:"search-touchscreen",component:FilterTouchscreenComponent},
+  {path:"contact-sales",component:SalesPersonComponent },
+  {path:"main-page",redirectTo:'home',pathMatch:'full'}
   
 ];
 

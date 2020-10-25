@@ -1,3 +1,5 @@
+import { EmailValidator } from '@angular/forms';
+import { ProductDetails } from './ProductDetails';
 
   export class FilterModel
   {
@@ -14,4 +16,11 @@
          
       }
 
+
+  export class UserForSalesDetails{
+    CustomerName:string;
+    EmailId:EmailValidator
+    Description:ProductDetails[]
+
+}
      

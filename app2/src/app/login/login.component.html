@@ -1,24 +1,28 @@
-
+<p class="main-label">Hello admin,please enter your credentials to log-in: </p>
 <table>
+  <br>
   <tr>
     <td>Enter you username:</td>
     <td> <input placeholder="Enter Name Here"
         type="text"
         [(ngModel)]="userName"  /> </td>
   </tr>
+  
   <tr>
     <td>Enter password:</td>
     <td> <input placeholder="Enter Password Here"
        type="password"
         [(ngModel)]="password" /> </td>
   </tr>
+  <br>
   <tr>
     <td> <button  (click)="onLogin()">Login</button> </td>
-    <td> <button (click)="onReset()" >Reset</button> </td>
+    <td> <button class="option" (click)="onReset()" >Reset</button> </td>
   </tr>
+  <br>
   <tr>
     <td>Status </td>
-    <td> <output> {{'Login Status :'+ errorMessage}}</output> </td>
+    <td> <output class="option"> {{'Login Status :'+ errorMessage}}</output> </td>
   </tr>
 
 </table>

@@ -7,6 +7,9 @@ import { FilterModel } from '../FilterModel';
 import { ProductDetails } from '../ProductDetails';
 import { SearchProductService } from '../services/search-product.service';
 import { TableServiceService } from '../services/table-service.service';
+import {MatPaginator} from '@angular/material/paginator';
+import { ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-filter-touchscreen',
@@ -35,6 +38,9 @@ export class FilterTouchscreenComponent implements OnInit {
   touchValue;
   
   
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
 
   ngOnInit(): void {
 
@@ -85,6 +91,11 @@ export class FilterTouchscreenComponent implements OnInit {
   
   contactSales():void{
     this.router.navigate(['/contact-sales'],{state: {data: this.filterObject}});
+  }
+
+  
+  ngAfterViewInit(): void {   
+    this.dataSource.paginator = this.paginator;
   }
 }
 

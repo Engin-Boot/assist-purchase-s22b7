@@ -1,14 +1,27 @@
-
 .container{
-    align-content: unset;
+    margin-left: 10pt;
+    margin-top: 10pt;
 }
+
+a:hover{
+    color: darkblue;
+}
+
+.add-to-cart{
+    color: cornflowerblue;
+}
+
+.main-label{
+    margin-top:-30pt;
+}
+
 .mat-elevation-z8{
     margin-left: -100pt;
     margin-top: 25pt;
 }
-.filter{
-    margin-top: 10pt;
-    
+.paginator{
+    margin-left: 0pt;
+    align-content: center;
 }
 .options{
     
@@ -17,5 +30,9 @@
 }
 
 table {
-    width: 200%;
+    width: 150%;
+}
+
+.nextFilter{
+    margin-left: 70%;
 }

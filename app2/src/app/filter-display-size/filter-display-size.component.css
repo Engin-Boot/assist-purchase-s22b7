@@ -1,4 +1,35 @@
+.container{
+  margin-left: 10pt;
+  margin-top: 10pt;
+}
+
+.filter{
+  margin-top: 10pt;
+  margin-left: 180%;
+
+}
+.main-label{
+  margin-top:-30pt;
+}
+
+.mat-elevation-z8{
+  margin-left: -100pt;
+  margin-top: 25pt;
+}
+.paginator{
+  margin-left: 0pt;
+  align-content: center;
+}
+.options{
+  
+  float:left; 
+  margin-right:50px; 
+}
 
 table {
-    width: 100%;
-  }
+  width: 150%;
+}
+
+.nextFilter{
+  margin-left: 70%;
+}

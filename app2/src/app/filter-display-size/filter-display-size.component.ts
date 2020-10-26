@@ -6,7 +6,8 @@ import { FilterModel, Limits } from '../FilterModel';
 import { ProductDetails } from '../ProductDetails';
 import { SearchProductService } from '../services/search-product.service';
 import { Router} from '@angular/router';
-
+import {MatPaginator} from '@angular/material/paginator';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-filter-display-size',
@@ -35,6 +36,9 @@ export class FilterDisplaySizeComponent implements OnInit {
   LowerLimitValue;
   UpperLimitValue;
   
+
+  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
 
@@ -95,5 +99,10 @@ export class FilterDisplaySizeComponent implements OnInit {
 
   startNewSearch():void{
     this.router.navigate(['/search']);
+  }
+
+  
+  ngAfterViewInit(): void {   
+    this.dataSource.paginator = this.paginator;
   }
 }

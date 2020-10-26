@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit,ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductDetails } from '../ProductDetails';
@@ -9,6 +9,7 @@ import { FormGroup, FormControl,ReactiveFormsModule, AbstractControl } from '@an
 import { Observable } from 'rxjs';
 import { MatListItem } from '@angular/material/list';
 import { Router } from '@angular/router';
+import {MatPaginator} from '@angular/material/paginator';
 
 
 @Component({
@@ -16,13 +17,13 @@ import { Router } from '@angular/router';
   templateUrl: './search-product.component.html',
   styleUrls: ['./search-product.component.css']
 })
-export class SearchProductComponent implements OnInit {
+export class SearchProductComponent implements OnInit,AfterViewInit {
   
   filterObject:FilterModel=new FilterModel
   listOfDiplayTypes:string[]=[]
   displayedColumns: string[] =  ['UID', 'name', 'displaySize', 'displayType', 'weight', 'touchScreen', 'action'];
   dataSource = new MatTableDataSource<ProductDetails>();
-
+  
  
 
   constructor(private service:TableServiceService,private service2:SearchProductService,private router:Router){}
@@ -46,6 +47,8 @@ export class SearchProductComponent implements OnInit {
 
   
 
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
 
 
@@ -86,6 +89,7 @@ export class SearchProductComponent implements OnInit {
       });
   }
 
+  
 
   applyDisplayTypeFilter(){
    
@@ -113,8 +117,17 @@ export class SearchProductComponent implements OnInit {
 
   }
 
+  ngAfterViewInit(): void {   
+    this.dataSource.paginator = this.paginator;
+  }
+
   goToComponentFilterDisplaySize(): void {
     
     this.router.navigate(['/search-display-size'],{state: {data: this.filterObject}});
-}
+  }
+
+  addToCart(){
+
+    alert("Item added to cart");
+  }
 }

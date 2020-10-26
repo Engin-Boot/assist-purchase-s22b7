@@ -1,4 +1,10 @@
 
+.title{
+  font-size: 30pt;
+  text-align: center;
+  margin-top: 30pt;
+  color: #0089c4
+}
 
   .toolbar {
  
@@ -8,7 +14,7 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #888;
+    background-color: #1474a4;
     color: white;
     font-weight: 600;
   }

@@ -1,4 +1,4 @@
-<label>Enter the range of screen sizes(0-25 inches) in which you want to to buy:</label>
+<p class="main-label">Enter the range of screen sizes(0-25 inches) in which you want to to buy:</p>
 <table>
 
 
@@ -20,20 +20,16 @@
               /> </td>
       </tr>
     
+      <button mat-button class="filter"(click)="applyDisplaySizeFilter()" mat-flat-button color="primary">Apply Filter</button>
 </table>
 
 
-<!-- <h1 style="margin-top:2rem">LCD Value: <span style="color: gray"> {{lcdValue}}</span></h1>
-<h1 style="margin-top:2rem">LCC Value: <span style="color: gray"> {{lccValue}}</span></h1>
-<h1 style="margin-top:2rem">LED Value: <span style="color: gray"> {{ledValue}}</span></h1>
-<h1 style="margin-top:2rem">Plasma Value: <span style="color: gray"> {{plasmaValue}}</span></h1>
- -->
-
-<br>
-
- <button mat-button (click)="applyDisplaySizeFilter()" mat-flat-button color="primary">Apply Filter</button>
-<br>
-<table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
+<div>
+ 
+  <br>
+  <mat-paginator  class="paginator" [pageIndex]="0"  [pageSize]="5"  [pageSizeOptions]="[5, 10, 20]"   showFirstLastButtons></mat-paginator>
+ 
+  <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -81,16 +77,18 @@
         </td>
     </ng-container>
   
-    <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   
+</div>
+  
 <br>
- <button mat-button (click)="goToComponentFilterWeight()" mat-flat-button color="primary">Go to next Filter</button>
+ <button mat-button class="nextFilter" (click)="goToComponentFilterWeight()" mat-flat-button color="primary">Go to next Filter</button>
 <br>
   
 <br>
- <button mat-button (click)="startNewSearch()" mat-flat-button color="primary">Start a new search</button>
+ <button mat-button class="nextFilter" (click)="startNewSearch()" mat-flat-button color="primary">Start a new search</button>
 <br>
   
   <!-- Copyright 2020 Google LLC. All Rights Reserved.

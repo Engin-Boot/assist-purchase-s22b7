@@ -1,16 +1,20 @@
 <form [formGroup]="form">
-    <label>Select the Touch-screen type you want to buy:</label>
+  <p class="main-label">Select the Screen type you want to buy:</p>
     <section class="container">
         <mat-checkbox class="options" formControlName="Touch">Touchscreen</mat-checkbox>
-    </section>
+        <button mat-button (click)="applyDisplayTypeFilter()" mat-flat-button color="primary">Apply Filter</button>
+
+      </section>
     
 </form>
 
-<br>
 
- <button mat-button (click)="applyDisplayTypeFilter()" mat-flat-button color="primary">Apply Filter</button>
-<br>
-<table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
+<div>
+ 
+  <br>
+  <mat-paginator  class="paginator" [pageIndex]="0"  [pageSize]="5"  [pageSizeOptions]="[5, 10, 20]"   showFirstLastButtons></mat-paginator>
+ 
+  <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -62,15 +66,17 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   
- 
+</div> 
+
+
   <br>
-  <button mat-button (click)="startNewSearch()" mat-flat-button color="primary">Start a new search</button>
+  <button mat-button class="nextFilter" (click)="startNewSearch()" mat-flat-button color="primary">Start a new search</button>
  <br>
   
 
  
  <br>
- <button mat-button (click)="contactSales()" mat-flat-button color="primary">Contact a salesperson</button>
+ <button mat-button  class="nextFilter" (click)="contactSales()" mat-flat-button color="primary">Contact a salesperson</button>
 <br>
   <!-- Copyright 2020 Google LLC. All Rights Reserved.
       Use of this source code is governed by an MIT-style license that

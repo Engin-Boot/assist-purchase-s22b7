@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { FilterModel, Limits } from '../FilterModel';
 import { ProductDetails } from '../ProductDetails';
 import { SearchProductService } from '../services/search-product.service';
+import {MatPaginator} from '@angular/material/paginator';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-filter-weight',
@@ -34,6 +36,9 @@ export class FilterWeightComponent implements OnInit {
   LowerLimitValue;
   UpperLimitValue;
   
+
+  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
 
@@ -95,4 +100,11 @@ export class FilterWeightComponent implements OnInit {
 startNewSearch():void{
   this.router.navigate(['/search']);
 }
+
+
+ngAfterViewInit(): void {   
+  this.dataSource.paginator = this.paginator;
+}
+
+
 }

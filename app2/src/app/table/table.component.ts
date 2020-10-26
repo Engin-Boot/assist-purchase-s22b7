@@ -3,15 +3,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ProductDetails } from '../ProductDetails';
 import { TableServiceService } from '../services/table-service.service';
+import {MatPaginator} from '@angular/material/paginator';
+import { ViewChild } from '@angular/core';
 
-// const ELEMENT_DATA: ProductDetails[] = [
-//   {"UID":"ADC789","name":"IntelliVue X4","displaySize":12,"displayType":"LCD","weight":2.5,"touchScreen":false},
-//   {"UID":"ADC457","name":"IntelliVue X0","displaySize":9,"displayType":"LED","weight":1.8,"touchScreen":true},
-//   {"UID":"ADX577","name":"IntelliVue X56","displaySize":8,"displayType":"Plasma","weight":0.3,"touchScreen":true},
-//   {"UID":"ADC577","name":"IntelliVue X7","displaySize":6,"displayType":"LCC","weight":1.3,"touchScreen":true},
-//   {"UID":"ADC578","name":"IntelliVue X2","displaySize":15,"displayType":"LCD","weight":5,"touchScreen":true},
-//   {"UID":"ADX877","name":"IntelliVue T56","displaySize":8,"displayType":"Plasma","weight":0.3,"touchScreen":true}
-// ];
 
 
 @Component({
@@ -26,6 +20,9 @@ export class TableComponent  {
   dataSource = new MatTableDataSource<ProductDetails>();
   //dataSource = ELEMENT_DATA
   constructor(private service:TableServiceService, private route:Router){}
+
+  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
     this.service.getAllProduct().subscribe(
@@ -48,6 +45,11 @@ export class TableComponent  {
       );
 
     }
+  }
+
+  
+  ngAfterViewInit(): void {   
+    this.dataSource.paginator = this.paginator;
   }
   
 }

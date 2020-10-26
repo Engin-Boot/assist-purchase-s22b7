@@ -82,7 +82,8 @@ import { SalesPersonComponent } from './sales-person/sales-person.component';
     FilterDisplaySizeComponent,
     FilterWeightComponent,
     FilterTouchscreenComponent,
-    SalesPersonComponent
+    SalesPersonComponent,
+ 
 
   ],
   imports: [
@@ -96,7 +97,8 @@ import { SalesPersonComponent } from './sales-person/sales-person.component';
 
    
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatPaginatorModule
   ],
   exports: [A11yModule,
     ClipboardModule,
@@ -144,6 +146,8 @@ import { SalesPersonComponent } from './sales-person/sales-person.component';
     ScrollingModule,
     HttpClientModule,
     FormsModule
+    
+    
     
   ],
   providers: [],

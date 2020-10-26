@@ -1,23 +1,25 @@
+
 <form [formGroup]="form">
-    <label>Select the Screen type you want to buy:</label>
+    <p class="main-label">Select the Screen type you want to buy:</p>
     <section class="container">
         <mat-checkbox class="options" formControlName="LCD">LCD</mat-checkbox>
         <mat-checkbox class="options" formControlName="LCC">LCC</mat-checkbox>
         <mat-checkbox class="options" formControlName="Plasma">Plasma</mat-checkbox>
         <mat-checkbox class="options" formControlName="LED">LED</mat-checkbox>
-    </section>
+        <button mat-button (click)="applyDisplayTypeFilter()" class="filter" mat-flat-button color="primary">Apply Filter</button>
+
+      </section>
     
 </form>
 
 
-<br>
-
- <button mat-button (click)="applyDisplayTypeFilter()" class="filter" mat-flat-button color="primary">Apply Filter</button>
-<br>
 
 <div>
  
-<table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
+  <br>
+  <mat-paginator  class="paginator" [pageIndex]="0"  [pageSize]="5"  [pageSizeOptions]="[5, 10, 20]"   showFirstLastButtons></mat-paginator>
+ 
+  <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -61,18 +63,18 @@
     <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element" class="action-link"> 
-        <a (click)="selectProduct('Update',element)">Add to cart</a>  
+        <a class="add-to-cart" (click)="addToCart()">Add to cart</a>  
         </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+  
 </div>
-  <br>
-
- <button mat-button (click)="goToComponentFilterDisplaySize()" mat-flat-button color="primary">Go to next Filter</button>
+  
+<br>
+ <button mat-button (click)="goToComponentFilterDisplaySize()" class="nextFilter" mat-flat-button color="primary">Go to next Filter</button>
 <br>
   
   

@@ -1,9 +1,14 @@
 
 .container{
-    align-content: center;
+    align-content: unset;
 }
 .mat-elevation-z8{
-    align-content: center;
+    margin-left: -100pt;
+    margin-top: 25pt;
+}
+.filter{
+    margin-top: 10pt;
+    
 }
 .options{
     
@@ -12,5 +17,5 @@
 }
 
 table {
-    width: 100%;
+    width: 200%;
 }

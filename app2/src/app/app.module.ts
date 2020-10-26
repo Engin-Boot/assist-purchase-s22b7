@@ -94,7 +94,7 @@ import { SalesPersonComponent } from './sales-person/sales-person.component';
 
     FormsModule,
 
-    
+   
     ReactiveFormsModule,
     MatCheckboxModule
   ],
@@ -144,6 +144,7 @@ import { SalesPersonComponent } from './sales-person/sales-person.component';
     ScrollingModule,
     HttpClientModule,
     FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

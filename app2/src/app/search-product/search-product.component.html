@@ -1,5 +1,5 @@
 <form [formGroup]="form">
-    <label>Select the Touch-screen type you want to buy:</label>
+    <label>Select the Screen type you want to buy:</label>
     <section class="container">
         <mat-checkbox class="options" formControlName="LCD">LCD</mat-checkbox>
         <mat-checkbox class="options" formControlName="LCC">LCC</mat-checkbox>
@@ -9,16 +9,14 @@
     
 </form>
 
-<!-- <h1 style="margin-top:2rem">LCD Value: <span style="color: gray"> {{lcdValue}}</span></h1>
-<h1 style="margin-top:2rem">LCC Value: <span style="color: gray"> {{lccValue}}</span></h1>
-<h1 style="margin-top:2rem">LED Value: <span style="color: gray"> {{ledValue}}</span></h1>
-<h1 style="margin-top:2rem">Plasma Value: <span style="color: gray"> {{plasmaValue}}</span></h1>
- -->
 
 <br>
 
- <button mat-button (click)="applyDisplayTypeFilter()" mat-flat-button color="primary">Apply Filter</button>
+ <button mat-button (click)="applyDisplayTypeFilter()" class="filter" mat-flat-button color="primary">Apply Filter</button>
 <br>
+
+<div>
+ 
 <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -70,7 +68,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+</div>
   <br>
 
  <button mat-button (click)="goToComponentFilterDisplaySize()" mat-flat-button color="primary">Go to next Filter</button>

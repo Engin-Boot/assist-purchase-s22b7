@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { MatListItem } from '@angular/material/list';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-search-product',
   templateUrl: './search-product.component.html',
@@ -22,7 +23,7 @@ export class SearchProductComponent implements OnInit {
   displayedColumns: string[] =  ['UID', 'name', 'displaySize', 'displayType', 'weight', 'touchScreen', 'action'];
   dataSource = new MatTableDataSource<ProductDetails>();
 
-  
+ 
 
   constructor(private service:TableServiceService,private service2:SearchProductService,private router:Router){}
 
@@ -45,7 +46,12 @@ export class SearchProductComponent implements OnInit {
 
   
 
+
+
+
   ngOnInit(): void {
+
+
     this.service.getAllProduct().subscribe(
       data=>{
         this.dataSource.data = data as ProductDetails[];

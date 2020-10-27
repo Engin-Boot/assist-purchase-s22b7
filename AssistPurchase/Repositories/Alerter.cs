@@ -8,6 +8,7 @@ namespace AssistPurchase.Repositories
     {
         bool Alert(SalesInput message);
     }
+
     public class EmailAlert : IAlerter
     {
         public bool Alert(SalesInput salesInput)

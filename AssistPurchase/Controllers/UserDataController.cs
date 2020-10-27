@@ -2,6 +2,7 @@
 using DatabaseContractor;
 
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -41,7 +42,9 @@ namespace AssistPurchase.Controllers
         public IActionResult GetFilteredProduct([FromBody]FilterModel obj)
         {
             try
-            {             
+            {
+                if (obj == null)
+                    throw new Exception();
                 return Ok(_filterDatabaseHandler.GetFilteredProducts(obj));
             }
             catch
@@ -51,7 +54,7 @@ namespace AssistPurchase.Controllers
         }
 
         [HttpPost("filterList/size")]
-        public IActionResult GetFilteredProductBySIze( [FromBody] FilterModel obj)
+        public IActionResult GetFilteredProductBySize( [FromBody] FilterModel obj)
         {
             try
             {

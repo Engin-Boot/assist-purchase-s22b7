@@ -17,21 +17,21 @@ namespace AssistPurchase.Repositories.ProductDatabase
         }
         public IEnumerable<Product> GetAllProductsFromDb()
         {
-            try
+            //try
             {
                 
                 return _db.Products.ToList();
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return null;
-            }
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //    return null;
+            //}
         }
 
         public HttpStatusCode AddProductToDb(Product product)
         {
-            try
+            //try
             {
                 var dbProduct = _db.Products.FirstOrDefault(b => b.Id == product.Id);
                 if (dbProduct != null)
@@ -40,26 +40,26 @@ namespace AssistPurchase.Repositories.ProductDatabase
                 _db.SaveChanges();
                 return HttpStatusCode.OK;
             }
-            catch (Exception e)
-            {
-                return InternalServerError(e);
-            }
+            //catch (Exception e)
+            //{
+            //    return InternalServerError(e);
+            //}
         }
 
         public Product GetProductByNameFromDb(string name)
         {
-            try
+            //try
             {
                
                 return _db.Products.FirstOrDefault(b => b.Name == name);
             }
-            catch (Exception e) { throw new ApplicationException("Problem with Database", e); }
+            //catch (Exception e) { throw new ApplicationException("Problem with Database", e); }
         }
 
         public HttpStatusCode UpdateProductInDb(Product product)
         {
             var dbProduct = _db.Products.FirstOrDefault(b => b.Id == product.Id);
-            try
+            //try
             {
                 if (dbProduct == null)
                     return HttpStatusCode.NotFound;
@@ -69,15 +69,15 @@ namespace AssistPurchase.Repositories.ProductDatabase
 
                 return HttpStatusCode.OK;
             }
-            catch (Exception e)
-            {
-                return InternalServerError(e);
-            }
+            //catch (Exception e)
+            //{
+            //    return InternalServerError(e);
+            //}
         }
 
         public HttpStatusCode RemoveProductFromDb(string id)
         {
-            try
+            //try
             {
                 
                 var product = _db.Products.FirstOrDefault(b => b.Id == id);
@@ -87,10 +87,10 @@ namespace AssistPurchase.Repositories.ProductDatabase
                 _db.SaveChanges();
                 return HttpStatusCode.OK;
             }
-            catch (Exception e)
-            {
-                return InternalServerError(e);
-            }
+            //catch (Exception e)
+            //{
+            //    return InternalServerError(e);
+            //}
         }
 
         private static HttpStatusCode InternalServerError(Exception e)

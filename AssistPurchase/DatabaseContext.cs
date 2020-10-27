@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AssistPurchase
 {
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     public class DatabaseContext:DbContext
     {
         public DatabaseContext(DbContextOptions options) : base(options)

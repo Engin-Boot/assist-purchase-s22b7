@@ -17,7 +17,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
         public IEnumerable<Product> GetFilteredProducts(FilterModel filterObj)
 
         {
-            try
+            //try
             {
                 
                 var products = _db.Products.ToList();
@@ -25,52 +25,52 @@ namespace AssistPurchase.Repositories.ProductDatabase
                 FilterAssist f = new FilterAssist();
                 return f.FilterByDisplayType(filterObj.DisplayType,products);
 }
-            catch (Exception e)
-            {
-                Trace.TraceInformation(e.Message);
-                return null;
-            }
+            //catch (Exception e)
+            //{
+            //    Trace.TraceInformation(e.Message);
+            //    throw e;
+            //}
         }
 
 
         public IEnumerable<Product> GetFilteredProductsBySize(FilterModel filterObj)
 
         {
-            try
+            //try
             {
 
                 FilterAssist f = new FilterAssist();
                 return f.FilterByDisplaySize(filterObj.DisplaySize, GetFilteredProducts(filterObj));
 
             }
-            catch (Exception e)
-            {
-                Trace.TraceInformation(e.Message);
-                return null;
-            }
+            //catch (Exception e)
+            //{
+            //    Trace.TraceInformation(e.Message);
+            //    throw e;
+            //}
         }
 
         public IEnumerable<Product> GetFilteredProductsByWeight(FilterModel filterObj)
 
         {
-            try
+            //try
             {
 
                 FilterAssist f = new FilterAssist();
                 return f.FilterByWeight(filterObj.Weight,GetFilteredProductsBySize(filterObj));
 
             }
-            catch (Exception e)
-            { 
-                Trace.TraceInformation(e.Message);
-                return null;
-            }
+            //catch (Exception e)
+            //{
+            //    Trace.TraceInformation(e.Message);
+            //    throw e;
+            //}
         }
 
         public IEnumerable<Product> GetFilteredProductsByTouch(FilterModel filterObj)
 
         {
-            try
+            //try
             {
 
                 
@@ -78,11 +78,11 @@ namespace AssistPurchase.Repositories.ProductDatabase
                 return f.FilterByTouchScreen(filterObj.TouchScreen, GetFilteredProductsByWeight(filterObj));
 
             }
-            catch (Exception e)
-            {
-                Trace.TraceInformation(e.Message);
-                return null;
-            }
+            //catch (Exception e)
+            //{
+            //    Trace.TraceInformation(e.Message);
+            //    throw e;
+            //}
         }
        
                 

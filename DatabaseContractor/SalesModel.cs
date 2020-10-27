@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DatabaseContractor
 {
-
+    [ExcludeFromCodeCoverage]
     public class SalesInfo
     {
         [Key]
@@ -12,6 +13,7 @@ namespace DatabaseContractor
         public string Description { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class SalesInput
     {
         

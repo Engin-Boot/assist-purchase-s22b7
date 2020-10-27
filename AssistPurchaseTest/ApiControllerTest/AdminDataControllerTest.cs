@@ -2,7 +2,9 @@ using System.Net;
 using AssistPurchase.Controllers;
 using AssistPurchase.Repositories.ProductDatabase;
 using DatabaseContractor;
+using Microsoft.AspNetCore.Mvc;
 using Xunit;
+using RestSharp;
 
 namespace AssistPurchaseTest.ApiControllerTest
 {
@@ -16,6 +18,19 @@ namespace AssistPurchaseTest.ApiControllerTest
             Service = new ProductDatabaseHandler(Context);
             _controller = new AdminDataController(Service);
         }
+
+        [Fact]
+        public void GetAllProducts()
+        {
+            IActionResult response = _controller.Get();
+            string result = response.ToString();
+            Assert.False( result.Equals(""));
+        }
+
+
+
+
+
         // Add test case
         [Fact]
         public void Add_InvalidObjectPassed_ReturnsBadRequest()
@@ -90,16 +105,20 @@ namespace AssistPurchaseTest.ApiControllerTest
         [Fact]
         public void Update_InvalidObjectPassed_ReturnsBadRequest()
         {
-            var nameMissingItem = new ProductInput
+            var Item = new ProductInput
             {
+                Id = "ADT20",
+                Name = "IntelliVue X3",
                 DisplaySize = "6",
                 DisplayType = "LCC",
                 Weight = "1.3",
                 TouchScreen = true
             };
-            var badResponse = _controller.Post(nameMissingItem);
+            var response = _controller.Post(Item);
+            Item.Weight = "3.3";
+            response = _controller.Put(Item);
 
-            Assert.True(badResponse == HttpStatusCode.BadRequest);
+            Assert.True(response == HttpStatusCode.OK);
         }
     }
 }

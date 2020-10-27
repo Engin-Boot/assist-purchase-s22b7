@@ -1,6 +1,10 @@
 ﻿using AssistPurchase.Controllers;
 using AssistPurchase.Repositories.ProductDatabase;
+using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Net;
 using Xunit;
 
 namespace AssistPurchaseTest.ApiControllerTest 
@@ -30,6 +34,85 @@ namespace AssistPurchaseTest.ApiControllerTest
         public void Get_WhenName_ReturnsOkResult()
         {
             var okResult = _controller.GetProductByName("ADC100");
+            Assert.IsType<OkObjectResult>(okResult);
+        }
+
+        [Fact]
+        public void Get_WhenName_ReturnsOkResult_Null()
+        {
+            var okResult = _controller.GetProductByName(null);
+            Assert.IsNotType<OkObjectResult>(okResult);
+        }
+
+        [Fact]
+        public void GetFilterByType()
+        {
+            var filter1 = new FilterModel
+            {
+
+                DisplayType = new List<string>(new string[] { "LCC" })
+
+            };
+
+            var okResult = _controller.GetFilteredProduct(filter1);
+            Assert.IsType<OkObjectResult>(okResult);
+        }
+
+
+        [Fact]
+        public void GetFilterBySize()
+        {
+            var filter1 = new FilterModel
+            {
+
+                DisplaySize = new Limits { Max = "25", Min = "0" }
+
+            };
+
+            var okResult = _controller.GetFilteredProductBySize(filter1);
+            Assert.IsType<OkObjectResult>(okResult);
+        }
+
+
+        [Fact]
+        public void GetFilterByWeight()
+        {
+            var filter1 = new FilterModel
+            {
+
+                Weight = new Limits { Max = "25", Min = "0" }
+
+            };
+
+            var okResult = _controller.GetFilteredProductByWeight(filter1);
+            Assert.IsType<OkObjectResult>(okResult);
+        }
+
+        [Fact]
+        public void GetFilterByTouch()
+        {
+            var filter1 = new FilterModel
+            {
+
+                TouchScreen = true
+
+            };
+
+            var okResult = _controller.GetFilteredProductByTouch(filter1);
+            Assert.IsType<OkObjectResult>(okResult);
+        }
+
+        [Fact]
+        public void GetFilterByTouchFalse()
+        {
+            var filter1 = new FilterModel
+            {
+
+                TouchScreen = false
+
+            };
+
+            var okResult = _controller.GetFilteredProductByTouch(filter1);
             Assert.IsType<OkObjectResult>(okResult);
         }
     }

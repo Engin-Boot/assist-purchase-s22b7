@@ -38,18 +38,58 @@ namespace AssistPurchase.Controllers
         }
 
         // GET: api/filterlist
-        [HttpPost("filterlist/{type}")]
-        public IActionResult GetFilteredProduct(string type,[FromBody]FilterModel Obj)
+        [HttpPost("filterlist")]
+        public IActionResult GetFilteredProduct([FromBody]FilterModel Obj)
         {
             try
             {             
-                return Ok(_filterDatabaseHandler.GetFilteredProducts(Obj,type));
+                return Ok(_filterDatabaseHandler.GetFilteredProducts(Obj));
             }
             catch
             {
                 return StatusCode(500);
             }
         }
+
+        [HttpPost("filterlist/size")]
+        public IActionResult GetFilteredProductBySIze( [FromBody] FilterModel Obj)
+        {
+            try
+            {
+                return Ok(_filterDatabaseHandler.GetFilteredProductsBySize(Obj));
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpPost("filterlist/weight")]
+        public IActionResult GetFilteredProductByWeight( [FromBody] FilterModel Obj)
+        {
+            try
+            {
+                return Ok(_filterDatabaseHandler.GetFilteredProductsByWeight(Obj));
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpPost("filterlist/touchscreen")]
+        public IActionResult GetFilteredProductByTouch( [FromBody] FilterModel Obj)
+        {
+            try
+            {
+                return Ok(_filterDatabaseHandler.GetFilteredProductsByTouch(Obj));
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
 
         [HttpGet("productbyname/{name}")]
         public IActionResult GetProductByName(string name)

@@ -33,4 +33,9 @@ export class LoginComponent implements OnInit {
     this.password="";
     this.errorMessage="";
   }
+
+  onLogout(){
+
+    this.route.navigate(['home']);
+  }
 }

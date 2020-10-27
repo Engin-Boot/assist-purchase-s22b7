@@ -14,7 +14,7 @@ namespace AssistPurchase
         
         }
         public DbSet<Product> Products { get; set; }
-        public DbSet<SalesInfo> SalesInfo { get; set; }
+        public DbSet<SalesInfo> Sales{ get; set; }
 
     }
 }

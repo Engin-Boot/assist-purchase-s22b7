@@ -13,7 +13,10 @@ namespace Alert_to_Care.Repository
     {
         public bool Alert(SalesInput salesInput)
         {
-            string message = $"hi, {salesInput.CustomerName} with {salesInput.EmailId} email-id is intrested in following products {salesInput.Description}";
+            string message = $"hi, \n Please try to reach the below customer at the earliest.\nCustomer Name : {salesInput.CustomerName} \nEmail Id : {salesInput.EmailId} \n Products of Interest: ";
+            for (int i = 0; i < salesInput.Description.Length; i++) {
+                message += $"\n{i+1}.{salesInput.Description[i].Name}";
+            }
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,

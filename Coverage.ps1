@@ -1,4 +1,4 @@
-param($linerate)
+param($linerate, $projectName)
 
 function WriteXmlToScreen ([xml]$xml)
 {
@@ -11,7 +11,8 @@ function WriteXmlToScreen ([xml]$xml)
     Write-Output $StringWriter.ToString();
 }
 
-$report = Get-Content -Path AssistPurchaseTest\TestResults\*\coverage.cobertura.xml | Out-String
+$path = $projectName + "AssistPurchaseTest\TestResults\*\coverage.cobertura.xml"
+$report = Get-Content -Path  $path | Out-String
 Write-Host "---------------------------------"
 Write-Host "Code Coverage report ..." 
 Write-Host "---------------------------------"
@@ -43,3 +44,4 @@ else{
     Write-Host "Coverage Check: Passed" -ForegroundColor green 
 }
 exit $result
+

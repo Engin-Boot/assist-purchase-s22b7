@@ -1,5 +1,4 @@
 ﻿using DatabaseContractor;
-using DatabaseManager.ProductDatabase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +7,10 @@ namespace AssistPurchase.Repositories.ProductDatabase
 {
     public class FilterAssist : IFilterAssist
     {
-        public IEnumerable<Product> FilterByTouchScreen(bool TouchScreen, IEnumerable<Product> productList)
+        public IEnumerable<Product> FilterByTouchScreen(bool touchScreen, IEnumerable<Product> productList)
         {
-            if (!TouchScreen) return productList;
-            return productList.Where(p => p.TouchScreen == true);
+            if (!touchScreen) return productList;
+            return productList.Where(p => p.TouchScreen);
         }
 
         public IEnumerable<Product> FilterByDisplayType(List<string> display, IEnumerable<Product> productList)

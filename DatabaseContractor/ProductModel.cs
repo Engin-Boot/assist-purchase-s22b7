@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿
 using System.Text.Json.Serialization;
 
 namespace DatabaseContractor
@@ -35,8 +35,5 @@ namespace DatabaseContractor
         public bool TouchScreen { get; set; }
     }
 
-    public class ListOfProducts
-    {
-        public List<Product> Products { get; set; }
-    }
+    
 }

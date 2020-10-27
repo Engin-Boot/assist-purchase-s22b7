@@ -1,8 +1,7 @@
 ﻿using AssistPurchase.Repositories.ProductDatabase;
 using DatabaseContractor;
-using Microsoft.AspNetCore.Cors;
+
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,13 +12,13 @@ namespace AssistPurchase.Controllers
     [ApiController]
     public class UserDataController : ControllerBase
     {
-        readonly IProductDatabaseHandler _productDatabaseHandler;
-        readonly IFilterDatabaseHandler _filterDatabaseHandler;
+        private readonly IProductDatabaseHandler _productDatabaseHandler;
+        private readonly IFilterDatabaseHandler _filterDatabaseHandler;
 
-        public UserDataController(IProductDatabaseHandler prepo, IFilterDatabaseHandler frepo)
+        public UserDataController(IProductDatabaseHandler productDatabase, IFilterDatabaseHandler filterDatabase)
         {
-            _productDatabaseHandler = prepo;
-            _filterDatabaseHandler = frepo;
+            _productDatabaseHandler = productDatabase;
+            _filterDatabaseHandler = filterDatabase;
         }
 
         // GET: api/all
@@ -37,13 +36,13 @@ namespace AssistPurchase.Controllers
 
         }
 
-        // GET: api/filterlist
-        [HttpPost("filterlist")]
-        public IActionResult GetFilteredProduct([FromBody]FilterModel Obj)
+        // GET: api/filterList
+        [HttpPost("filterList")]
+        public IActionResult GetFilteredProduct([FromBody]FilterModel obj)
         {
             try
             {             
-                return Ok(_filterDatabaseHandler.GetFilteredProducts(Obj));
+                return Ok(_filterDatabaseHandler.GetFilteredProducts(obj));
             }
             catch
             {
@@ -51,12 +50,12 @@ namespace AssistPurchase.Controllers
             }
         }
 
-        [HttpPost("filterlist/size")]
-        public IActionResult GetFilteredProductBySIze( [FromBody] FilterModel Obj)
+        [HttpPost("filterList/size")]
+        public IActionResult GetFilteredProductBySIze( [FromBody] FilterModel obj)
         {
             try
             {
-                return Ok(_filterDatabaseHandler.GetFilteredProductsBySize(Obj));
+                return Ok(_filterDatabaseHandler.GetFilteredProductsBySize(obj));
             }
             catch
             {
@@ -64,12 +63,12 @@ namespace AssistPurchase.Controllers
             }
         }
 
-        [HttpPost("filterlist/weight")]
-        public IActionResult GetFilteredProductByWeight( [FromBody] FilterModel Obj)
+        [HttpPost("filterList/weight")]
+        public IActionResult GetFilteredProductByWeight( [FromBody] FilterModel obj)
         {
             try
             {
-                return Ok(_filterDatabaseHandler.GetFilteredProductsByWeight(Obj));
+                return Ok(_filterDatabaseHandler.GetFilteredProductsByWeight(obj));
             }
             catch
             {
@@ -77,12 +76,12 @@ namespace AssistPurchase.Controllers
             }
         }
 
-        [HttpPost("filterlist/touchscreen")]
-        public IActionResult GetFilteredProductByTouch( [FromBody] FilterModel Obj)
+        [HttpPost("filterList/touchScreen")]
+        public IActionResult GetFilteredProductByTouch( [FromBody] FilterModel obj)
         {
             try
             {
-                return Ok(_filterDatabaseHandler.GetFilteredProductsByTouch(Obj));
+                return Ok(_filterDatabaseHandler.GetFilteredProductsByTouch(obj));
             }
             catch
             {
@@ -91,7 +90,7 @@ namespace AssistPurchase.Controllers
         }
 
 
-        [HttpGet("productbyname/{name}")]
+        [HttpGet("productByName/{name}")]
         public IActionResult GetProductByName(string name)
         {
             if (name == null) return StatusCode(400);

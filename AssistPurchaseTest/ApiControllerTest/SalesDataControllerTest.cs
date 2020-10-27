@@ -7,15 +7,14 @@ using Xunit;
 
 namespace AssistPurchaseTest.ApiControllerTest
 {
-    public class SalesDataControllerTest : AssistPurchaseTest.ApiControllerTest.InMemoryContext
+    public class SalesDataControllerTest : InMemoryContext
     {
-        private SalesDatabaseHandler _service;
-        SalesDataController _controller;
+        private readonly SalesDataController _controller;
 
         public SalesDataControllerTest()
         {
-            _service = new SalesDatabaseHandler(Context);
-            _controller = new SalesDataController(_service);
+            var service = new SalesDatabaseHandler(Context);
+            _controller = new SalesDataController(service);
         }
         // Add test case
         [Fact]

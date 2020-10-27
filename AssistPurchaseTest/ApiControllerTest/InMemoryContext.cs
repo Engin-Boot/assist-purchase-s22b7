@@ -15,10 +15,10 @@ namespace AssistPurchaseTest.ApiControllerTest
                 databaseName: Guid.NewGuid().ToString()).Options;
             Context = new DatabaseContext(option);
             Context.Database.EnsureCreated();
-            InitializeDatabase(Context);
+            InitializeDatabase();
         }
 
-        private void InitializeDatabase(DatabaseContext context)
+        private void InitializeDatabase()
         {
             var p1 = new Product()
             {

@@ -28,7 +28,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
             catch (Exception e)
             {
                 Trace.TraceInformation(e.Message);
-                throw e;
+                return null;
             }
         }
 
@@ -46,7 +46,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
             catch (Exception e)
             {
                 Trace.TraceInformation(e.Message);
-                throw e;
+                return null;
             }
         }
 
@@ -61,9 +61,9 @@ namespace AssistPurchase.Repositories.ProductDatabase
 
             }
             catch (Exception e)
-            {
+            { 
                 Trace.TraceInformation(e.Message);
-                throw e;
+                return null;
             }
         }
 
@@ -81,7 +81,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
             catch (Exception e)
             {
                 Trace.TraceInformation(e.Message);
-                throw e;
+                return null;
             }
         }
        

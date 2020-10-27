@@ -1,15 +1,14 @@
-﻿
-using DatabaseContractor;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
+using DatabaseContractor;
 
-namespace Alert_to_Care.Repository
+namespace AssistPurchase.Repositories
 {
-    public interface Alerter
+    public interface IAlerter
     {
         bool Alert(SalesInput message);
     }
-    public class EmailAlert : Alerter
+    public class EmailAlert : IAlerter
     {
         public bool Alert(SalesInput salesInput)
         {

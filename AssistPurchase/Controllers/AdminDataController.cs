@@ -22,6 +22,20 @@ namespace AssistPurchase.Controllers
         {
             _productDatabaseHandler = repo;
         }
+
+        Product ProductInputToProduct(string displaySize, string weight, string displayType, string id, string name, bool touchScreen) 
+        {
+            Product p = new Product
+            {
+                DisplaySize = int.Parse(displaySize),
+                Weight = double.Parse(weight),
+                DisplayType = displayType,
+                Id = id,
+                Name = name,
+                TouchScreen = touchScreen
+            };
+            return p;
+        }
         //Get api/AdminData
         [HttpGet]
         public IActionResult Get()
@@ -43,34 +57,17 @@ namespace AssistPurchase.Controllers
             if (string.IsNullOrEmpty(product.Name))
                 //Console.WriteLine(product.Name);
                 return HttpStatusCode.BadRequest;
-            Product p = new Product
-            {
-                DisplaySize = int.Parse(product.DisplaySize),
-                Weight = double.Parse(product.Weight),
-                DisplayType = product.DisplayType,
-                Id = product.Id,
-                Name = product.Name,
-                TouchScreen = product.TouchScreen
-            };
+            Product p = ProductInputToProduct(product.DisplaySize, product.Weight, product.DisplayType, product.Id, product.Name, product.TouchScreen);
             return _productDatabaseHandler.AddProductToDb(p);
         }
 
         // PUT api/update
         [HttpPut("update")]
-        public HttpStatusCode Put([FromBody] ProductInput product)
+        public HttpStatusCode Put([FromBody] ProductInput prod)
         {
-            if (string.IsNullOrEmpty(product.Id))
+            if (string.IsNullOrEmpty(prod.Id))
                 return HttpStatusCode.BadRequest;
-            Product p = new Product
-            {
-                DisplaySize = int.Parse(product.DisplaySize),
-                Weight = double.Parse(product.Weight),
-                DisplayType = product.DisplayType,
-                Id = product.Id,
-                Name = product.Name,
-                TouchScreen = product.TouchScreen
-            };
-
+            Product p = ProductInputToProduct(prod.DisplaySize, prod.Weight, prod.DisplayType, prod.Id, prod.Name, prod.TouchScreen);
             return _productDatabaseHandler.UpdateProductInDb(p);
         }
 

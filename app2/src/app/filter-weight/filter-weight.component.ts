@@ -106,5 +106,10 @@ ngAfterViewInit(): void {
   this.dataSource.paginator = this.paginator;
 }
 
+addToCart(){
+
+  alert("Item added to cart");
+}
+
 
 }

@@ -14,7 +14,7 @@ export class SearchProductService {
 
     console.log("Disp Type: ")
     console.log(filterObject)
-    return this.httpClient.post(`http://localhost:53010/api/UserData/filterlist/DisplayType`,filterObject);
+    return this.httpClient.post(`http://localhost:53010/api/UserData/filterlist`,filterObject);
   }
 
   searchByDisplaySize(filterObject:FilterModel){
@@ -22,7 +22,7 @@ export class SearchProductService {
     
     console.log("Disp Size: ")
     console.log(filterObject)
-    return this.httpClient.post(`http://localhost:53010/api/UserData/filterlist/DisplaySize`,filterObject);
+    return this.httpClient.post(`http://localhost:53010/api/UserData/filterlist/size`,filterObject);
   }
 
 
@@ -31,7 +31,7 @@ export class SearchProductService {
     
     console.log("weight: ")
     console.log(filterObject)
-    return this.httpClient.post(`http://localhost:53010/api/UserData/filterlist/Weight`,filterObject);
+    return this.httpClient.post(`http://localhost:53010/api/UserData/filterlist/weight`,filterObject);
   }
 
 
@@ -40,6 +40,6 @@ export class SearchProductService {
     
     console.log("Touchscreen: ")
     console.log(filterObject)
-    return this.httpClient.post(`http://localhost:53010/api/UserData/filterlist/Touchscreen`,filterObject);
+    return this.httpClient.post(`http://localhost:53010/api/UserData/filterlist/touchscreen`,filterObject);
   }
 }

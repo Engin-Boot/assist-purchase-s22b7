@@ -7,6 +7,14 @@
     margin-top:-30pt;
 }
 
+
+a:hover{
+    color: darkblue;
+  }
+  
+  .add-to-cart{
+    color: cornflowerblue;
+  }
 .mat-elevation-z8{
     margin-left: -100pt;
     margin-top: 25pt;
@@ -26,5 +34,5 @@ table {
 }
 
 .nextFilter{
-    /* margin-left: 70%; */
+    margin-left: 70%;
 }

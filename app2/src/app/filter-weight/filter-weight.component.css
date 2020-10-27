@@ -3,6 +3,15 @@
     margin-top: 10pt;
   }
   
+  
+a:hover{
+  color: darkblue;
+}
+
+.add-to-cart{
+  color: cornflowerblue;
+}
+
   .filter{
     margin-top: 10pt;
     margin-left: 180%;

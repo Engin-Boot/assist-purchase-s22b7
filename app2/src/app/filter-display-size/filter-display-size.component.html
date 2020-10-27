@@ -71,12 +71,11 @@
     </ng-container>
 
     <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element" class="action-link"> 
-        <a (click)="selectProduct('Update',element)">Add to cart</a>  
-        </td>
-    </ng-container>
-  
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element" class="action-link"> 
+      <a class="add-to-cart" (click)="addToCart()">Add to cart</a>  
+      </td>
+  </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>

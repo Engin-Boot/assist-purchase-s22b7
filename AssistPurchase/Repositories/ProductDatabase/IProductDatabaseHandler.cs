@@ -1,5 +1,4 @@
 ﻿using DatabaseContractor;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Net;
 

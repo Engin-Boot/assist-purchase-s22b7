@@ -1,10 +1,11 @@
 ﻿using AssistPurchase.Repositories.SalesDatabase;
 using DatabaseContractor;
-using Microsoft.AspNetCore.Cors;
+
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
 using System.Net;
+using AssistPurchase.Repositories;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -23,16 +24,18 @@ namespace AssistPurchase.Controllers
         }
 
         // POST: api/<AlertController>
-        [HttpPost("contactsales")]
+        [HttpPost("contactSales")]
         public HttpStatusCode Post([FromBody] SalesInput info)
         {
             if (string.IsNullOrEmpty(info.CustomerName))
                 return HttpStatusCode.BadRequest;
+            IAlerter alerter = new EmailAlert();
+            alerter.Alert(info);
             return _salesDatabaseHandler.AddSalesToDb(info);
         }
 
-        // GET: api/getallinfo
-        [HttpGet("allalerts")]
+        // GET: api/allAlerts
+        [HttpGet("allAlerts")]
         public IActionResult GetAllInfo()
         {
             try

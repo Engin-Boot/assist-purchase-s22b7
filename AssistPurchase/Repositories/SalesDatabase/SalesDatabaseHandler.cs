@@ -13,7 +13,7 @@ namespace AssistPurchase.Repositories.SalesDatabase
 
         public SalesDatabaseHandler(DatabaseContext context)
         {
-            this._db = context;
+            _db = context;
         }
         public IEnumerable<SalesInfo> GetAllSales()
         {
@@ -22,23 +22,23 @@ namespace AssistPurchase.Repositories.SalesDatabase
                 
                 return _db.Sales.ToList();
             }
-            catch (Exception e) { throw e; }
+            catch (Exception) { return null; }
         }
 
         public HttpStatusCode AddSalesToDb(SalesInput info)
         {
+            var dInfo = _db.Sales.FirstOrDefault(b => b.CustomerName == info.CustomerName);
             try
             {
-                
-
-                var Dinfo = _db.Sales.Where(b => b.CustomerName == info.CustomerName).FirstOrDefault();
-                if (Dinfo != null)
+                if (dInfo != null)
                     return HttpStatusCode.Unauthorized;
 
-                SalesInfo salesInfo = new SalesInfo();
-                salesInfo.CustomerName = info.CustomerName;
-                salesInfo.EmailId = info.EmailId;
-                salesInfo.Description= string.Join(", ", info.Description.Select(c => c.ToString()).ToArray<string>());
+                var salesInfo = new SalesInfo
+                {
+                    CustomerName = info.CustomerName,
+                    EmailId = info.EmailId,
+                    Description = string.Join(", ", info.Description.Select(c => c.ToString()).ToArray())
+                };
                 _db.Add(salesInfo);
                 _db.SaveChanges();
                 return HttpStatusCode.OK;

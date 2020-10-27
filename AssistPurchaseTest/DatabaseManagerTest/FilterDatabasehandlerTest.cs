@@ -1,4 +1,5 @@
-﻿using AssistPurchase.Repositories.ProductDatabase;
+﻿
+using AssistPurchase.Repositories.ProductDatabase;
 using DatabaseContractor;
 using System.Linq;
 using Xunit;
@@ -17,23 +18,16 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         [Fact]
         public void FilterProductsBasedOnFilter()
         {
+           
             var filter1 = new FilterModel
             {
-                DisplayType = { "LCD" },
-                DisplaySize = new Limits
-                   { Max = "12",
-                       Min = "0"
-                    },
-                Weight = new Limits
-                {
-                    Max = "5",
-                    Min = "0"
-                },
-                TouchScreen = false
+
+                TouchScreen = true
+
             };
 
-            var flist = _filterDatabaseHandler.GetFilteredProductsByTouch(filter1);
-            Assert.True(flist.Any());
+            var fList = _filterDatabaseHandler.GetFilteredProductsByTouch(filter1);
+            Assert.True(fList.Any());
 
         }
     }

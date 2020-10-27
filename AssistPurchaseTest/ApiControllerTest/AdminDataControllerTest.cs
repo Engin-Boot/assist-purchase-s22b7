@@ -1,21 +1,20 @@
+using System.Net;
 using AssistPurchase.Controllers;
 using AssistPurchase.Repositories.ProductDatabase;
-using AssistPurchase;
 using DatabaseContractor;
-using System.Net;
 using Xunit;
 
-namespace AssistPurchaseTest
+namespace AssistPurchaseTest.ApiControllerTest
 {
-    public class AdminDataControllerTest : AssistPurchaseTest.ApiControllerTest.InMemoryContext
+    public class AdminDataControllerTest : InMemoryContext
     {
-        private ProductDatabaseHandler _service;
-        AdminDataController _controller;
+        public readonly ProductDatabaseHandler Service;
+        private readonly AdminDataController _controller;
         
         public AdminDataControllerTest()
         {
-            _service = new ProductDatabaseHandler(Context);
-            _controller = new AdminDataController(_service);
+            Service = new ProductDatabaseHandler(Context);
+            _controller = new AdminDataController(Service);
         }
         // Add test case
         [Fact]

@@ -1,5 +1,4 @@
 ﻿using DatabaseContractor;
-using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,7 +25,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                throw e;
+                return null;
             }
         }
 
@@ -34,10 +33,8 @@ namespace AssistPurchase.Repositories.ProductDatabase
         {
             try
             {
-                
-
-                var Dproduct = _db.Products.Where(b => b.Id == product.Id).FirstOrDefault();
-                if (Dproduct != null)
+                var dbProduct = _db.Products.FirstOrDefault(b => b.Id == product.Id);
+                if (dbProduct != null)
                     return HttpStatusCode.Unauthorized;
                 _db.Add(product);
                 _db.SaveChanges();
@@ -54,22 +51,19 @@ namespace AssistPurchase.Repositories.ProductDatabase
             try
             {
                
-                return _db.Products
-                 .Where(b => b.Name == name).FirstOrDefault();
+                return _db.Products.FirstOrDefault(b => b.Name == name);
             }
             catch (Exception e) { throw new ApplicationException("Problem with Database", e); }
         }
 
         public HttpStatusCode UpdateProductInDb(Product product)
         {
+            var dbProduct = _db.Products.FirstOrDefault(b => b.Id == product.Id);
             try
             {
-               
-
-                var Dproduct = _db.Products.Where(b => b.Id == product.Id).FirstOrDefault();
-                if (Dproduct == null)
+                if (dbProduct == null)
                     return HttpStatusCode.NotFound;
-                _db.Remove(Dproduct);
+                _db.Remove(dbProduct);
                 _db.Add(product);
                 _db.SaveChanges();
 
@@ -79,7 +73,6 @@ namespace AssistPurchase.Repositories.ProductDatabase
             {
                 return InternalServerError(e);
             }
-
         }
 
         public HttpStatusCode RemoveProductFromDb(string id)
@@ -87,7 +80,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
             try
             {
                 
-                var product = _db.Products.Where(b => b.Id == id).FirstOrDefault();
+                var product = _db.Products.FirstOrDefault(b => b.Id == id);
                 if (product == null)
                     return HttpStatusCode.NotFound;
                 _db.Remove(product);

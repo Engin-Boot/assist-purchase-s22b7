@@ -14,7 +14,7 @@ namespace DatabaseContractor
 
     public class SalesInput
     {
-        [Key]
+        
         public string CustomerName { get; set; }
 
         public string EmailId { get; set; }

@@ -13,6 +13,6 @@ export class SalesService {
 
     console.log("Sales Info:")
     console.log(salesInfo)
-    return this.httpClient.post(`http://localhost:53010/api/SalesData/contactsales`,salesInfo);
+    return this.httpClient.post(`http://localhost:53010/api/SalesData/contactSales`,salesInfo);
   }
 }

@@ -47,7 +47,19 @@ namespace AssistPurchaseTest.ApiControllerTest
                 Description = "Message",
             };
             Context.Add(s1);
-            context.SaveChanges();
+
+            var info = new SalesInfo()
+            {
+                CustomerName = "Subject24",
+                EmailId = "Example4@gmail.com",
+                Description = "Message",
+
+            };
+    
+        
+
+            Context.Add(info);
+            Context.SaveChanges();
         }
         public void Dispose()
         {

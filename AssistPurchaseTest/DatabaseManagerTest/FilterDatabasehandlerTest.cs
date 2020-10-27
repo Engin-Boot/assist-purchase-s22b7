@@ -19,7 +19,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         {
             var filter1 = new FilterModel
             {
-                TouchScreen = false
+                TouchScreen = true
             };
 
             var flist = _filterDatabaseHandler.GetFilteredProducts(filter1,"Touchscreen");

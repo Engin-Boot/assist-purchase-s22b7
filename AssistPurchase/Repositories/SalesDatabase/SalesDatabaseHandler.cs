@@ -20,7 +20,7 @@ namespace AssistPurchase.Repositories.SalesDatabase
             try
             {
                 
-                return _db.Sales.ToList();
+                return _db.SalesInfo.ToList();
             }
             catch (Exception e) { throw e; }
         }
@@ -31,7 +31,7 @@ namespace AssistPurchase.Repositories.SalesDatabase
             {
                 
 
-                var Dinfo = _db.Sales.Where(b => b.CustomerName == info.CustomerName).FirstOrDefault();
+                var Dinfo = _db.SalesInfo.Where(b => b.CustomerName == info.CustomerName).FirstOrDefault();
                 if (Dinfo != null)
                     return HttpStatusCode.Unauthorized;
 

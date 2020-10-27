@@ -1,4 +1,5 @@
-﻿using AssistPurchase.Repositories.SalesDatabase;
+﻿using Alert_to_Care.Repository;
+using AssistPurchase.Repositories.SalesDatabase;
 using DatabaseContractor;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,8 @@ namespace AssistPurchase.Controllers
         {
             if (string.IsNullOrEmpty(info.CustomerName))
                 return HttpStatusCode.BadRequest;
+            Alerter alerter = new EmailAlert();
+            alerter.Alert(info);
             return _salesDatabaseHandler.AddSalesToDb(info);
         }
 

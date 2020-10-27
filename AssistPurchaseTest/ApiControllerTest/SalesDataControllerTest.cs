@@ -21,10 +21,10 @@ namespace AssistPurchaseTest.ApiControllerTest
         [Fact]
         public void Add_InvalidObjectPassed_ReturnsBadRequest()
         {
-            var nameMissingItem = new SalesInfo
+            var nameMissingItem = new SalesInput
             {
                 EmailId = "tom123@gmail.com",
-                Description = "Message",
+                Description = new Product[0]
             };
             var badResponse = _controller.Post(nameMissingItem);
 

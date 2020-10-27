@@ -24,7 +24,7 @@ namespace AssistPurchase.Controllers
 
         // POST: api/<AlertController>
         [HttpPost("contactsales")]
-        public HttpStatusCode Post([FromBody] Sales info)
+        public HttpStatusCode Post([FromBody] SalesInput info)
         {
             if (string.IsNullOrEmpty(info.CustomerName))
                 return HttpStatusCode.BadRequest;

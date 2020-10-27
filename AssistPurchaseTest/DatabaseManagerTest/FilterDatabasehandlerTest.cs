@@ -22,7 +22,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
                 TouchScreen = false
             };
 
-            var flist = _filterDatabaseHandler.GetFilteredProducts(filter1);
+            var flist = _filterDatabaseHandler.GetFilteredProducts(filter1,"Touchscreen");
             Assert.True(flist.Any());
 
         }

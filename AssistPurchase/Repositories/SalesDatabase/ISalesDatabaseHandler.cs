@@ -7,6 +7,6 @@ namespace AssistPurchase.Repositories.SalesDatabase
     public interface ISalesDatabaseHandler
     {
         IEnumerable<Sales> GetAllSales();
-        HttpStatusCode AddSalesToDb(Sales info);
+        HttpStatusCode AddSalesToDb(SalesInput info);
     }
 }

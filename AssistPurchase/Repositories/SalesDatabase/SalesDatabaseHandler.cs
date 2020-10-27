@@ -25,7 +25,7 @@ namespace AssistPurchase.Repositories.SalesDatabase
             catch (Exception e) { throw e; }
         }
 
-        public HttpStatusCode AddSalesToDb(Sales info)
+        public HttpStatusCode AddSalesToDb(SalesInput info)
         {
             try
             {
@@ -35,7 +35,11 @@ namespace AssistPurchase.Repositories.SalesDatabase
                 if (Dinfo != null)
                     return HttpStatusCode.Unauthorized;
 
-                _db.Add(info);
+                Sales salesInfo = new Sales();
+                salesInfo.CustomerName = info.CustomerName;
+                salesInfo.EmailId = info.EmailId;
+                salesInfo.Description= string.Join(", ", info.Description.Select(c => c.ToString()).ToArray<string>());
+                _db.Add(salesInfo);
                 _db.SaveChanges();
                 return HttpStatusCode.OK;
             }

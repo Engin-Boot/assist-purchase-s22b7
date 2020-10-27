@@ -11,4 +11,13 @@ namespace DatabaseContractor
         public string EmailId { get; set; }
         public string Description { get; set; }
     }
+
+    public class SalesInput
+    {
+        [Key]
+        public string CustomerName { get; set; }
+
+        public string EmailId { get; set; }
+        public Product[] Description { get; set; }
+    }
 }

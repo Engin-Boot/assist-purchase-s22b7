@@ -26,14 +26,14 @@ namespace AssistPurchase.Repositories.ProductDatabase
             if (weight == null) return productList;
 
 
-            return productList.Where(p => Convert.ToDouble(weight.Min) < p.Weight && Convert.ToDouble(weight.Max) > p.Weight);
+            return productList.Where(p => Convert.ToDouble(weight.Min) <= p.Weight && Convert.ToDouble(weight.Max) >= p.Weight);
         }
 
         public IEnumerable<Product> FilterByDisplaySize(Limits screen, IEnumerable<Product> productList)
         {
             if (screen == null) return productList;
              
-            IEnumerable<Product> list= productList.Where(p => Convert.ToInt32(screen.Min) < p.DisplaySize && p.DisplaySize < Convert.ToInt32(screen.Max));
+            IEnumerable<Product> list= productList.Where(p => Convert.ToInt32(screen.Min) <= p.DisplaySize && p.DisplaySize <= Convert.ToInt32(screen.Max));
 
             return list;
         }

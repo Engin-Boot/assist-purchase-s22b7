@@ -21,12 +21,12 @@ namespace AssistPurchaseTest
         [Fact]
         public void Add_InvalidObjectPassed_ReturnsBadRequest()
         {
-            var nameMissingItem = new Product
+            var nameMissingItem = new ProductInput
             {
                 Id = "ADC103",
-                DisplaySize = 6,
+                DisplaySize = "6",
                 DisplayType = "LCC",
-                Weight = 1.3,
+                Weight = "1.3",
                 TouchScreen = true
             };
             var badResponse = _controller.Post(nameMissingItem);
@@ -37,13 +37,13 @@ namespace AssistPurchaseTest
         public void Add_ValidObjectPassedAlreadyPresent_ReturnsUnAuth()
         {
 
-            var testItem = new Product()
+            var testItem = new ProductInput()
             {
                 Id = "ADC100",
                 Name = "IntelliVue X3",
-                DisplaySize = 6,
+                DisplaySize = "6",
                 DisplayType = "LCC",
-                Weight = 1.3,
+                Weight = "1.3",
                 TouchScreen = true
             };
 
@@ -56,13 +56,13 @@ namespace AssistPurchaseTest
         public void Add_ValidObjectPassedReturnsOkResult()
         {
 
-            var testItem = new Product()
+            var testItem = new ProductInput()
             {
                 Id = "ADT10",
                 Name = "IntelliVue X3",
-                DisplaySize = 6,
+                DisplaySize = "6",
                 DisplayType = "LCC",
-                Weight = 1.3,
+                Weight = "1.3",
                 TouchScreen = true
             };
 
@@ -91,11 +91,11 @@ namespace AssistPurchaseTest
         [Fact]
         public void Update_InvalidObjectPassed_ReturnsBadRequest()
         {
-            var nameMissingItem = new Product
+            var nameMissingItem = new ProductInput
             {
-                DisplaySize = 6,
+                DisplaySize = "6",
                 DisplayType = "LCC",
-                Weight = 1.3,
+                Weight = "1.3",
                 TouchScreen = true
             };
             var badResponse = _controller.Post(nameMissingItem);

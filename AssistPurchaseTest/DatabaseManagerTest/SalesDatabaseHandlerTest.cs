@@ -18,11 +18,12 @@ namespace AssistPurchaseTest.DatabaseManagerTest
         [Fact]
         public void WhenRequestIsGoodThenAddInfoToDbReturnUnAuthIfPresent()
         {
-            var info = new Sales
+            var info = new SalesInput
             {
                 CustomerName = "Subject24",
                 EmailId = "Example4@gmail.com",
-                Description = "Contact2"
+                Description = new Product[0]
+                
             };
 
             var res = _salesDatabaseHandler.AddSalesToDb(info);

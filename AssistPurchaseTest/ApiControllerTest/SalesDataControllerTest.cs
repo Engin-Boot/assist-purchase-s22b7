@@ -21,7 +21,7 @@ namespace AssistPurchaseTest.ApiControllerTest
         [Fact]
         public void Add_InvalidObjectPassed_ReturnsBadRequest()
         {
-            var nameMissingItem = new Sales
+            var nameMissingItem = new SalesInfo
             {
                 EmailId = "tom123@gmail.com",
                 Description = "Message",
@@ -34,11 +34,11 @@ namespace AssistPurchaseTest.ApiControllerTest
         public void Add_ValidObjectPassedAlreadyPresent_ReturnsUnAuth()
         {
 
-            var testItem = new Sales()
+            var testItem = new SalesInput()
             {
                 CustomerName = "tom",
                 EmailId = "tom123@gmail.com",
-                Description = "Message",
+                Description = new Product[0]
             };
 
             var createdResponse = _controller.Post(testItem);

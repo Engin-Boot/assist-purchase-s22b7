@@ -40,7 +40,7 @@ namespace AssistPurchaseTest.ApiControllerTest
                 TouchScreen = true
             };
             Context.Add(testItem);
-            var s1 = new Sales()
+            var s1 = new SalesInfo()
             {
                 CustomerName = "tom",
                 EmailId = "tom123@gmail.com",

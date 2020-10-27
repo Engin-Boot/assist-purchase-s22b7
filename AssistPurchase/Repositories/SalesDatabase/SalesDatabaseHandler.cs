@@ -15,7 +15,7 @@ namespace AssistPurchase.Repositories.SalesDatabase
         {
             this._db = context;
         }
-        public IEnumerable<Sales> GetAllSales()
+        public IEnumerable<SalesInfo> GetAllSales()
         {
             try
             {
@@ -35,7 +35,7 @@ namespace AssistPurchase.Repositories.SalesDatabase
                 if (Dinfo != null)
                     return HttpStatusCode.Unauthorized;
 
-                Sales salesInfo = new Sales();
+                SalesInfo salesInfo = new SalesInfo();
                 salesInfo.CustomerName = info.CustomerName;
                 salesInfo.EmailId = info.EmailId;
                 salesInfo.Description= string.Join(", ", info.Description.Select(c => c.ToString()).ToArray<string>());

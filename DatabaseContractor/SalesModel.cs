@@ -3,7 +3,7 @@
 namespace DatabaseContractor
 {
 
-    public class Sales
+    public class SalesInfo
     {
         [Key]
         public string CustomerName { get; set; }

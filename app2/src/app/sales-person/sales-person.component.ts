@@ -40,9 +40,10 @@ export class SalesPersonComponent implements OnInit {
     this.salesInfo.CustomerName=value;
   }
 
-    onEmailEdit(value){
+    
+  onEmailEdit(value){
         this.salesInfo.EmailId=value;
-    }
+  }
 
 
 

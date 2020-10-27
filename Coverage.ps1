@@ -1,5 +1,4 @@
 param($linerate, $projectName)
-
 function WriteXmlToScreen ([xml]$xml)
 {
     $StringWriter = New-Object System.IO.StringWriter;
@@ -17,7 +16,6 @@ Write-Host "---------------------------------"
 Write-Host "Code Coverage report ..." 
 Write-Host "---------------------------------"
 WriteXmlToScreen $report
-
 [xml]$doc = $report
 
 Write-Host ""

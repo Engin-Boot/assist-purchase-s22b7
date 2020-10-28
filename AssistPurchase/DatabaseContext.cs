@@ -1,20 +1,18 @@
 ﻿using DatabaseContractor;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace AssistPurchase
 {
-    public class DatabaseContext:DbContext
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    public class DatabaseContext: DbContext // ReSharper disable All
     {
         public DatabaseContext(DbContextOptions options) : base(options)
         { 
         
         }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Sales> Sales { get; set; }
+        public DbSet<SalesInfo> Sales{ get; set; }
 
     }
 }

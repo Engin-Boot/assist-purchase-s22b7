@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
 namespace DatabaseContractor
 {
+    [ExcludeFromCodeCoverage]
     public class Product
     {
         [JsonPropertyName("UID")]
@@ -18,7 +20,7 @@ namespace DatabaseContractor
         
         public bool TouchScreen { get; set; }
     }
-
+    [ExcludeFromCodeCoverage]
     public class ProductInput
     {
         [JsonPropertyName("UID")]
@@ -35,8 +37,5 @@ namespace DatabaseContractor
         public bool TouchScreen { get; set; }
     }
 
-    public class ListOfProducts
-    {
-        public List<Product> Products { get; set; }
-    }
+    
 }

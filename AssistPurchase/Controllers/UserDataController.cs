@@ -1,8 +1,8 @@
 ﻿using AssistPurchase.Repositories.ProductDatabase;
 using DatabaseContractor;
-using Microsoft.AspNetCore.Cors;
+
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using System;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,37 +13,34 @@ namespace AssistPurchase.Controllers
     [ApiController]
     public class UserDataController : ControllerBase
     {
-        readonly IProductDatabaseHandler _productDatabaseHandler;
-        readonly IFilterDatabaseHandler _filterDatabaseHandler;
+        private readonly IProductDatabaseHandler _productDatabaseHandler;
+        private readonly IFilterDatabaseHandler _filterDatabaseHandler;
 
-        public UserDataController(IProductDatabaseHandler prepo, IFilterDatabaseHandler frepo)
+        public UserDataController(IProductDatabaseHandler productDatabase, IFilterDatabaseHandler filterDatabase)
         {
-            _productDatabaseHandler = prepo;
-            _filterDatabaseHandler = frepo;
+            _productDatabaseHandler = productDatabase;
+            _filterDatabaseHandler = filterDatabase;
         }
 
         // GET: api/all
         [HttpGet("all")]
         public IActionResult GetAllProducts()
         {
-            try
-            {
-                return Ok(_productDatabaseHandler.GetAllProductsFromDb());
-            }
-            catch
-            {
-                return StatusCode(500);
-            }
+            
+            return Ok(_productDatabaseHandler.GetAllProductsFromDb());
+            
 
         }
 
-        // GET: api/filterlist
-        [HttpPost("filterlist/{type}")]
-        public IActionResult GetFilteredProduct(string type,[FromBody]FilterModel Obj)
+        // GET: api/filterList
+        [HttpPost("filterList")]
+        public IActionResult GetFilteredProduct([FromBody]FilterModel obj)
         {
             try
-            {             
-                return Ok(_filterDatabaseHandler.GetFilteredProducts(Obj,type));
+            {
+                if (obj == null)
+                    throw new Exception();
+                return Ok(_filterDatabaseHandler.GetFilteredProducts(obj));
             }
             catch
             {
@@ -51,12 +48,59 @@ namespace AssistPurchase.Controllers
             }
         }
 
-        [HttpGet("productbyname/{name}")]
+        [HttpPost("filterList/size")]
+        public IActionResult GetFilteredProductBySize( [FromBody] FilterModel obj)
+        {
+            try
+            {
+                if (obj == null)
+                    throw new Exception();
+                return Ok(_filterDatabaseHandler.GetFilteredProductsBySize(obj));
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpPost("filterList/weight")]
+        public IActionResult GetFilteredProductByWeight( [FromBody] FilterModel obj)
+        {
+            try
+            {
+                if (obj == null)
+                    throw new Exception();
+                return Ok(_filterDatabaseHandler.GetFilteredProductsByWeight(obj));
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpPost("filterList/touchScreen")]
+        public IActionResult GetFilteredProductByTouch( [FromBody] FilterModel obj)
+        {
+            try
+            {
+                if (obj == null)
+                    throw new Exception();
+                return Ok(_filterDatabaseHandler.GetFilteredProductsByTouch(obj));
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
+
+        [HttpGet("productByName/{name}")]
         public IActionResult GetProductByName(string name)
         {
-            if (name == null) return StatusCode(400);
             try
             {
+                if (name==null)
+                    throw new Exception();
                 return Ok(_productDatabaseHandler.GetProductByNameFromDb(name));
             }
             catch

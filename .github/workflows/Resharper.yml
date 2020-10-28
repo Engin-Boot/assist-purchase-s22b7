@@ -15,6 +15,12 @@ jobs:
       
       - name: Install resharper
         run: dotnet tool install -g JetBrains.ReSharper.GlobalTools
+       
+      - name: Add package
+        run: dotnet add AssistPurchaseTest/AssistPurchaseTest.csproj package xunit --version 2.4.1
+       
+      - name : Add EfCore 
+        run: dotnet add AssistPurchase/AssistPurchase.csproj package microsoft.entityframeworkcore.sqlite
                
       - name: Run resharper inspection
         run: jb inspectcode AssistPurchase.sln /output=insreport.xml

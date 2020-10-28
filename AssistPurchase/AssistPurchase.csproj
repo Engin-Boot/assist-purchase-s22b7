@@ -6,10 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="OpenCover" Version="4.7.922" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="85.0.0" />
+    <PackageReference Include="Selenium.PhantomJS.WebDriver" Version="2.1.1" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver.IEDriver" Version="3.150.1.2" />
   </ItemGroup>
 
   <ItemGroup>

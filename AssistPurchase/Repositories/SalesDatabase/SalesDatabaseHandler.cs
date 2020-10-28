@@ -2,40 +2,46 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
 
 namespace AssistPurchase.Repositories.SalesDatabase
 {
+    [ExcludeFromCodeCoverage]
     public class SalesDatabaseHandler : ISalesDatabaseHandler
     {
         private readonly DatabaseContext _db;
 
         public SalesDatabaseHandler(DatabaseContext context)
         {
-            this._db = context;
+            _db = context;
         }
-        public IEnumerable<Sales> GetAllSales()
+        public IEnumerable<SalesInfo> GetAllSales()
         {
             try
             {
                 
                 return _db.Sales.ToList();
             }
-            catch (Exception e) { throw e; }
+            catch (Exception) { return null; }
         }
 
-        public HttpStatusCode AddSalesToDb(Sales info)
+        public HttpStatusCode AddSalesToDb(SalesInput info)
         {
+            var dInfo = _db.Sales.FirstOrDefault(b => b.CustomerName == info.CustomerName);
             try
             {
-                
-
-                var Dinfo = _db.Sales.Where(b => b.CustomerName == info.CustomerName).FirstOrDefault();
-                if (Dinfo != null)
+                if (dInfo != null)
                     return HttpStatusCode.Unauthorized;
 
-                _db.Add(info);
+                var salesInfo = new SalesInfo
+                {
+                    CustomerName = info.CustomerName,
+                    EmailId = info.EmailId,
+                    Description = string.Join(", ", info.Description.Select(c => c.ToString()).ToArray())
+                };
+                _db.Add(salesInfo);
                 _db.SaveChanges();
                 return HttpStatusCode.OK;
             }

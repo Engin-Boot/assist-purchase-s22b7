@@ -15,10 +15,10 @@ namespace AssistPurchaseTest.ApiControllerTest
                 databaseName: Guid.NewGuid().ToString()).Options;
             Context = new DatabaseContext(option);
             Context.Database.EnsureCreated();
-            InitializeDatabase(Context);
+            InitializeDatabase();
         }
 
-        private void InitializeDatabase(DatabaseContext context)
+        private void InitializeDatabase()
         {
             var p1 = new Product()
             {
@@ -40,14 +40,26 @@ namespace AssistPurchaseTest.ApiControllerTest
                 TouchScreen = true
             };
             Context.Add(testItem);
-            var s1 = new Sales()
+            var s1 = new SalesInfo()
             {
                 CustomerName = "tom",
                 EmailId = "tom123@gmail.com",
                 Description = "Message",
             };
             Context.Add(s1);
-            context.SaveChanges();
+
+            var info = new SalesInfo()
+            {
+                CustomerName = "Subject24",
+                EmailId = "Example4@gmail.com",
+                Description = "Message",
+
+            };
+    
+        
+
+            Context.Add(info);
+            Context.SaveChanges();
         }
         public void Dispose()
         {

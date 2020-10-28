@@ -8,7 +8,7 @@ using Xunit;
 namespace AssistPurchaseTest.ApiControllerTest 
 {
   
-    public class UserDataControllerTest : InMemoryContext
+    public class UserDataControllerTest : InMemoryContext // ReSharper disable All
     {
         private readonly ProductDatabaseHandler Service;
         private readonly FilterDatabaseHandler FilterService;

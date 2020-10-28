@@ -8,7 +8,7 @@ using static Xunit.Assert;
 
 namespace AssistPurchaseTest.ApiControllerTest
 {
-    public class AdminDataControllerTest : InMemoryContext
+    public class AdminDataControllerTest : InMemoryContext // ReSharper disable All
     {
         private readonly ProductDatabaseHandler Service;
         private readonly AdminDataController _controller;

@@ -7,12 +7,12 @@ namespace AssistPurchase.Repositories
 {
     public interface IAlerter
     {
-        bool Alert(SalesInput message);
+        void Alert(SalesInput message);
     }
     [ExcludeFromCodeCoverage]
     public class EmailAlert : IAlerter
     {
-        public bool Alert(SalesInput salesInput)
+        public void Alert(SalesInput salesInput)
         {
             string message = $"hi, \n Please try to reach the below customer at the earliest.\nCustomer Name : {salesInput.CustomerName} \nEmail Id : {salesInput.EmailId} \n Products of Interest: ";
             for (int i = 0; i < salesInput.Description.Length; i++) {
@@ -25,7 +25,7 @@ namespace AssistPurchase.Repositories
                 EnableSsl = true,
             };
             smtpClient.Send("atuljha2524@gmail.com", "atuljha910@gmail.com", "ALERT", message);
-            return true;
+            
         }
     }
 }

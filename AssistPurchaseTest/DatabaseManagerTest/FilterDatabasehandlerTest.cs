@@ -55,7 +55,7 @@ namespace AssistPurchaseTest.DatabaseManagerTest
             var filter1 = new FilterModel
             {
 
-                DisplayType = new List<string>(new string[] { "LCC" })
+                DisplayType = new List<string> { "LCC" }
              };
 
             var fList = _filterDatabaseHandler.GetFilteredProducts(filter1);

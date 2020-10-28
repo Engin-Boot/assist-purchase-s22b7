@@ -1,8 +1,8 @@
-﻿using AssistPurchase.Repositories;
+﻿
 using AssistPurchase.Repositories.SalesDatabase;
-using DatabaseContractor;
+
 using System.Linq;
-using System.Net;
+
 using Xunit;
 
 namespace AssistPurchaseTest.DatabaseManagerTest

@@ -10,7 +10,7 @@ namespace AssistPurchaseTest.ApiControllerTest
 {
     public class AdminDataControllerTest : InMemoryContext
     {
-        public readonly ProductDatabaseHandler Service;
+        private readonly ProductDatabaseHandler Service;
         private readonly AdminDataController _controller;
         
         public AdminDataControllerTest()
@@ -165,7 +165,7 @@ namespace AssistPurchaseTest.ApiControllerTest
         {
             var response = _controller.Get();
             var okResult = response as OkObjectResult;
-            True(200 == okResult.StatusCode);
+            True(okResult != null);
         }
     }
 }

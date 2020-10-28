@@ -10,8 +10,8 @@ namespace AssistPurchaseTest.ApiControllerTest
   
     public class UserDataControllerTest : InMemoryContext
     {
-        public readonly ProductDatabaseHandler Service;
-        public readonly FilterDatabaseHandler FilterService;
+        private readonly ProductDatabaseHandler Service;
+        private readonly FilterDatabaseHandler FilterService;
         private readonly UserDataController _controller;
 
         public UserDataControllerTest()
@@ -48,7 +48,7 @@ namespace AssistPurchaseTest.ApiControllerTest
             var filter1 = new FilterModel
             {
 
-                DisplayType = new List<string>(new string[] { "LCC" })
+                DisplayType = new List<string>{ "LCC" }
 
             };
 

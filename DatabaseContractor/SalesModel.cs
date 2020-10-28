@@ -10,7 +10,7 @@ namespace DatabaseContractor
         public string CustomerName { get; set; }
 
         public string EmailId { get; set; }
-        public Product[] Description { get; set; }
+        public string Description { get; set; }
     }
 
     [ExcludeFromCodeCoverage]

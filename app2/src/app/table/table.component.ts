@@ -32,9 +32,7 @@ export class TableComponent  {
     );
   }
   openDialog(action, obj){
-    if (action == "add") {
-      this.route.navigate(['product/add']);
-    } else if (action == "Update") {
+    if (action == "Update") {
       this.route.navigate(['product/edit'], {state: {data: obj}});
     } else if (action == "Delete") {
       this.service.deleteProduct(obj.UID).subscribe(
@@ -45,6 +43,10 @@ export class TableComponent  {
       );
 
     }
+  }
+
+  AddRow() {
+    this.route.navigate(['product/add']);
   }
 
   

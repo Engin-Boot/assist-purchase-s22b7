@@ -4,13 +4,14 @@ using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using AssistPurchase.Repositories;
+using System.Diagnostics.CodeAnalysis;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AssistPurchase.Controllers
 {
-   
+    [ExcludeFromCodeCoverage]
     [Route("api/[controller]")]
     [ApiController]
     public class SalesDataController : ControllerBase

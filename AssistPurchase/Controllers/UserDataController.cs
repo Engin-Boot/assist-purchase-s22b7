@@ -26,14 +26,9 @@ namespace AssistPurchase.Controllers
         [HttpGet("all")]
         public IActionResult GetAllProducts()
         {
-            try
-            {
-                return Ok(_productDatabaseHandler.GetAllProductsFromDb());
-            }
-            catch
-            {
-                return StatusCode(500);
-            }
+            
+            return Ok(_productDatabaseHandler.GetAllProductsFromDb());
+            
 
         }
 
@@ -58,6 +53,8 @@ namespace AssistPurchase.Controllers
         {
             try
             {
+                if (obj == null)
+                    throw new Exception();
                 return Ok(_filterDatabaseHandler.GetFilteredProductsBySize(obj));
             }
             catch
@@ -71,6 +68,8 @@ namespace AssistPurchase.Controllers
         {
             try
             {
+                if (obj == null)
+                    throw new Exception();
                 return Ok(_filterDatabaseHandler.GetFilteredProductsByWeight(obj));
             }
             catch
@@ -84,6 +83,8 @@ namespace AssistPurchase.Controllers
         {
             try
             {
+                if (obj == null)
+                    throw new Exception();
                 return Ok(_filterDatabaseHandler.GetFilteredProductsByTouch(obj));
             }
             catch
@@ -99,6 +100,8 @@ namespace AssistPurchase.Controllers
             if (name == null) return StatusCode(400);
             try
             {
+                if (name == "")
+                    throw new Exception();
                 return Ok(_productDatabaseHandler.GetProductByNameFromDb(name));
             }
             catch

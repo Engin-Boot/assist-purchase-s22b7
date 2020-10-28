@@ -4,7 +4,7 @@ using AssistPurchase.Repositories.ProductDatabase;
 using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
-using RestSharp;
+using static Xunit.Assert;
 
 namespace AssistPurchaseTest.ApiControllerTest
 {
@@ -18,19 +18,6 @@ namespace AssistPurchaseTest.ApiControllerTest
             Service = new ProductDatabaseHandler(Context);
             _controller = new AdminDataController(Service);
         }
-
-        [Fact]
-        public void GetAllProducts()
-        {
-            IActionResult response = _controller.Get();
-            string result = response.ToString();
-            Assert.False( result.Equals(""));
-        }
-
-
-
-
-
         // Add test case
         [Fact]
         public void Add_InvalidObjectPassed_ReturnsBadRequest()
@@ -45,7 +32,7 @@ namespace AssistPurchaseTest.ApiControllerTest
             };
             var badResponse = _controller.Post(nameMissingItem);
 
-            Assert.True(badResponse == HttpStatusCode.BadRequest);
+            True(badResponse == HttpStatusCode.BadRequest);
         }
         [Fact]
         public void Add_ValidObjectPassedAlreadyPresent_ReturnsUnAuth()
@@ -63,7 +50,7 @@ namespace AssistPurchaseTest.ApiControllerTest
 
             var createdResponse = _controller.Post(testItem);
 
-            Assert.True(createdResponse == HttpStatusCode.Unauthorized);
+            True(createdResponse == HttpStatusCode.Unauthorized);
         }
 
         [Fact]
@@ -82,7 +69,7 @@ namespace AssistPurchaseTest.ApiControllerTest
 
             var createdResponse = _controller.Post(testItem);
 
-            Assert.True(createdResponse == HttpStatusCode.OK);
+            True(createdResponse == HttpStatusCode.OK);
 
         }
         //  remove test case
@@ -91,7 +78,15 @@ namespace AssistPurchaseTest.ApiControllerTest
         {
             var badResponse = _controller.Delete("X001");
 
-            Assert.True(badResponse == HttpStatusCode.NotFound);
+            True(badResponse == HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public void Remove_NullIdGuidPassed_ReturnsBadRequest()
+        {
+            var badResponse = _controller.Delete(null);
+
+            True(badResponse == HttpStatusCode.BadRequest);
         }
         [Fact]
         public void Remove_ExistingGuidPassed_ReturnsOkResult()
@@ -99,26 +94,78 @@ namespace AssistPurchaseTest.ApiControllerTest
 
             var okResponse = _controller.Delete("ADT100");
 
-            Assert.True(okResponse == HttpStatusCode.OK);
+            True(okResponse == HttpStatusCode.OK);
         }
         // Update Test Cases
         [Fact]
         public void Update_InvalidObjectPassed_ReturnsBadRequest()
         {
-            var Item = new ProductInput
+            var nameMissingItem = new ProductInput
             {
-                Id = "ADT20",
+                DisplaySize = "6",
+                DisplayType = "LCC",
+                Weight = "1.3",
+                TouchScreen = true
+            };
+            var badResponse = _controller.Post(nameMissingItem);
+
+            True(badResponse == HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public void WhenUpdateProductWithNullIdThenStatusUnAuthorized() 
+        {
+            var testItem = new ProductInput()
+            {
+                Id = null,
                 Name = "IntelliVue X3",
                 DisplaySize = "6",
                 DisplayType = "LCC",
                 Weight = "1.3",
                 TouchScreen = true
             };
-            var response = _controller.Post(Item);
-            Item.Weight = "3.3";
-            response = _controller.Put(Item);
+            var response = _controller.Put(testItem);
+            True(response == HttpStatusCode.BadRequest);
+        }
 
-            Assert.True(response == HttpStatusCode.OK);
+        [Fact]
+        public void WhenUpdateProductWhichIsNotPresentThenStatusNotFound()
+        {
+            var testItem = new ProductInput()
+            {
+                Id = "ADT10",
+                Name = "IntelliVue X3",
+                DisplaySize = "6",
+                DisplayType = "LCC",
+                Weight = "1.5",
+                TouchScreen = true
+            };
+            var response = _controller.Put(testItem);
+            True(response == HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public void WhenUpdateProductWhichIsPresentThenStatusOk()
+        {
+            var testItem = new ProductInput()
+            {
+                Id = "ADT100",
+                Name = "IntelliVue X3",
+                DisplaySize = "6",
+                DisplayType = "LCC",
+                Weight = "1.5",
+                TouchScreen = true
+            };
+            var response = _controller.Put(testItem);
+            True(response == HttpStatusCode.OK);
+        }
+
+        [Fact]
+        public void TestForGettingAllPatient()
+        {
+            var response = _controller.Get();
+            var okResult = response as OkObjectResult;
+            True(200 == okResult.StatusCode);
         }
     }
 }

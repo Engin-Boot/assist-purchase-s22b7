@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using System.Net.Mail;
 using DatabaseContractor;
 
@@ -8,7 +9,7 @@ namespace AssistPurchase.Repositories
     {
         bool Alert(SalesInput message);
     }
-
+    [ExcludeFromCodeCoverage]
     public class EmailAlert : IAlerter
     {
         public bool Alert(SalesInput salesInput)

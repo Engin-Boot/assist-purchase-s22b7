@@ -1,7 +1,6 @@
 ﻿using DatabaseContractor;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+
 using System.Linq;
 
 namespace AssistPurchase.Repositories.ProductDatabase
@@ -24,7 +23,7 @@ namespace AssistPurchase.Repositories.ProductDatabase
 
                 FilterAssist f = new FilterAssist();
                 return f.FilterByDisplayType(filterObj.DisplayType,products);
-}
+            }
             //catch (Exception e)
             //{
             //    Trace.TraceInformation(e.Message);

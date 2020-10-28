@@ -1,9 +1,7 @@
 ﻿using AssistPurchase.Repositories.ProductDatabase;
 using DatabaseContractor;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+
 using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,18 +20,28 @@ namespace AssistPurchase.Controllers
         {
             _productDatabaseHandler = repo;
         }
+
+        public Product ProductInputToProduct(string ds, string w, string dt, string id, string n, bool ts) 
+        {
+            Product p = new Product
+            {
+                DisplaySize = int.Parse(ds),
+                Weight = double.Parse(w),
+                DisplayType = dt,
+                Id = id,
+                Name = n,
+                TouchScreen = ts
+            };
+            return p;
+        }
         //Get api/AdminData
         [HttpGet]
         public IActionResult Get()
         {
-            try
-            {
-                return Ok(_productDatabaseHandler.GetAllProductsFromDb());
-            }
-            catch (Exception)
-            { 
-                return StatusCode(500);
-            }
+           
+            return Ok(_productDatabaseHandler.GetAllProductsFromDb());
+            
+            
         }
 
         // POST api/new
@@ -43,15 +51,7 @@ namespace AssistPurchase.Controllers
             if (string.IsNullOrEmpty(product.Name))
                 //Console.WriteLine(product.Name);
                 return HttpStatusCode.BadRequest;
-            Product p = new Product
-            {
-                DisplaySize = int.Parse(product.DisplaySize),
-                Weight = double.Parse(product.Weight),
-                DisplayType = product.DisplayType,
-                Id = product.Id,
-                Name = product.Name,
-                TouchScreen = product.TouchScreen
-            };
+            Product p = ProductInputToProduct(product.DisplaySize, product.Weight, product.DisplayType, product.Id, product.Name, product.TouchScreen);
             return _productDatabaseHandler.AddProductToDb(p);
         }
 
@@ -61,15 +61,8 @@ namespace AssistPurchase.Controllers
         {
             if (string.IsNullOrEmpty(product.Id))
                 return HttpStatusCode.BadRequest;
-            Product p = new Product
-            {
-                DisplaySize = int.Parse(product.DisplaySize),
-                Weight = double.Parse(product.Weight),
-                DisplayType = product.DisplayType,
-                Id = product.Id,
-                Name = product.Name,
-                TouchScreen = product.TouchScreen
-            };
+            Product p = ProductInputToProduct(product.DisplaySize, product.Weight, product.DisplayType, product.Id, product.Name, product.TouchScreen);
+
 
             return _productDatabaseHandler.UpdateProductInDb(p);
         }

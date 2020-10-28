@@ -2,9 +2,7 @@
 using AssistPurchase.Repositories.ProductDatabase;
 using DatabaseContractor;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Net;
 using Xunit;
 
 namespace AssistPurchaseTest.ApiControllerTest 
@@ -114,6 +112,46 @@ namespace AssistPurchaseTest.ApiControllerTest
 
             var okResult = _controller.GetFilteredProductByTouch(filter1);
             Assert.IsType<OkObjectResult>(okResult);
+        }
+
+        [Fact]
+        public void WhenNullPassedGetFilteredProductThenStatus500()
+        {
+            var response = _controller.GetFilteredProduct(null);
+            var okResult = response as OkObjectResult;
+            Assert.True(okResult  == null);
+        }
+
+        [Fact]
+        public void WhenNullPassedGetFilteredProductBySizeThenStatus500()
+        {
+            var response = _controller.GetFilteredProductBySize(null);
+            var okResult = response as OkObjectResult;
+            Assert.True(okResult == null);
+        }
+
+        [Fact]
+        public void WhenNullPassedGetFilteredProductByWeightThenStatus500()
+        {
+            var response = _controller.GetFilteredProductByWeight(null);
+            var okResult = response as OkObjectResult;
+            Assert.True(okResult == null);
+        }
+
+        [Fact]
+        public void WhenNullPassedGetFilteredProductByTouchThenStatus500()
+        {
+            var response = _controller.GetFilteredProductByTouch(null);
+            var okResult = response as OkObjectResult;
+            Assert.True(okResult == null);
+        }
+
+        [Fact]
+        public void WhenNullPassedGetProductByNameThenStatus500()
+        {
+            var response = _controller.GetProductByName("");
+            var okResult = response as OkObjectResult;
+            Assert.True(okResult == null);
         }
     }
 }

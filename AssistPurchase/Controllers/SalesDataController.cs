@@ -2,8 +2,6 @@
 using DatabaseContractor;
 
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Diagnostics;
 using System.Net;
 using AssistPurchase.Repositories;
 
@@ -38,15 +36,9 @@ namespace AssistPurchase.Controllers
         [HttpGet("allAlerts")]
         public IActionResult GetAllInfo()
         {
-            try
-            {
-                return Ok(_salesDatabaseHandler.GetAllSales());
-            }
-            catch (Exception e)
-            {
-                Trace.TraceInformation(e.Message);
-                return StatusCode(500);
-            }
+            
+            return Ok(_salesDatabaseHandler.GetAllSales());
+            
         }
     }
 }

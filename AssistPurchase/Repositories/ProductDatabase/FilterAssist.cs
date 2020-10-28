@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AssistPurchase.Repositories.ProductDatabase
 {
-    public class FilterAssist : IFilterAssist
+    public class FilterAssist
     {
         public IEnumerable<Product> FilterByTouchScreen(bool touchScreen, IEnumerable<Product> productList)
         {

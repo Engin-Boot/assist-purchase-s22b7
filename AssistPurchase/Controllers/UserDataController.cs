@@ -97,10 +97,10 @@ namespace AssistPurchase.Controllers
         [HttpGet("productByName/{name}")]
         public IActionResult GetProductByName(string name)
         {
-            if (name == null) return StatusCode(400);
+            //if (name == null) return StatusCode(400);
             try
             {
-                if (name == "")
+                if (string.IsNullOrEmpty(name))
                     throw new Exception();
                 return Ok(_productDatabaseHandler.GetProductByNameFromDb(name));
             }

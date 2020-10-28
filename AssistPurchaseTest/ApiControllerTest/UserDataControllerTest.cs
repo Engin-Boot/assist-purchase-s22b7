@@ -39,7 +39,7 @@ namespace AssistPurchaseTest.ApiControllerTest
         public void Get_WhenName_ReturnsOkResult_Null()
         {
             var okResult = _controller.GetProductByName(null);
-            Assert.IsNotType<OkObjectResult>(okResult);
+            Assert.True(okResult == null);
         }
 
         [Fact]

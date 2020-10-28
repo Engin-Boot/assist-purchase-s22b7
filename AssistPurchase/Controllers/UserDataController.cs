@@ -99,7 +99,7 @@ namespace AssistPurchase.Controllers
         {
             try
             {
-                if (name == "" || name==null)
+                if (name==null)
                     throw new Exception();
                 return Ok(_productDatabaseHandler.GetProductByNameFromDb(name));
             }

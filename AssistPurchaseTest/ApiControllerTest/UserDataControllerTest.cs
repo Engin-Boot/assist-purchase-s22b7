@@ -35,12 +35,7 @@ namespace AssistPurchaseTest.ApiControllerTest
             Assert.IsType<OkObjectResult>(okResult);
         }
 
-        [Fact]
-        public void Get_WhenName_ReturnsOkResult_Null()
-        {
-            var okResult = _controller.GetProductByName(null);
-            Assert.True(okResult == null);
-        }
+        
 
         [Fact]
         public void GetFilterByType()
@@ -149,7 +144,7 @@ namespace AssistPurchaseTest.ApiControllerTest
         [Fact]
         public void WhenNullPassedGetProductByNameThenStatus500()
         {
-            var response = _controller.GetProductByName("");
+            var response = _controller.GetProductByName(null);
             var okResult = response as OkObjectResult;
             Assert.True(okResult == null);
         }

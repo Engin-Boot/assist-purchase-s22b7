@@ -93,10 +93,10 @@ namespace AssistPurchase.Repositories.ProductDatabase
             //}
         }
 
-        private static HttpStatusCode InternalServerError(Exception e)
-        {
-            Trace.TraceInformation(e.Message);
-            return HttpStatusCode.InternalServerError;
-        }
+        //private static HttpStatusCode InternalServerError(Exception e)
+        //{
+        //    Trace.TraceInformation(e.Message);
+        //    return HttpStatusCode.InternalServerError;
+        //}
     }
 }

@@ -6,14 +6,14 @@ using System.Diagnostics.CodeAnalysis;
 namespace AssistPurchase
 {
     [ExcludeFromCodeCoverage]
-    public class Program
+    abstract class Program
     {
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        private static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

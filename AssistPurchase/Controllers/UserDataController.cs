@@ -97,7 +97,6 @@ namespace AssistPurchase.Controllers
         [HttpGet("productByName/{name}")]
         public IActionResult GetProductByName(string name)
         {
-           
             try
             {
                 if (name == "" || name==null)
